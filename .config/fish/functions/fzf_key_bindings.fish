@@ -1,0 +1,1 @@
+/home/xilac/.fzf/shell/key-bindings.fish
