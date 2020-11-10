@@ -1,4 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =2
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/home/xilac/Documents/Python/Discord-RSS/.vim'
+let g:netrw_dirhist_5='/home/xilac'
+let g:netrw_dirhist_4='/home/xilac/Downloads'
+let g:netrw_dirhist_3='/home/xilac/Documents/Python/Alien-Invasion'
 let g:netrw_dirhist_2='/home/xilac/.newsboat'
 let g:netrw_dirhist_1='/home/xilac'

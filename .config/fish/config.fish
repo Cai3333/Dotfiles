@@ -47,6 +47,11 @@ function fish_prompt
   if [ "$CMD_DURATION" -gt 300000 ]
     echo The last command took (math "$CMD_DURATION/1000") seconds.
   end
+  
+  # Virtual Fish
+  if set -q VIRTUAL_ENV
+    echo -n -s (set_color -b blue white) "(" (basename "$VIRTUAL_ENV") ")" (set_color normal) " "
+  end
 
   echo -n -s $initial_indicator $whitespace $cwd $git_info $whitespace $ahead $status_indicator $whitespace
 end
@@ -131,8 +136,6 @@ end
 
 
 ### ALIASES ###
-# spark aliases
-alias clear='clear; echo; echo; seq 1 (tput cols) | sort -R | spark | lolcat; echo; echo'
 
 # navigation
 alias ..='cd ..' 

@@ -59,8 +59,14 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " i3
     Plug 'mboughaba/i3config.vim'
-
+    
+    " Indent-python
     Plug 'vim-scripts/indentpython.vim'
+
+    " Floaterm
+    Plug 'voldikss/vim-floaterm'
+
+
 call plug#end()
 
 colorscheme dracula

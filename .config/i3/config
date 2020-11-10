@@ -55,7 +55,7 @@ bindsym $mod+F2 exec firefox
 bindsym $mod+F3 exec --no-startup-id kitty -e 'vifmrun'
 
 # %%hotkey: Mail %%
-bindsym $mod+F5 exe c--no-startup-id mw -Y; exec --no-startup-id kitty -e 'neomutt'
+bindsym $mod+F5 exec--no-startup-id mw -Y; exec --no-startup-id kitty -e 'neomutt'
 
 # %%hotkey: Rss %%
 bindsym $mod+F6 exec --no-startup-id kitty -e 'newsboat'

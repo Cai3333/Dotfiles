@@ -30,6 +30,7 @@ let g:startify_bookmarks = [
             \ { 'c': '~/.config/i3/config' },
             \ { 'i': '~/.config/nvim/init.vim' },
             \ { 'b': '~/.bashrc' },
+            \ '~/Documents/Python/Alien-Invasion',
             \ '~/Downloads',
             \ '~/Pictures',
             \ '~/Music',
