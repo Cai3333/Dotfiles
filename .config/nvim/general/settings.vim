@@ -39,8 +39,6 @@ set clipboard=unnamedplus               " Copy paste between vim and everything 
 set noswapfile				            " Don't use swapfile
 set scrolloff=7				            " Keep space from bottom and top
 
-syntax on
-
 au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 
 " You can't stop me

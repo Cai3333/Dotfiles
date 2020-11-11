@@ -1,240 +1,27 @@
-/* Colored folders for Bookmarks Menus, Bookmarks Sidebar, Bookmarks Toolbar, Library window, Add/Edit Bookmarks dialog
-   Original: https://www.userchrome.org/samples/userChrome-color_bookmark_folders_20171219.css
-   Updated for Firefox 60: https://www.userchrome.org/samples/userChrome-color_bookmark_folders_20180510.css
-   Uses mods for Firefox 62 from cor-el's Sept. 15, 2018 post:
-   https://support.mozilla.org/questions/1232447#answer-1151074
-*/
+@import "/home/xilac/.mozilla/firefox/uooex9g1.default-release/chrome/fonts/SFMono.css";
 
-/* Standard folder -- on Toolbar and Menus */
-#PlacesToolbarItems toolbarbutton[container="true"] .toolbarbutton-icon,
-:-moz-any(
-#PlacesToolbarItems,
-#PlacesChevronPopup,
-#BMB_bookmarksPopup,
-#bookmarksMenu) menu[container="true"] > .menu-iconic-left > .menu-iconic-icon,
-/* Standard folder -- in Sidebar, Library, Add/Edit Bookmark dialog */
-:-moz-any(
-#bookmarks-view, 
-#editBMPanel_folderTree, 
-#placesList, 
-#placeContent) treechildren::-moz-tree-image(container), 
-#editBMPanel_folderMenuList > .menulist-label-box > .menulist-icon,
-#editBMPanel_folderMenuList menupopup menuitem {
-  fill: #e8bb00 !important; /* slightly muted gold */
-}
+@import "/home/xilac/.mozilla/firefox/uooex9g1.default-release/chrome/colors/colors.css";
+@import "/home/xilac/.mozilla/firefox/uooex9g1.default-release/chrome/colors/themes/afterglow.css";
 
-/* Live Bookmark -- on Toolbar and Menus */
-#PlacesToolbarItems toolbarbutton[container="true"][livemark="true"] .toolbarbutton-icon,
-:-moz-any(
-#PlacesToolbarItems,
-#PlacesChevronPopup,
-#BMB_bookmarksPopup,
-#bookmarksMenu) menu[container="true"][livemark="true"] > .menu-iconic-left > .menu-iconic-icon,
-/* Live Bookmark -- in Sidebar, Library, Add/Edit Bookmark dialog */
-:-moz-any(
-#bookmarks-view, 
-#editBMPanel_folderTree, 
-#placesList, 
-#placeContent) treechildren::-moz-tree-image(container, livemark) {
-  fill: orange !important;
-}
-
-/* Smart bookmark folder -- on Toolbar and Menus */
-#PlacesToolbarItems toolbarbutton[container="true"][query="true"] .toolbarbutton-icon,
-:-moz-any(
-#PlacesToolbarItems,
-#PlacesChevronPopup,
-#BMB_bookmarksPopup,
-#bookmarksMenu) menu[container="true"][query="true"] > .menu-iconic-left > .menu-iconic-icon,
-/* Smart bookmark folder -- in Sidebar, Library, Add/Edit Bookmark dialog */
-:-moz-any(
-#bookmarks-view, 
-#editBMPanel_folderTree, 
-#placesList, 
-#placeContent) treechildren::-moz-tree-image(container, query) {
-  fill: #69c !important; /* similar to blue smart folder color */
-}
-
-/*** Top-level "container" icons (otherwise would be Standard folder color) ***/
-/* Bookmarks Menu -- in Sidebar, Library, Add/Edit Bookmark dialog */
-:-moz-any(
-#bookmarks-view, 
-#editBMPanel_folderTree, 
-#placesList, 
-#placeContent) treechildren::-moz-tree-image(container, OrganizerQuery_BookmarksMenu),
-:-moz-any(
-#bookmarks-view, 
-#editBMPanel_folderTree, 
-#placesList, 
-#placeContent) treechildren::-moz-tree-image(container, queryFolder_menu________),
-#editBMPanel_bmRootItem > .menu-iconic-left, 
-#editBMPanel_folderMenuList[selectedIndex="1"] > .menulist-label-box > .menulist-icon {
-  fill: olive !important;
-}
-
-/* Bookmarks Toolbar -- on Menus */
-#BMB_bookmarksPopup #BMB_bookmarksToolbar > .menu-iconic-left > .menu-iconic-icon,
-#bookmarksMenuPopup #bookmarksToolbarFolderMenu  > .menu-iconic-left > .menu-iconic-icon,
-/* Bookmarks Toolbar -- in Sidebar, Library, Add/Edit Bookmark dialog */
-:-moz-any(
-#bookmarks-view, 
-#editBMPanel_folderTree, 
-#placesList, 
-#placeContent) treechildren::-moz-tree-image(container, OrganizerQuery_BookmarksToolbar),
-:-moz-any(
-#bookmarks-view, 
-#editBMPanel_folderTree, 
-#placesList, 
-#placeContent) treechildren::-moz-tree-image(container, queryFolder_toolbar_____),
-#editBMPanel_toolbarFolderItem > .menu-iconic-left, 
-#editBMPanel_folderMenuList[selectedIndex="0"] > .menulist-label-box > .menulist-icon {
-  fill: olive !important;
-}
-
-/* Other Bookmarks -- on Menus */
-#BMB_bookmarksPopup #BMB_unsortedBookmarks > .menu-iconic-left > .menu-iconic-icon,
-#bookmarksMenuPopup #menu_unsortedBookmarks  > .menu-iconic-left > .menu-iconic-icon,
-/* Other Bookmarks -- in Sidebar, Library, Add/Edit Bookmark dialog */
-:-moz-any(
-#bookmarks-view, 
-#editBMPanel_folderTree, 
-#placesList, 
-#placeContent) treechildren::-moz-tree-image(container, OrganizerQuery_UnfiledBookmarks),
-:-moz-any(
-#bookmarks-view, 
-#editBMPanel_folderTree, 
-#placesList, 
-#placeContent) treechildren::-moz-tree-image(container, queryFolder_unfiled_____),
-#editBMPanel_unfiledRootItem > .menu-iconic-left, 
-#editBMPanel_folderMenuList[selectedIndex="2"] > .menulist-label-box > .menulist-icon {
-  fill: olive !important;
-}
-
-/* (Older Firefox) Avoid overriding classic Bookmarks Toolbar and Other Bookmarks icons in menus */
-#BMB_bookmarksPopup #BMB_bookmarksToolbar.menu-iconic-icon, 
-#bookmarksMenu #bookmarksToolbarFolderMenu.menu-iconic-icon {
-  list-style-image: url("chrome://browser/skin/places/bookmarksToolbar.png") !important;
-}
-#BMB_bookmarksPopup #BMB_unsortedBookmarks.menu-iconic-icon, 
-#bookmarksMenu #menu_unsortedBookmarks.menu-iconic-icon {
-  list-style-image: url("chrome://browser/skin/places/unsortedBookmarks.png") !important;
-}
+@import "/home/xilac/.mozilla/firefox/uooex9g1.default-release/chrome/tab_bar/debloat_tab_bar.css";
+@import "/home/xilac/.mozilla/firefox/uooex9g1.default-release/chrome/tab_bar/tabs_layout.css";
+@import "/home/xilac/.mozilla/firefox/uooex9g1.default-release/chrome/tab_bar/tabs_fill_available_width.css";
+@import "/home/xilac/.mozilla/firefox/uooex9g1.default-release/chrome/tab_bar/numbered_tabs.css";
+@import "/home/xilac/.mozilla/firefox/uooex9g1.default-release/chrome/tab_bar/tab_close_button_always_on_hover.css";
+@import "/home/xilac/.mozilla/firefox/uooex9g1.default-release/chrome/tab_bar/hide_tabs_with_one_tab.css";
 
 
+@import "/home/xilac/.mozilla/firefox/uooex9g1.default-release/chrome/navbar/debloat_navbar.css";
+@import "/home/xilac/.mozilla/firefox/uooex9g1.default-release/chrome/navbar/navbar_layout.css";
+@import "/home/xilac/.mozilla/firefox/uooex9g1.default-release/chrome/navbar/navbar_on_focus.css";
 
-/* Curve the background tabs at the upper left and right corners
-   May not work on add-on themes. */
-.tabbrowser-tab {
-  border-radius: 10px 10px 0px 0px / 15px 15px 0px 0px !important;
-}
-/* Curve active tab and slightly overlap neighboring tabs */
-.tabbrowser-tab .tab-background[selected="true"] {
-  margin-left: -1px !important;
-  margin-right: -1px !important;
-  border-radius: 10px 10px 0px 0px / 15px 15px 0px 0px !important;
-}
-/* Shorten the tab line along the tops of tabs */
-.tab-line {
-  margin-left: 9px !important;
-  margin-right: 9px !important;
-}
-/* Shorten the vertical lines between background tabs */
-.tabbrowser-tab::before, .tabbrowser-tab::after {
-  margin-top: 9px !important;
-}
+@import "/home/xilac/.mozilla/firefox/uooex9g1.default-release/chrome/urlbar/debloat_urlbar.css";
+@import "/home/xilac/.mozilla/firefox/uooex9g1.default-release/chrome/urlbar/urlbar_layout.css";
+@import "/home/xilac/.mozilla/firefox/uooex9g1.default-release/chrome/urlbar/remove_megabar.css";
 
-/** "Light" Theme (Dark Text) **/
+@import "/home/xilac/.mozilla/firefox/uooex9g1.default-release/chrome/sidebar/debloat_sidebar.css";
+@import "/home/xilac/.mozilla/firefox/uooex9g1.default-release/chrome/sidebar/sidebar_layout.css";
 
-/* Border the background tabs (10% gray) for greater visibility */
-#main-window:not([lwthemetextcolor="bright"]) .tabbrowser-tab:not([selected="true"]) {
-  border: 1px solid rgba(0,0,0,.1) !important;
-  border-bottom-color: transparent !important;
-  margin-right: -1px !important;
-}
-/* Remove short vertical lines between background tabs */
-#main-window:not([lwthemetextcolor="bright"]) .tabbrowser-tab::before, 
-#main-window:not([lwthemetextcolor="bright"]) .tabbrowser-tab::after {
-  border: none !important;
-}
+@import "/home/xilac/.mozilla/firefox/uooex9g1.default-release/chrome/bookmarks/colored_bookmarks.css";
+@import "/home/xilac/.mozilla/firefox/uooex9g1.default-release/chrome/bookmarks/autohide_bookmarks.css";
 
-
-/* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/autohide_bookmarks_toolbar.css made available under Mozilla Public License v. 2.0
-See the above repository for updates as well as full license text. */
-
-#PersonalToolbar{
-  --uc-bm-height: 20px; /* Might need to adjust if the toolbar has other buttons */
-  --uc-bm-padding: 4px; /* Vertical padding to be applied to bookmarks */
-  --uc-autohide-toolbar-delay: 100ms; /* The toolbar is hidden after 0.6s */
-}
-
-:root[uidensity="compact"] #PersonalToolbar{ --uc-bm-padding: 1px }
-:root[uidensity="touch"] #PersonalToolbar{ --uc-bm-padding: 7px }
-
-#PersonalToolbar:not([customizing]){
-  position: relative;
-  margin-bottom: calc(0px - var(--uc-bm-height) - 2 * var(--uc-bm-padding));
-  transform: rotateX(90deg);
-  transform-origin: top;
-  transition: transform 135ms linear var(--uc-autohide-toolbar-delay) !important;
-  z-index: 1;
-
-}
-#PlacesToolbarItems > .bookmark-item{ padding-block: var(--uc-bm-padding) !important; }
-
-/* SELECT BOOKMARKS TOOLBAR BEHAVIOR */
-/* Comment out or delete either one of these to disable that behavior */
-
-/* Show when urlbar is focused */
-#nav-bar:focus-within + #PersonalToolbar{
-  transition-delay: 1ms !important;
-  transform: rotateX(0);
-}
-
-/* Show when cursor is over the toolbar area */
-#navigator-toolbox:hover > #PersonalToolbar{
-  transition-delay: 1ms !important;
-  transform: rotateX(0);
-}
-
-/* Uncomment to enable compatibility for multi-row_bookmarks.css */
-/* This would break buttons placed in the toolbar but that is likely not happening if you are using multi-row setup  */
-/*
-#PersonalToolbar:not([customizing]){
-  position: fixed;
-  display: block;
-  margin-bottom: 0px !important;
-}
-*/
-
-/* Squash tab bar to 6px unless a tab is hovered */
-#TabsToolbar, 
-#TabsToolbar .tabbrowser-tab {
-  height: 29px !important; /* 29px compact, 33px normal, YMMV */
-  min-height: 29px !important;
-  max-height: 29px !important;
-  transition: all 0.1s ease-in-out;
-} 
-#TabsToolbar:not(:hover), 
-#TabsToolbar:not(:hover) .tabbrowser-tab[selected] {
-  height: 6px !important;
-  min-height: 6px !important;
-  max-height: 6px !important;
-  transition: all 0.1s ease-in-out;
-}
-#TabsToolbar:not(:hover) .tabbrowser-tab[selected] .tab-content {
-  display: none;
-}
-
-
-#urlbar {font-size: 11pt !important}
-
-
-#tabbrowser-tabs .tab-text{
-  font-size:11pt !important;
-}
-
-#urlbar-input { text-align: center !important; }
-
-#urlbar-background { border-radius: 12px !important; }
-
-#identity-box { display: none !important; }

@@ -1,0 +1,18 @@
+:root {
+  --tab-min-height: 1.2em !important;
+}
+
+.tab-label-container {
+  height: var(--tab-min-height);
+}
+
+.tab-label {
+  line-height: var(--tab-min-height) !important;
+}
+
+.tab-icon-image,
+.tab-icon-sound,
+.tab-close-button {
+  height: 1em !important;
+  width: 1em !important;
+}
