@@ -1,5 +1,5 @@
 :root {
-  --tab-min-height: 1.6em !important;
+  --tab-min-height: 1.4em !important;
 }
 
 .tab-label-container {
@@ -9,8 +9,7 @@
 .tab-label {
   line-height: var(--tab-min-height) !important;
   -moz-box-flex: 1 !important;
-  text-align: center !important;}
-
+  text-align: center !important;
 }
 
 .tab-icon-image,

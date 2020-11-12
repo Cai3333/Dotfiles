@@ -4,6 +4,9 @@
 /* Empty space before and after the tab bar */
 .titlebar-spacer { display: none; }
 
+/* New tab button */
+#tabs-newtab-button { display: none; }
+
 /* Scroll left button when the tabs overflow the tab bar */
 #scrollbutton-up { display: none; }
 

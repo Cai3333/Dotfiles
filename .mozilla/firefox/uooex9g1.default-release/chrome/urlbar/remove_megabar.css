@@ -1,7 +1,4 @@
-/* REMOVE MEGABAR START
- * VERSION 1.0.4
- * CODE AT: http://userchrome.wesleybranton.com/megabar
- * RELEASE NOTES: http://userchrome.wesleybranton.com/notes/megabar */
+/* REMOVE MEGABAR START */
 @-moz-document url(chrome://browser/content/browser.xhtml) {
     /* DISABLE EXPANDING START */
     #urlbar[breakout][breakout-extend] {
