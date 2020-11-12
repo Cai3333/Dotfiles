@@ -1,6 +1,5 @@
 auto-reload yes
-reload-time 10
-notify-always yes
+reload-time 15
 notify-beep yes
 notify-program notify-send
 notify-format "newsboat: %d new articles (%n unread articles)" 
