@@ -92,7 +92,7 @@ myTerminal :: String
 myTerminal = "kitty"   -- Sets default terminal
 
 myBrowser :: String
-myBrowser = "firefox "               -- Sets firefox as browser for tree select
+myBrowser = "qutebrowser "               -- Sets firefox as browser for tree select
 -- myBrowser = myTerminal ++ " -e lynx " -- Sets lynx as browser for tree select
 
 myEditor :: String
@@ -127,6 +127,9 @@ myStartupHook = do
           spawnOnce "nm-applet &"
           spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x282c34  --height 22 &"
           spawnOnce "/usr/bin/emacs --daemon &"
+          spawnOnce "xautolock -time 60 -locker blurlock &"
+          spawnOnce "syncthing &"
+          spawnOnce "rclone --vfs-cache-mode writes mount onedrive: ~/onedrive &"
           -- spawnOnce "kak -d -s mysession &"
           setWMName "LG3D"
 
@@ -443,7 +446,7 @@ myManageHook = composeAll
      -- I'm doing it this way because otherwise I would have to write out the full
      -- name of my workspaces, and the names would very long if using clickable workspaces.
      [ title =? "Oracle VM VirtualBox Manager"     --> doFloat
-     , className =? "VirtualBox Manager" --> doShift  ( myWorkspaces !! 1 )
+     , className =? "VirtualBox Manager" --> doShift  ( myWorkspaces !! 3 )
      , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
      ] <+> namedScratchpadManageHook myScratchPads
 
@@ -571,8 +574,6 @@ myKeys =
         -- , ("<XF86AudioMute>",   spawn "amixer set Master toggle")  -- Bug prevents it from toggling correctly in 12.04.
         , ("<XF86AudioLowerVolume>", spawn "amixer set Master 5%- unmute")
         , ("<XF86AudioRaiseVolume>", spawn "amixer set Master 5%+ unmute")
-        , ("<XF86HomePage>", spawn "firefox")
-        , ("<XF86Search>", safeSpawn "firefox" ["https://www.duckduckgo.com/"])
         , ("<XF86Mail>", runOrRaise "geary" (resource =? "thunderbird"))
         , ("<XF86Calculator>", runOrRaise "gcalctool" (resource =? "gcalctool"))
         , ("<XF86Eject>", spawn "toggleeject")
