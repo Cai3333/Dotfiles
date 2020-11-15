@@ -21,7 +21,7 @@ bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id dmenu_recency -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'monospace-10'
+bindsym $mod+d exec --no-startup-id dmenu_run -fn 'monospace-10'
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
@@ -145,21 +145,6 @@ bindsym $mod+Shift+space floating toggle
 # %%hotkey: Change focus tiling / floating %%
 bindsym $mod+space focus mode_toggle
 
-# toggle sticky
-# %%hotkey: Toggle sticky %%
-bindsym $mod+Shift+s sticky toggle
-
-# focus the parent container
-# %%hotkey: Focus parent %%
-bindsym $mod+a focus parent
-
-#navigate workspaces next / previous
-# %%hotkey: Navigate workspace %%
-bindsym $mod+Ctrl+Right workspace next
-bindsym $mod+Tab workspace next
-bindsym $mod+Ctrl+Left workspace prev
-
-# Workspace names
 # to display names or symbols instead of plain workspace numbers you can use
 # something like: set $ws1 1:mail
 #                 set $ws2 2:
