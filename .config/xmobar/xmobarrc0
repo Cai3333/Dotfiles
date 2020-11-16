@@ -46,8 +46,8 @@ Config { font    = "xft:Ubuntu:weight=bold:pixelsize=12:antialias=true:hinting=t
        \<fc=#ff6c6b> %memory% </fc>\
        \<fc=#666666> <fn=2>|</fn></fc> <fc=#51afef> %disku% </fc>\
        \<fc=#666666> <fn=2>|</fn></fc> <fc=#98be65> %wlo1% </fc>\
-       \<fc=#666666> <fn=2>|</fn></fc> <fc=#c678dd><fn=2></fn> %battery%</fc>\
-       \<fc=#666666> <fn=2>|</fn></fc> <fc=#82AAFF><fn=2> </fn> %volume%</fc>\
+       \<fc=#666666> <fn=2>|</fn></fc> <fc=#c678dd><fn=1>⚡</fn> %battery%</fc>\
+       \<fc=#666666> <fn=2>|</fn></fc> <fc=#82AAFF><fn=1> </fn> %volume%</fc>\
        \<fc=#666666> <fn=2>|</fn></fc> <fc=#46d9ff> %date% </fc>\
-       \        %trayerpad%"
+       \<icon=/tmp/trayer-padding-107px.xpm/>"
        }

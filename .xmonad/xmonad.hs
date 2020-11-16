@@ -75,7 +75,6 @@ import XMonad.Util.NamedScratchpad
 import XMonad.Util.Run (runProcessWithInput, safeSpawn, spawnPipe)
 import XMonad.Util.SpawnOnce
 
-
 ------------------------------------------------------------------------
 -- VARIABLES
 ------------------------------------------------------------------------
@@ -130,6 +129,7 @@ myStartupHook = do
           spawnOnce "rclone --vfs-cache-mode writes mount onedrive: ~/onedrive &"
           -- spawnOnce "kak -d -s mysession &"
           setWMName "LG3D"
+
 
 ------------------------------------------------------------------------
 -- XPROMPT SETTINGS
@@ -274,7 +274,7 @@ searchList = [ ("a", archwiki)
 -- Import Util.NamedScratchpad.  Bind a key to namedScratchpadSpawnAction.
 myScratchPads :: [NamedScratchpad]
 myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
-                , NS "mocp" spawnMocp findMocp manageMocp
+                , NS "cmus" spawnCmus findCmus manageCmus
                 ]
   where
     spawnTerm  = myTerminal ++ " -n scratchpad"
@@ -285,9 +285,9 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                  w = 0.9
                  t = 0.95 -h
                  l = 0.95 -w
-    spawnMocp  = myTerminal ++ " -n mocp 'mocp'"
-    findMocp   = resource =? "mocp"
-    manageMocp = customFloating $ W.RationalRect l t w h
+    spawnCmus  = myTerminal ++ " -n cmus 'cmus'"
+    findCmus   = resource =? "cmus"
+    manageCmus = customFloating $ W.RationalRect l t w h
                where
                  h = 0.9
                  w = 0.9
@@ -388,7 +388,7 @@ xmobarEscape = concatMap doubleLts
 
 myWorkspaces :: [String]
 myWorkspaces = clickable . map xmobarEscape
-               $ [" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 "]
+               $ ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
   where
         clickable l = [ "<action=xdotool key super+" ++ show n ++ ">" ++ ws ++ "</action>" |
                       (i,ws) <- zip [1..9] l,
@@ -408,6 +408,7 @@ myManageHook = composeAll
      -- I'm doing it this way because otherwise I would have to write out the full
      -- name of my workspaces, and the names would very long if using clickable workspaces.
      [ className =? "lutris" --> doShift (myWorkspaces !! 4)
+       , title =? "cmus"     --> doShift (myWorkspaces !! 2)
      , title =? "Oracle VM VirtualBox Manager"     --> doFloat
      , className =? "confirm"               --> doFloat
      , className =? "dialog"                --> doFloat
@@ -454,7 +455,9 @@ myKeys =
         , ("M-<Return>", spawn (myTerminal ++ " -e fish"))
         , ("M-b", spawn (myBrowser ++ " www.duckduckgo.com/"))
         , ("M-<F2>", spawn (myBrowser))
-        , ("M-M1-h", spawn (myTerminal ++ " -e htop"))
+        , ("M-<F3>", spawn (myTerminal ++ " -e vifmrun"))
+        , ("M-S-<F3>", spawn ("pcmanfm"))
+        , ("M-<F4>", spawn (myTerminal ++ " -e cmus"))
 
     -- Kill windows
         , ("M-S-q", kill1)                         -- Kill the currently focused client
@@ -520,7 +523,7 @@ myKeys =
 
     -- Scratchpads
         , ("M-C-<Return>", namedScratchpadAction myScratchPads "terminal")
-        , ("M-C-c", namedScratchpadAction myScratchPads "mocp")
+        , ("M-C-c", namedScratchpadAction myScratchPads "cmus")
 
     -- Controls for cmus music player (SUPER-u followed by a key)
         , ("M-u p", spawn "cmus-remote -u")
@@ -583,7 +586,7 @@ main = do
         , focusedBorderColor = myFocusColor
         , logHook = workspaceHistoryHook <+> myLogHook <+> dynamicLogWithPP xmobarPP
                         { ppOutput = \x -> hPutStrLn xmproc0 x
-                        , ppCurrent = xmobarColor "#98be65" "" . wrap "[" "]" -- Current workspace in xmobar
+                        , ppCurrent = xmobarColor "#98be65" "" . wrap " [" "] " -- Current workspace in xmobar
                         , ppVisible = xmobarColor "#98be65" ""                -- Visible but not current workspace
                         , ppHidden = xmobarColor "#c792ea" "" . wrap "" ""    -- Hidden workspaces in xmobar
                         , ppHiddenNoWindows = xmobarColor "#82AAFF" ""        -- Hidden workspaces (no windows)
