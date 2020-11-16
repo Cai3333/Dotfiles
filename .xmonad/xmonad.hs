@@ -200,6 +200,16 @@ systemPromptCmds = [
         ("Reboot", spawn (myTerminal ++ " -e reboot")),
         ("Log out", io exitSuccess)
     ]
+
+codePromptCmds = [
+        ("bash", spawn (myTerminal ++ " -e nvim ~/.bashrc")),
+        ("Qtile", spawn (myTerminal ++ " -e nvim ~/.config/qtile/config.py")),
+        ("i3", spawn (myTerminal ++ " -e nvim ~/.config/i3/config")),
+        ("Xmonad", spawn (myTerminal ++ " -e nvim ~/.xmonad/xmonad.hs")),
+        ("fish", spawn (myTerminal ++ " -e nvim ~/.config/fish/config.fish"))
+
+    ]
+
 ------------------------------------------------------------------------
 -- XPROMPT KEYMAP (emacs-like key bindings for xprompts)
 ------------------------------------------------------------------------
@@ -468,8 +478,10 @@ myKeys =
         , ("M-S-r", spawn "xmonad --restart")   -- Restarts xmonad
 
     -- Run Prompt
-        , ("M-S-<Return>", shellPrompt dtXPConfig) -- Shell Prompt
-        , ("M1-C-c", calcPrompt dtXPConfig "qalc") -- Calculator
+        , ("M-S-<Return>", shellPrompt dtXPConfig)           -- Shell Prompt
+        , ("M1-C-c", calcPrompt dtXPConfig "qalc")           -- Calculator
+        , ("M-0", xmonadPromptC systemPromptCmds dtXPConfig) -- Prompt for log out, shutoff and restart
+        , ("M-S-c", xmonadPromptC codePromptCmds dtXPConfig) -- Prompt for editing dotfiles
 
     -- Useful programs to have a keybinding for launch
         , ("M-<Return>", spawn (myTerminal ++ " -e fish"))  -- Runs default terminal with fish
@@ -480,9 +492,6 @@ myKeys =
         , ("M-<F5>", spawn (myTerminal ++ " -e neomutt"))
         , ("M-<F6>", spawn (myTerminal ++ " -e newsboat"))
         , ("M-<F9>", spawn ("dmenuunicode.sh"))             -- Run script found in ~/bin/
-
-    -- System
-        , ("M-0", xmonadPromptC systemPromptCmds dtXPConfig)
 
     -- Controls for system (SUPER-0 followed by a key)
         , ("M-u p", spawn "cmus-remote -u")
