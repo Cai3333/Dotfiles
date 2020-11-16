@@ -24,11 +24,11 @@ Config { font    = "xft:Ubuntu:weight=bold:pixelsize=12:antialias=true:hinting=t
                       -- Ram used number and percent
                     , Run Memory ["-t", "<fn=1>\xf233 </fn> mem: <used>M (<usedratio>%)"] 20
                       -- Disk space free
-                    , Run DiskU [("/", "<fn=1>\xf0c7 </fn> hdd: <free> free")] [] 60
+                    , Run DiskU [("/", "<fn=1>\xf0c7 </fn> hdd: <free> free")] [] 600
                       -- Runs custom script to check battery
                     , Run Com "battery" [] "battery" 600
                       -- Runs custom script to get volume
-                    , Run Com "volume" [] "volume" 10
+                    , Run Com "volume" [] "volume" 1
                       -- Runs a standard shell command 'uname -r' to get kernel version
                     , Run Com "uname" ["-r"] "" 3600
                       -- Script that dynamically adjusts xmobar padding depending on number of trayer icons.
@@ -39,7 +39,7 @@ Config { font    = "xft:Ubuntu:weight=bold:pixelsize=12:antialias=true:hinting=t
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " <fn=2> </fn>\
+       , template = "<action=`xdotool key control+alt+g`><icon=/home/xilac/.xmonad/xpm/haskell_20.xpm/> </action> \
        \<fc=#666666> |</fc> %UnsafeStdinReader% }{ \
        \<fc=#666666> <fn=2>|</fn> </fc><fc=#b3afc2><fn=1> </fn> %uname% </fc>\
        \<fc=#666666> <fn=2>|</fn> </fc> <fc=#ecbe7b> %cpu% </fc><fc=#666666> <fn=2>|</fn></fc>\
@@ -49,5 +49,5 @@ Config { font    = "xft:Ubuntu:weight=bold:pixelsize=12:antialias=true:hinting=t
        \<fc=#666666> <fn=2>|</fn></fc> <fc=#c678dd><fn=1>⚡</fn> %battery%</fc>\
        \<fc=#666666> <fn=2>|</fn></fc> <fc=#82AAFF><fn=1> </fn> %volume%</fc>\
        \<fc=#666666> <fn=2>|</fn></fc> <fc=#46d9ff> %date% </fc>\
-       \<icon=/tmp/trayer-padding-107px.xpm/>"
+       \<icon=/home/xilac/.xmonad/xpm/trayer-padding-102px.xpm/>"
        }

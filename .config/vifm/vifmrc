@@ -102,6 +102,9 @@ set incsearch
 
 set scrolloff=4
 
+" Show relative numbers
+set relativenumber
+
 " Don't do too many requests to slow file systems
 
 if !has('win')

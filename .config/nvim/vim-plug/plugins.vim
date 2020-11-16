@@ -57,6 +57,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Rainbow
     Plug 'junegunn/rainbow_parentheses.vim'
 
+    " Colorizer
+    Plug 'norcalli/nvim-colorizer.lua'
+
     " i3
     Plug 'mboughaba/i3config.vim'
     

@@ -103,7 +103,7 @@ myNormColor :: String
 myNormColor   = "#282c34"  -- Border color of normal windows
 
 myFocusColor :: String
-myFocusColor  = "#46d9ff"  -- Border color of focused windows
+myFocusColor  = "#bd93f9"  -- Border color of focused windows
 
 altMask :: KeyMask
 altMask = mod1Mask         -- Setting this for use in xprompts
@@ -125,6 +125,10 @@ myStartupHook = do
           spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x282c34  --height 22 &"
           spawnOnce "/usr/bin/emacs --daemon &"
           spawnOnce "xautolock -time 60 -locker blurlock &"
+          spawnOnce "xset s off -dpms &"
+          spawnOnce "discord &"
+          spawnOnce "teams &"
+          spawnOnce "lutris &"
           spawnOnce "syncthing &"
           spawnOnce "rclone --vfs-cache-mode writes mount onedrive: ~/onedrive &"
           -- spawnOnce "kak -d -s mysession &"
@@ -190,6 +194,12 @@ calcPrompt c ans =
     where
         trim  = f . f
             where f = reverse . dropWhile isSpace
+
+systemPromptCmds = [
+        ("Shutdown", spawn (myTerminal ++ " -e poweroff")),
+        ("Reboot", spawn (myTerminal ++ " -e reboot")),
+        ("Log out", io exitSuccess)
+    ]
 ------------------------------------------------------------------------
 -- XPROMPT KEYMAP (emacs-like key bindings for xprompts)
 ------------------------------------------------------------------------
@@ -275,9 +285,10 @@ searchList = [ ("a", archwiki)
 myScratchPads :: [NamedScratchpad]
 myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                 , NS "cmus" spawnCmus findCmus manageCmus
+                , NS "notes" spawnNotes findNotes manageNotes
                 ]
   where
-    spawnTerm  = myTerminal ++ " -n scratchpad"
+    spawnTerm  = myTerminal ++ " --name scratchpad"
     findTerm   = resource =? "scratchpad"
     manageTerm = customFloating $ W.RationalRect l t w h
                where
@@ -285,9 +296,17 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                  w = 0.9
                  t = 0.95 -h
                  l = 0.95 -w
-    spawnCmus  = myTerminal ++ " -n cmus 'cmus'"
+    spawnCmus  = myTerminal ++ " --name cmus -e cmus"
     findCmus   = resource =? "cmus"
     manageCmus = customFloating $ W.RationalRect l t w h
+               where
+                 h = 0.9
+                 w = 0.9
+                 t = 0.95 -h
+                 l = 0.95 -w
+    spawnNotes = myTerminal ++ " --name notes -e calcurse"
+    findNotes  = resource =? "notes"
+    manageNotes= customFloating $ W.RationalRect l t w h
                where
                  h = 0.9
                  w = 0.9
@@ -388,7 +407,7 @@ xmobarEscape = concatMap doubleLts
 
 myWorkspaces :: [String]
 myWorkspaces = clickable . map xmobarEscape
-               $ ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+               $ [" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 "]
   where
         clickable l = [ "<action=xdotool key super+" ++ show n ++ ">" ++ ws ++ "</action>" |
                       (i,ws) <- zip [1..9] l,
@@ -407,8 +426,9 @@ myManageHook = composeAll
      -- using 'doShift ( myWorkspaces !! 7)' sends program to workspace 8!
      -- I'm doing it this way because otherwise I would have to write out the full
      -- name of my workspaces, and the names would very long if using clickable workspaces.
-     [ className =? "lutris" --> doShift (myWorkspaces !! 4)
-       , title =? "cmus"     --> doShift (myWorkspaces !! 2)
+     [ className =? "Lutris"     --> doShift (myWorkspaces !! 4)
+     , className =? "Microsoft Teams - Preview" --> doShift (myWorkspaces !! 3)
+     , className =? "discord"               --> doShift (myWorkspaces !! 2)
      , title =? "Oracle VM VirtualBox Manager"     --> doFloat
      , className =? "confirm"               --> doFloat
      , className =? "dialog"                --> doFloat
@@ -446,18 +466,28 @@ myKeys =
     -- Xmonad
         [ ("M-C-r", spawn "xmonad --recompile") -- Recompiles xmonad
         , ("M-S-r", spawn "xmonad --restart")   -- Restarts xmonad
-        , ("M-S-e", io exitSuccess)             -- Quits xmonad
 
     -- Run Prompt
         , ("M-S-<Return>", shellPrompt dtXPConfig) -- Shell Prompt
+        , ("M1-C-c", calcPrompt dtXPConfig "qalc") -- Calculator
 
     -- Useful programs to have a keybinding for launch
-        , ("M-<Return>", spawn (myTerminal ++ " -e fish"))
-        , ("M-b", spawn (myBrowser ++ " www.duckduckgo.com/"))
+        , ("M-<Return>", spawn (myTerminal ++ " -e fish"))  -- Runs default terminal with fish
         , ("M-<F2>", spawn (myBrowser))
         , ("M-<F3>", spawn (myTerminal ++ " -e vifmrun"))
         , ("M-S-<F3>", spawn ("pcmanfm"))
         , ("M-<F4>", spawn (myTerminal ++ " -e cmus"))
+        , ("M-<F5>", spawn (myTerminal ++ " -e neomutt"))
+        , ("M-<F6>", spawn (myTerminal ++ " -e newsboat"))
+        , ("M-<F9>", spawn ("dmenuunicode.sh"))             -- Run script found in ~/bin/
+
+    -- System
+        , ("M-0", xmonadPromptC systemPromptCmds dtXPConfig)
+
+    -- Controls for system (SUPER-0 followed by a key)
+        , ("M-u p", spawn "cmus-remote -u")
+        , ("M-u l", spawn "cmus-remote -n")
+        , ("M-u h", spawn "cmus-remote -r")
 
     -- Kill windows
         , ("M-S-q", kill1)                         -- Kill the currently focused client
@@ -524,6 +554,7 @@ myKeys =
     -- Scratchpads
         , ("M-C-<Return>", namedScratchpadAction myScratchPads "terminal")
         , ("M-C-c", namedScratchpadAction myScratchPads "cmus")
+        , ("M-C-n", namedScratchpadAction myScratchPads "notes")
 
     -- Controls for cmus music player (SUPER-u followed by a key)
         , ("M-u p", spawn "cmus-remote -u")
@@ -539,6 +570,8 @@ myKeys =
         -- , ("<XF86AudioMute>",   spawn "amixer set Master toggle")  -- Bug prevents it from toggling correctly in 12.04.
         , ("<XF86AudioLowerVolume>", spawn "amixer set Master 5%- unmute")
         , ("<XF86AudioRaiseVolume>", spawn "amixer set Master 5%+ unmute")
+        , ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 10")
+        , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 10")
         
         -- entire screen and save to clipboard and folder
         , ("<Print>", spawn "maim | xclip -selection clipboard -t image/png")
