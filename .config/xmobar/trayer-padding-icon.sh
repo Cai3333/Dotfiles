@@ -45,4 +45,4 @@ if [ ! -f $iconfile ]; then
 fi
 
 # Output the icon tag for xmobar
-echo "<icon=${iconfile}/>"
+echo "<icon=${iconfile}>"

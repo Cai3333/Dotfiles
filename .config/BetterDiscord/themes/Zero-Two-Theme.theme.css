@@ -1,0 +1,69 @@
+/**
+ * @name Zero Two Theme
+ * @author Senka Wolf | Ryan#8282
+ * @version 1.1.0
+ * @description Zero Two Chracter Them From The Anime Darling in the Franxx | Base theme: Frosted Glass by Gibbu#1211
+ * @invite CyszwsA
+ * @authorId 170854083840704512
+ * @source https://github.com/SenkaWolf/BetterDiscord_Anime-Theme-Pack
+ * @website https://senkawolf.com
+*/
+@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,500,600,700,800,900&display=swap');
+@import url('https://gibbu.github.io/BetterDiscord-Themes/FrostedGlass/base.css');
+@import url('https://discord-custom-covers.github.io/usrbg/snippets/userPopouts.css');
+@import url('https://discord-custom-covers.github.io/usrbg/snippets/modals.css');
+@import url('https://monstrousdev.github.io/themes/addons/user-tags.css');
+@import url('https://gibbu.github.io/BetterDiscord-Themes/addons/windows-titlebar.css'); /* Old Windows titlebar - remove this @import if you wish to use default titlebar */
+@import url('https://gibbu.github.io/BetterDiscord-Themes/RadialStatus/base.css');
+@import url('https://gibbu.github.io/BetterDiscord-Themes/HorizontalServerlist/base.css');
+@import url(https://zzzmario.github.io/modern-indicators/src/source.css); /*Modern Indicators*/
+
+:root {
+
+/*Theme*/
+--background-image: url('https://i.imgur.com/wH47lRO.jpg');
+--background-image-blur: 1px;
+--popout-modal-image: url('https://i.imgur.com/wH47lRO.jpg');
+--popout-modal-blur: 5px;
+--serverlist-brightness: 0.66;
+--left-brightness: 0.72;
+--middle-brightness: 0.6;
+--right-brightness: 0;
+--popout-modal-brightness: 0.7;
+--gradient-primary: 103,58,183;
+--gradient-secondary: 115,124,187;
+--gradient-direction: 320deg;
+--tint-colour: 103,58,183;
+--tint-brightness: 0;
+--window-padding: 0px; /*Default 20 */
+--window-roundness: 0px; /*Default 10 */
+--scrollbar-colour: rgba(156,39,176,0.16);
+--link-colour: #00b0f4;
+--show-gift-gif-buttons: block; /* Show buttons: block | Hide buttons: none | DEFAULT: none */
+--font: 'Nunito';
+--update-notice-1: none; /* Do not touch */
+
+/*Radial Status & Top Horizontal Server List*/
+--rs-small-spacing: 1px;
+--rs-large-spacing: 2px;
+--rs-width: 2px;
+--rs-avatar-shape: 50%;
+--rs-online-color: #43b581;
+--rs-idle-color: #faa61a;
+--rs-dnd-color: #f04747;
+--rs-offline-color: #636b75;
+--rs-streaming-color: #643da7;
+--rs-invisible-color: #747f8d;
+--HSL-server-icon-size: 25px;
+--HSL-server-spacing: 5px;
+
+/*Modern Indicators*/
+--unread-badge: rgba(255,255,255,0.6) !important;
+--unread-background: rgba(255, 255, 255, 0.008) !important;
+--selected-badge: rgb(112, 135, 215) !important;
+--selected-background: rgba(112, 135, 215, 0.1) !important;
+--hovered: rgba(79,84,92,0.16) !important;
+--active: rgba(79,84,92,0.24) !important;
+
+--version: "Zero Two Theme By Senka Wolf";
+}

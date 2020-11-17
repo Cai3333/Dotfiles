@@ -1,0 +1,64 @@
+{
+    "settings": {
+        "stable": {
+            "settings": {
+                "bda-gs-1": false,
+                "bda-gs-2": false,
+                "bda-gs-3": false,
+                "bda-gs-4": false,
+                "bda-gs-5": true,
+                "bda-gs-6": true,
+                "bda-gs-7": true,
+                "bda-gs-8": false,
+                "bda-es-0": true,
+                "bda-es-1": true,
+                "bda-es-2": true,
+                "bda-es-4": false,
+                "bda-es-6": true,
+                "bda-es-7": true,
+                "bda-gs-b": false,
+                "bda-es-8": true,
+                "bda-dc-0": true,
+                "bda-css-0": false,
+                "bda-css-1": false,
+                "bda-es-9": true,
+                "fork-dm-1": false,
+                "fork-ps-1": true,
+                "fork-ps-2": true,
+                "fork-ps-3": true,
+                "fork-ps-4": true,
+                "fork-ps-5": true,
+                "fork-es-2": false,
+                "fork-es-3": true,
+                "fork-wp-1": true,
+                "fork-wp-2": false,
+                "fork-beta": true,
+                "reactDevTools": false,
+                "transparency": true
+            },
+            "plugins": {
+                "BetterRoleColors": true,
+                "StatusEverywhere": true,
+                "ZeresPluginLibrary": true
+            },
+            "themes": {
+                "Adjustable Server Width": false,
+                "        Black Hole": false,
+                "ClearVision": false,
+                "Frosted Glass": false,
+                "Holo Theme": false,
+                "MinimalCord": false,
+                "Nocturnal": false,
+                "Transparent Background": false,
+                "Zero Two Theme": false,
+                "Dracula Theme": true,
+                "RadialStatus": true
+            }
+        },
+        "canary": {},
+        "ptb": {}
+    },
+    "version": "0.3.5",
+    "emoteCacheDays": 7,
+    "emoteCacheDate": "2020-11-16T22:40:41.452Z"
+}

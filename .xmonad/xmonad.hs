@@ -91,10 +91,10 @@ myTerminal :: String
 myTerminal = "kitty"   -- Sets default terminal
 
 myBrowser :: String
-myBrowser = "firefox "               -- Sets firefox as browser for tree select
+myBrowser = "firefox "               -- Sets firefox as browser
 
 myEditor :: String
-myEditor = myTerminal ++ " -e nvim "  -- Sets nvim as editor for tree select
+myEditor = myTerminal ++ " -e nvim "  -- Sets nvim as editor
 
 myBorderWidth :: Dimension
 myBorderWidth = 2          -- Sets border width for windows
@@ -107,9 +107,6 @@ myFocusColor  = "#bd93f9"  -- Border color of focused windows
 
 altMask :: KeyMask
 altMask = mod1Mask         -- Setting this for use in xprompts
-
-windowCount :: X (Maybe String)
-windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
 
 ------------------------------------------------------------------------
 -- AUTOSTART
@@ -132,7 +129,6 @@ myStartupHook = do
           spawnOnce "syncthing &"
           spawnOnce "rclone --vfs-cache-mode writes mount onedrive: ~/onedrive &"
           -- spawnOnce "kak -d -s mysession &"
-          setWMName "LG3D"
 
 
 ------------------------------------------------------------------------
@@ -265,22 +261,19 @@ ebay     = S.searchEngine "ebay" "https://www.ebay.com/sch/i.html?_nkw="
 news     = S.searchEngine "news" "https://news.google.com/search?q="
 reddit   = S.searchEngine "reddit" "https://www.reddit.com/search/?q="
 urban    = S.searchEngine "urban" "https://www.urbandictionary.com/define.php?term="
+startpage = S.searchEngine "startpage" "https://www.startpage.com/do/dsearch?query="
 
 -- This is the list of search engines that I want to use. Some are from
 -- XMonad.Actions.Search, and some are the ones that I added above.
 searchList :: [(String, S.SearchEngine)]
-searchList = [ ("a", archwiki)
+searchList = [ ("a", archwiki) 
              , ("d", S.duckduckgo)
              , ("e", ebay)
              , ("g", S.google)
-             , ("h", S.hoogle)
              , ("i", S.images)
              , ("n", news)
              , ("r", reddit)
-             , ("s", S.stackage)
-             , ("t", S.thesaurus)
-             , ("v", S.vocabulary)
-             , ("b", S.wayback)
+             , ("s", startpage)
              , ("u", urban)
              , ("w", S.wikipedia)
              , ("y", S.youtube)
@@ -382,9 +375,9 @@ tabs     = renamed [Replace "tabs"]
            $ tabbed shrinkText myTabTheme
 
 myTabTheme = def { fontName            = myFont
-                 , activeColor         = "#46d9ff"
+                 , activeColor         = "#c792ea"
                  , inactiveColor       = "#313846"
-                 , activeBorderColor   = "#46d9ff"
+                 , activeBorderColor   = "#c792ea"
                  , inactiveBorderColor = "#282c34"
                  , activeTextColor     = "#282c34"
                  , inactiveTextColor   = "#d0d0d0"
@@ -452,7 +445,6 @@ myManageHook = composeAll
      , className =? "leagueclient.exe"      --> doFloat
      , className =? "leagueclientux.exe"    --> doFloat
      , className =? "Wine"                  --> doFloat
-     , className =? "VirtualBox Manager"                  --> doShift  ( myWorkspaces !! 3 )
      , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
      ] <+> namedScratchpadManageHook myScratchPads
 
@@ -474,8 +466,7 @@ myLogHook = fadeInactiveLogHook fadeAmount
 myKeys :: [(String, X ())]
 myKeys =
     -- Xmonad
-        [ ("M-C-r", spawn "xmonad --recompile") -- Recompiles xmonad
-        , ("M-S-r", spawn "xmonad --restart")   -- Restarts xmonad
+        [ ("M-S-r", spawn "xmonad --recompile; xmonad --restart")   -- Recompile and restarts xmonad
 
     -- Run Prompt
         , ("M-S-<Return>", shellPrompt dtXPConfig)           -- Shell Prompt
@@ -488,9 +479,8 @@ myKeys =
         , ("M-<F2>", spawn (myBrowser))
         , ("M-<F3>", spawn (myTerminal ++ " -e vifmrun"))
         , ("M-S-<F3>", spawn ("pcmanfm"))
-        , ("M-<F4>", spawn (myTerminal ++ " -e cmus"))
-        , ("M-<F5>", spawn (myTerminal ++ " -e neomutt"))
-        , ("M-<F6>", spawn (myTerminal ++ " -e newsboat"))
+        , ("M-<F6>", spawn (myTerminal ++ " -e neomutt"))
+        , ("M-<F7>", spawn (myTerminal ++ " -e newsboat"))
         , ("M-<F9>", spawn ("dmenuunicode.sh"))             -- Run script found in ~/bin/
 
     -- Controls for system (SUPER-0 followed by a key)
@@ -562,8 +552,8 @@ myKeys =
 
     -- Scratchpads
         , ("M-C-<Return>", namedScratchpadAction myScratchPads "terminal")
-        , ("M-C-c", namedScratchpadAction myScratchPads "cmus")
-        , ("M-C-n", namedScratchpadAction myScratchPads "notes")
+        , ("M-<F4>", namedScratchpadAction myScratchPads "cmus")
+        , ("M-<F5>", namedScratchpadAction myScratchPads "notes")
 
     -- Controls for cmus music player (SUPER-u followed by a key)
         , ("M-u p", spawn "cmus-remote -u")
@@ -635,7 +625,6 @@ main = do
                         , ppTitle = xmobarColor "#b3afc2" "" . shorten 60     -- Title of active window in xmobar
                         , ppSep =  "<fc=#666666> <fn=2>|</fn> </fc>"          -- Separators in xmobar
                         , ppUrgent = xmobarColor "#C45500" "" . wrap "!" "!"  -- Urgent workspace
-                        , ppExtras  = [windowCount]                           -- # of windows current workspace
                         , ppOrder  = \(ws:l:t:ex) -> [ws,l]++ex++[t]
                         }
         } `additionalKeysP` myKeys
