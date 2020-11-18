@@ -116,7 +116,6 @@ myStartupHook = do
           spawnOnce "nitrogen --restore &"
           spawnOnce "picom &"
           spawnOnce "clipit &"
-          spawnOnce "pamac-tray &"
           spawnOnce "redshift &"
           spawnOnce "nm-applet &"
           spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x282c34  --height 22 &"
@@ -289,6 +288,8 @@ myScratchPads :: [NamedScratchpad]
 myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                 , NS "cmus" spawnCmus findCmus manageCmus
                 , NS "notes" spawnNotes findNotes manageNotes
+                , NS "mail" spawnMail findMail manageMail
+                , NS "rss" spawnRss findRss manageRss
                 ]
   where
     spawnTerm  = myTerminal ++ " --name scratchpad"
@@ -310,6 +311,22 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
     spawnNotes = myTerminal ++ " --name notes -e calcurse"
     findNotes  = resource =? "notes"
     manageNotes= customFloating $ W.RationalRect l t w h
+               where
+                 h = 0.9
+                 w = 0.9
+                 t = 0.95 -h
+                 l = 0.95 -w
+    spawnMail = myTerminal ++ " --name mail -e neomutt"
+    findMail  = resource =? "mail"
+    manageMail= customFloating $ W.RationalRect l t w h
+               where
+                 h = 0.9
+                 w = 0.9
+                 t = 0.95 -h
+                 l = 0.95 -w
+    spawnRss = myTerminal ++ " --name rss -e newsboat"
+    findRss  = resource =? "rss"
+    manageRss= customFloating $ W.RationalRect l t w h
                where
                  h = 0.9
                  w = 0.9
@@ -432,6 +449,8 @@ myManageHook = composeAll
      [ className =? "Lutris"     --> doShift (myWorkspaces !! 4)
      , className =? "Microsoft Teams - Preview" --> doShift (myWorkspaces !! 3)
      , className =? "discord"               --> doShift (myWorkspaces !! 2)
+     , title =? "Create or select new Steam library folder:"     --> doFloat
+     , title =? "Steam Library Folders"     --> doFloat
      , title =? "Oracle VM VirtualBox Manager"     --> doFloat
      , className =? "confirm"               --> doFloat
      , className =? "dialog"                --> doFloat
@@ -479,8 +498,6 @@ myKeys =
         , ("M-<F2>", spawn (myBrowser))
         , ("M-<F3>", spawn (myTerminal ++ " -e vifmrun"))
         , ("M-S-<F3>", spawn ("pcmanfm"))
-        , ("M-<F6>", spawn (myTerminal ++ " -e neomutt"))
-        , ("M-<F7>", spawn (myTerminal ++ " -e newsboat"))
         , ("M-<F9>", spawn ("dmenuunicode.sh"))             -- Run script found in ~/bin/
 
     -- Controls for system (SUPER-0 followed by a key)
@@ -551,9 +568,11 @@ myKeys =
         , ("M-C-,", onGroup W.focusDown')  -- Switch focus to prev tab
 
     -- Scratchpads
-        , ("M-C-<Return>", namedScratchpadAction myScratchPads "terminal")
+        , ("M-<F1>", namedScratchpadAction myScratchPads "terminal")
         , ("M-<F4>", namedScratchpadAction myScratchPads "cmus")
         , ("M-<F5>", namedScratchpadAction myScratchPads "notes")
+        , ("M-<F6>", namedScratchpadAction myScratchPads "mail")
+        , ("M-<F7>", namedScratchpadAction myScratchPads "rss")
 
     -- Controls for cmus music player (SUPER-u followed by a key)
         , ("M-u p", spawn "cmus-remote -u")
@@ -566,7 +585,7 @@ myKeys =
         , ("<XF86AudioNext>", spawn ("cmus-remote -n"))
         , ("M-+", spawn ("cmus-remote -v +5%"))
         , ("M--", spawn ("cmus-remote -v -5%"))
-        -- , ("<XF86AudioMute>",   spawn "amixer set Master toggle")  -- Bug prevents it from toggling correctly in 12.04.
+        , ("<XF86AudioMute>", spawn "amixer set Master toggle")
         , ("<XF86AudioLowerVolume>", spawn "amixer set Master 5%- unmute")
         , ("<XF86AudioRaiseVolume>", spawn "amixer set Master 5%+ unmute")
         , ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 10")
