@@ -11,5 +11,3 @@ PATH=$HOME/.local/bin:$PATH
 PATH=$HOME/AppImages:$PATH
 PATH=$HOME/.emacs.d/bin:$PATH
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-setxkbmap -option ctrl:nocaps
-xcape -e 'Control_L=Escape'

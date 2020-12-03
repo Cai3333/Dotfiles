@@ -27,7 +27,11 @@ let g:webdevicons_enable_startify = 1
 let g:webdevicons_enable_startify = 1
 
 let g:startify_bookmarks = [
+            \ '~/.config/nvim/',
             \ { 'c': '~/.config/i3/config' },
+            \ { 'f': '~/.config/fish/config.fish' },
+            \ { 'x': '~/.xmonad/xmonad.hs' },
+            \ { 'q': '~/.config/qtile/config.py' },
             \ { 'i': '~/.config/nvim/init.vim' },
             \ { 'b': '~/.bashrc' },
             \ '~/Documents/Python/Alien-Invasion',

@@ -15,12 +15,11 @@ set splitbelow                          " Horizontal splits will automatically b
 set splitright                          " Vertical splits will automatically be to the right
 set t_Co=256                            " Support 256 colors
 set conceallevel=0                      " So that I can see `` in markdown files
+set expandtab                           " Converts tabs to spaces
 set tabstop=4                           " Insert 4 spaces for a tab
 set softtabstop=4
-set shiftwidth=4
-set shiftwidth=2                        " Change the number of space characters inserted for indentation
+set shiftwidth=4                        " Change the number of space characters inserted for indentation
 set smarttab                            " Makes tabbing smarter will realize you have 2 vs 4
-set expandtab                           " Converts tabs to spaces
 set smartindent                         " Makes indenting smart
 set autoindent                          " Good auto indent
 set laststatus=0                        " Always display the status line
@@ -50,5 +49,5 @@ aug i3config_ft_detection
   au!
   au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
 aug end
-
+        
 

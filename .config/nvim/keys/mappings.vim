@@ -46,7 +46,7 @@ nnoremap <Leader>O O<Esc>^Da
 nnoremap <space>/ :Commentary<CR>
 vnoremap <space>/ :Commentary<CR>
 
-nmap <space>r :Vifm<CR>
+nmap <space>r :VsplitVifm<CR>
 
 " Use Alt vim keys to move line
 nnoremap <A-j> :m .+1<CR>==

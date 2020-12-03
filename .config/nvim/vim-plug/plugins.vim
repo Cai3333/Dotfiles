@@ -19,6 +19,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Theme
     Plug 'dracula/vim', { 'as': 'dracula' }
+    Plug 'arcticicestudio/nord-vim'
 
     " Status line
     Plug 'vim-airline/vim-airline'
@@ -72,7 +73,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Codi
     Plug 'metakirby5/codi.vim'
 
+    " Multicursor
+    Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
+    Plug 'vimwiki/vimwiki'
+
+    Plug 'Yggdroot/indentLine'
 call plug#end()
 
 colorscheme dracula

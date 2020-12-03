@@ -97,7 +97,7 @@ myEditor :: String
 myEditor = myTerminal ++ " -e nvim "  -- Sets nvim as editor
 
 myBorderWidth :: Dimension
-myBorderWidth = 2          -- Sets border width for windows
+myBorderWidth = 0          -- Sets border width for windows
 
 myNormColor :: String
 myNormColor   = "#282c34"  -- Border color of normal windows
@@ -115,18 +115,18 @@ myStartupHook :: X ()
 myStartupHook = do
           spawnOnce "nitrogen --restore &"
           spawnOnce "picom &"
-          spawnOnce "clipit &"
           spawnOnce "redshift &"
-          spawnOnce "nm-applet &"
-          spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x282c34  --height 22 &"
+          spawnOnce "clipit &"
           spawnOnce "/usr/bin/emacs --daemon &"
           spawnOnce "xautolock -time 60 -locker blurlock &"
           spawnOnce "xset s off -dpms &"
+          spawnOnce "setxkbmap -option ctrl:nocaps &"
+          spawnOnce "xcape -e 'Control_L=Escape' &"
           spawnOnce "discord &"
           spawnOnce "teams &"
-          spawnOnce "lutris &"
           spawnOnce "syncthing &"
           spawnOnce "rclone --vfs-cache-mode writes mount onedrive: ~/onedrive &"
+          spawnOnce "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &"
           -- spawnOnce "kak -d -s mysession &"
 
 
@@ -288,7 +288,6 @@ myScratchPads :: [NamedScratchpad]
 myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                 , NS "cmus" spawnCmus findCmus manageCmus
                 , NS "notes" spawnNotes findNotes manageNotes
-                , NS "mail" spawnMail findMail manageMail
                 , NS "rss" spawnRss findRss manageRss
                 ]
   where
@@ -311,14 +310,6 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
     spawnNotes = myTerminal ++ " --name notes -e calcurse"
     findNotes  = resource =? "notes"
     manageNotes= customFloating $ W.RationalRect l t w h
-               where
-                 h = 0.9
-                 w = 0.9
-                 t = 0.95 -h
-                 l = 0.95 -w
-    spawnMail = myTerminal ++ " --name mail -e neomutt"
-    findMail  = resource =? "mail"
-    manageMail= customFloating $ W.RationalRect l t w h
                where
                  h = 0.9
                  w = 0.9
@@ -352,7 +343,7 @@ tall     = renamed [Replace "tall"]
            $ addTabs shrinkText myTabTheme
            $ subLayout [] (smartBorders Simplest)
            $ limitWindows 12
-           $ mySpacing 8
+           $ mySpacing' 8 
            $ ResizableTall 1 (3/100) (1/2) []
 wide     = renamed [Replace "wide"]
            $ windowNavigation
@@ -405,7 +396,7 @@ myLayoutHook = avoidStruts $ mouseResize $ windowArrange $ T.toggleLayouts float
                $ mkToggle (NBFULL ?? NOBORDERS ?? EOT) myDefaultLayout
              where
                -- I've commented out the layouts I don't use.
-               myDefaultLayout =     tall
+               myDefaultLayout =     smartBorders tall
                                  ||| wide
                                  ||| noBorders monocle
                                  ||| floats
@@ -446,25 +437,28 @@ myManageHook = composeAll
      -- using 'doShift ( myWorkspaces !! 7)' sends program to workspace 8!
      -- I'm doing it this way because otherwise I would have to write out the full
      -- name of my workspaces, and the names would very long if using clickable workspaces.
-     [ className =? "Lutris"     --> doShift (myWorkspaces !! 4)
-     , className =? "Microsoft Teams - Preview" --> doShift (myWorkspaces !! 3)
-     , className =? "discord"               --> doShift (myWorkspaces !! 2)
-     , title =? "Create or select new Steam library folder:"     --> doFloat
-     , title =? "Steam Library Folders"     --> doFloat
-     , title =? "Oracle VM VirtualBox Manager"     --> doFloat
-     , className =? "confirm"               --> doFloat
-     , className =? "dialog"                --> doFloat
-     , className =? "download"              --> doFloat
-     , className =? "error"                 --> doFloat
-     , className =? "file_progress"         --> doFloat
-     , className =? "notification"          --> doFloat
-     , className =? "splash"                --> doFloat
-     , className =? "toolbar"               --> doFloat
-     , className =? "confirmreset"          --> doFloat
-     , className =? "leagueclient.exe"      --> doFloat
-     , className =? "leagueclientux.exe"    --> doFloat
-     , className =? "Wine"                  --> doFloat
-     , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
+     [ className =? "Lutris"     --> doShift (myWorkspaces !! 4),
+       className =? "Microsoft Teams - Preview" --> doShift (myWorkspaces !! 3),
+       className =? "discord"               --> doShift (myWorkspaces !! 2),
+       title =? "Create or select new Steam library folder:"     --> doFloat,
+       title =? "Steam Library Folders"     --> doFloat,
+       title =? "Oracle VM VirtualBox Manager"     --> doFloat,
+       className =? "confirm"               --> doFloat,
+       className =? "dialog"                --> doFloat,
+       className =? "download"              --> doFloat,
+       className =? "error"                 --> doFloat,
+       className =? "file_progress"         --> doFloat,
+       className =? "notification"          --> doFloat,
+       className =? "splash"                --> doFloat,
+       className =? "Navigator"             --> doFloat,
+       className =? "toolbar"               --> doFloat,
+       className =? "confirmreset"          --> doFloat,
+       className =? "leagueclient.exe"      --> doFloat,
+       className =? "leagueclientux.exe"    --> doFloat,
+       className =? "Wine"                  --> doFloat,
+       className =? "Manage History"        --> doFloat,
+       className =? "pavucontrol"           --> doFloat,
+       (className =? "firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
      ] <+> namedScratchpadManageHook myScratchPads
 
 ------------------------------------------------------------------------
@@ -571,31 +565,34 @@ myKeys =
         , ("M-<F1>", namedScratchpadAction myScratchPads "terminal")
         , ("M-<F4>", namedScratchpadAction myScratchPads "cmus")
         , ("M-<F5>", namedScratchpadAction myScratchPads "notes")
-        , ("M-<F6>", namedScratchpadAction myScratchPads "mail")
-        , ("M-<F7>", namedScratchpadAction myScratchPads "rss")
+        , ("M-<F6>", namedScratchpadAction myScratchPads "rss")
 
     -- Controls for cmus music player (SUPER-u followed by a key)
         , ("M-u p", spawn "cmus-remote -u")
         , ("M-u l", spawn "cmus-remote -n")
         , ("M-u h", spawn "cmus-remote -r")
+        , ("M-+", spawn ("cmus-remote -v +5%"))
+        , ("M--", spawn ("cmus-remote -v -5%"))
 
     -- Multimedia Keys
         , ("<XF86AudioPlay>", spawn ("cmus-remote -u"))
         , ("<XF86AudioPrev>", spawn ("cmus-remote -r"))
         , ("<XF86AudioNext>", spawn ("cmus-remote -n"))
-        , ("M-+", spawn ("cmus-remote -v +5%"))
-        , ("M--", spawn ("cmus-remote -v -5%"))
         , ("<XF86AudioMute>", spawn "amixer set Master toggle")
         , ("<XF86AudioLowerVolume>", spawn "amixer set Master 5%- unmute")
         , ("<XF86AudioRaiseVolume>", spawn "amixer set Master 5%+ unmute")
-        , ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 10")
-        , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 10")
+        , ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 10 && notify-send 'brightness up'")
+        , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 10 && notify-send 'brightness up'")
         
-        -- entire screen and save to clipboard and folder
+        -- entire screen and save to clipboard
         , ("<Print>", spawn "maim | xclip -selection clipboard -t image/png")
+        -- entire screen and save to clipboard and folder
+        , ("M-<Print>", spawn "maim | xclip -selection clipboard -t image/png; xclip -selection clipboard -t image/png -o > ~/Pictures/screenshots/$(date +%F-%H:%M:%S).png && notify-send 'image saved to ~/Pictures/screenshots'")
 
-        -- # select and save to clipboard and folder
+        -- select and save to clipboard
         , ("S-<Print>", spawn "maim -s | xclip -selection clipboard -t image/png")
+        -- select and save to clipboard and folder
+        , ("M-S-<Print>", spawn "maim -s | xclip -selection clipboard -t image/png; xclip -selection clipboard -t image/png -o > ~/Pictures/screenshots/$(date +%F-%H:%M:%S).png && notify-send 'image saved to ~/Pictures/screenshots'")
         ]
     -- Appending search engine prompts to keybindings list.
     -- Look at "search engines" section of this config for values for "k".
