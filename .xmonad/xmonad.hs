@@ -202,7 +202,11 @@ codePromptCmds = [
         ("i3", spawn (myTerminal ++ " -e nvim ~/.config/i3/config")),
         ("Xmonad", spawn (myTerminal ++ " -e nvim ~/.xmonad/xmonad.hs")),
         ("fish", spawn (myTerminal ++ " -e nvim ~/.config/fish/config.fish"))
+    ]
 
+leaguePromptCmds = [
+        ("Play", spawn (myTerminal ++ " -e sudo sh -c 'sysctl -w abi.vsyscall32=0'")),
+        ("Stop", spawn (myTerminal ++ " -e sudo sh -c 'sysctl -w abi.vsyscall32=1'"))
     ]
 
 ------------------------------------------------------------------------
@@ -441,6 +445,7 @@ myManageHook = composeAll
        className =? "Microsoft Teams - Preview" --> doShift (myWorkspaces !! 3),
        className =? "discord"               --> doShift (myWorkspaces !! 2),
        title =? "Create or select new Steam library folder:"     --> doFloat,
+       title =? "zenity"                    --> doFloat,
        title =? "Steam Library Folders"     --> doFloat,
        title =? "Oracle VM VirtualBox Manager"     --> doFloat,
        className =? "confirm"               --> doFloat,
@@ -457,7 +462,8 @@ myManageHook = composeAll
        className =? "leagueclientux.exe"    --> doFloat,
        className =? "Wine"                  --> doFloat,
        className =? "Manage History"        --> doFloat,
-       className =? "pavucontrol"           --> doFloat,
+       className =? "Pavucontrol"           --> doFloat,
+       title =? "Microsoft Teams Notification" --> doFloat,
        (className =? "firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
      ] <+> namedScratchpadManageHook myScratchPads
 
@@ -486,6 +492,7 @@ myKeys =
         , ("M1-C-c", calcPrompt dtXPConfig "qalc")           -- Calculator
         , ("M-0", xmonadPromptC systemPromptCmds dtXPConfig) -- Prompt for log out, shutoff and restart
         , ("M-S-c", xmonadPromptC codePromptCmds dtXPConfig) -- Prompt for editing dotfiles
+        , ("M-S-l", xmonadPromptC leaguePromptCmds dtXPConfig) -- Prompt for editing dotfiles
 
     -- Useful programs to have a keybinding for launch
         , ("M-<Return>", spawn (myTerminal ++ " -e fish"))  -- Runs default terminal with fish
@@ -493,6 +500,7 @@ myKeys =
         , ("M-<F3>", spawn (myTerminal ++ " -e vifmrun"))
         , ("M-S-<F3>", spawn ("pcmanfm"))
         , ("M-<F9>", spawn ("dmenuunicode.sh"))             -- Run script found in ~/bin/
+        , ("M-S-x", spawn ("xkill"))
 
     -- Controls for system (SUPER-0 followed by a key)
         , ("M-u p", spawn "cmus-remote -u")
@@ -525,14 +533,11 @@ myKeys =
         , ("M-S-m", windows W.swapMaster) -- Swap the focused window and the master window
         , ("M-S-j", windows W.swapDown)   -- Swap focused window with next window
         , ("M-S-k", windows W.swapUp)     -- Swap focused window with prev window
-        , ("M-<Backspace>", promote)      -- Moves focused window to master, others maintain order
         , ("M-S-<Tab>", rotSlavesDown)    -- Rotate all windows except master and keep focus in place
         , ("M-C-<Tab>", rotAllDown)       -- Rotate all the windows in the current stack
 
     -- Layouts
         , ("M-<Tab>", sendMessage NextLayout)           -- Switch to next layout
-        , ("M-C-M1-<Up>", sendMessage Arrange)
-        , ("M-C-M1-<Down>", sendMessage DeArrange)
         , ("M-<Space>", sendMessage (MT.Toggle NBFULL) >> sendMessage ToggleStruts) -- Toggles noborder/full
         , ("M-S-<Space>", sendMessage ToggleStruts)     -- Toggles struts
         , ("M-S-n", sendMessage $ MT.Toggle NOBORDERS)  -- Toggles noborder
@@ -547,7 +552,7 @@ myKeys =
         , ("M-h", sendMessage Shrink)                   -- Shrink horiz window width
         , ("M-l", sendMessage Expand)                   -- Expand horiz window width
         , ("M-M1-j", sendMessage MirrorShrink)          -- Shrink vert window width
-        , ("M-M1-k", sendMessage MirrorExpand)          -- Exoand vert window width
+        , ("M-M1-k", sendMessage MirrorExpand)          -- Expand vert window width
 
     -- Sublayouts
     -- This is used to push windows to tabbed sublayouts, or pull them out of it.
@@ -557,7 +562,7 @@ myKeys =
         , ("M-C-j", sendMessage $ pullGroup D)
         , ("M-C-m", withFocused (sendMessage . MergeAll))
         , ("M-C-u", withFocused (sendMessage . UnMerge))
-        , ("M-C-/", withFocused (sendMessage . UnMergeAll))
+        , ("M-C-S-u", withFocused (sendMessage . UnMergeAll))
         , ("M-C-.", onGroup W.focusUp')    -- Switch focus to next tab
         , ("M-C-,", onGroup W.focusDown')  -- Switch focus to prev tab
 
