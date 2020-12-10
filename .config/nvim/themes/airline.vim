@@ -16,3 +16,6 @@ set showtabline=2
 " We don't need to see things like -- INSERT -- anymore
 set noshowmode
 
+" Spell language
+let g:airline_detect_spell=1
+let g:airline_detect_spelllang=1

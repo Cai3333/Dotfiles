@@ -63,3 +63,5 @@ map <Home> 0
 " nnoremap <silent> <F8> :w <CR> :!clear;gcc % -o %< && ./%< <CR>
 nmap <F9> :SCCompile<cr>
 nmap <F10> :SCCompileRun<cr>
+
+nmap <F8> :LLPStartPreview<cr>

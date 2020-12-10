@@ -2,3 +2,16 @@
 #navigator-toolbox {
   border-width: 0 !important;
 }
+
+#nav-bar {
+  height: 0px;
+  min-height: 0px !important;
+  overflow: hidden;
+}
+
+#navigator-toolbox:focus-within > #nav-bar,
+#navigator-toolbox:hover > #nav-bar
+{
+  overflow: inherit;
+  height: auto;
+}

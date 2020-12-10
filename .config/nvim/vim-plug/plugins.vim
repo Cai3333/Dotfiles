@@ -82,9 +82,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'vim-scripts/SingleCompile'
 
     " Latex
-    Plug 'lervag/vimtex'
     Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
-    Plug 'vim-syntastic/syntastic'
+    Plug 'lervag/vimtex'
+
 
 
     Plug 'Yggdroot/indentLine'

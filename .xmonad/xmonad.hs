@@ -204,11 +204,6 @@ codePromptCmds = [
         ("fish", spawn (myTerminal ++ " -e nvim ~/.config/fish/config.fish"))
     ]
 
-leaguePromptCmds = [
-        ("Play", spawn (myTerminal ++ " -e sudo sh -c 'sysctl -w abi.vsyscall32=0'")),
-        ("Stop", spawn (myTerminal ++ " -e sudo sh -c 'sysctl -w abi.vsyscall32=1'"))
-    ]
-
 ------------------------------------------------------------------------
 -- XPROMPT KEYMAP (emacs-like key bindings for xprompts)
 ------------------------------------------------------------------------
@@ -492,7 +487,6 @@ myKeys =
         , ("M1-C-c", calcPrompt dtXPConfig "qalc")           -- Calculator
         , ("M-0", xmonadPromptC systemPromptCmds dtXPConfig) -- Prompt for log out, shutoff and restart
         , ("M-S-c", xmonadPromptC codePromptCmds dtXPConfig) -- Prompt for editing dotfiles
-        , ("M-S-l", xmonadPromptC leaguePromptCmds dtXPConfig) -- Prompt for editing dotfiles
 
     -- Useful programs to have a keybinding for launch
         , ("M-<Return>", spawn (myTerminal ++ " -e fish"))  -- Runs default terminal with fish

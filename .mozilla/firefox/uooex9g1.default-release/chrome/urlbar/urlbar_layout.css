@@ -9,7 +9,7 @@
 #urlbar {
   --urlbar-height: var(--tab-min-height) !important;
   --urlbar-toolbar-height: var(--tab-min-height) !important;
-  min-height: var(--tab-min-height) !important;
+  min-height: 25px !important;
 }
 
 #urlbar-background {
