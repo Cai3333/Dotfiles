@@ -36,7 +36,7 @@ set formatoptions-=cro                  " Stop newline continution of comments
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 "set autochdir                          " Your working directory will always be the same as your working directory
 set noswapfile				            " Don't use swapfile
-set scrolloff=7				            " Keep space from bottom and top
+set scrolloff=12				            " Keep space from bottom and top
 set termguicolors
 
 au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
