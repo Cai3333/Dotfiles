@@ -15,7 +15,3 @@ let g:vim_markdown_strikethrough = 1
 let g:vim_markdown_autowrite = 1
 let g:vim_markdown_edit_url_in = 'tab'
 let g:vim_markdown_follow_anchor = 1
-
-map <F8> :w! \| !comp <c-r>%<CR><CR>
-map <F7> :!opout <c-r>%<CR><CR>
-map <F5> :w !gramma check <c-r>%

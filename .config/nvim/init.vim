@@ -12,3 +12,6 @@ source $HOME/.config/nvim/plug-config/indentline.vim
 source $HOME/.config/nvim/keys/which-key.vim
 source $HOME/.config/nvim/plug-config/floaterm.vim
 source $HOME/.config/nvim/plug-config/markdown.vim
+source $HOME/.config/nvim/plug-config/latex.vim
+source $HOME/.config/nvim/plug-config/snippets.vim
+

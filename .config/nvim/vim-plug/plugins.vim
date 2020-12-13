@@ -1,4 +1,4 @@
-" auto-install vim-plug
+"/home/xilac/.config/nvim/vim-plug/plugins.vim auto-install vim-plug
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -83,8 +83,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     Plug 'godlygeek/tabular'
     Plug 'plasticboy/vim-markdown'
+    Plug 'lervag/vimtex'
 
     Plug 'Yggdroot/indentLine'
+
+    Plug 'honza/vim-snippets'
 call plug#end()
 
 colorscheme dracula

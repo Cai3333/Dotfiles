@@ -38,6 +38,8 @@ set clipboard=unnamedplus               " Copy paste between vim and everything 
 set noswapfile				            " Don't use swapfile
 set scrolloff=12				            " Keep space from bottom and top
 set termguicolors
+autocmd BufEnter * silent! lcd %:p:h
+
 
 au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 

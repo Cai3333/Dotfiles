@@ -46,7 +46,7 @@ nnoremap <Leader>O O<Esc>^Da
 nnoremap <space>/ :Commentary<CR>
 vnoremap <space>/ :Commentary<CR>
 
-nmap <space>r :VsplitVifm<CR>
+noremap <space>r :VsplitVifm<CR>
 
 " Use Alt vim keys to move line
 nnoremap <A-j> :m .+1<CR>==
@@ -57,9 +57,13 @@ vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
 " Use 0 to jump to beginning
-map <Home> 0
+nnoremap <Home> 0
+
+map <F8> :w! \| !comp <c-r>%<CR><CR>
+map <F7> :!opout <c-r>%<CR><CR>
 
 " Compile C code
 " nnoremap <silent> <F8> :w <CR> :!clear;gcc % -o %< && ./%< <CR>
-nmap <F9> :SCCompile<cr>
-nmap <F10> :SCCompileRun<cr>
+noremap <F9> :SCCompile<cr>
+noremap <F10> :SCCompileRun<cr>
+
