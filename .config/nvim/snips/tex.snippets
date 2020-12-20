@@ -7,7 +7,35 @@ snippet meta
 
 \maketitle
 
-\section{Introduction}
-
 \end{document}
+endsnippet
+
+snippet bold
+\textbf{$1}
+endsnippet
+
+snippet italic
+\textit{$1}
+endsnippet
+
+snippet enumerate
+\begin{enumerate}
+\item {$1}
+\item {$2}
+\end{enumerate}
+endsnippet
+
+snippet unenumerate
+\begin{itemize}
+\item {$1}
+\item {$2}
+\end{itemize}
+endsnippet
+
+snippet section
+\section{{$1}\label{$1}}
+endsnippet
+
+snippet ref
+\ref{{$1}}
 endsnippet

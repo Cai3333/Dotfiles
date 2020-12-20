@@ -27,14 +27,13 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
-    Plug 'vifm/vifm.vim'
+    Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
 
     " Fzf
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-rooter'
 
-    " Commentary
     Plug 'tpope/vim-commentary'
     
     " Start screen
@@ -61,9 +60,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Colorizer
     Plug 'norcalli/nvim-colorizer.lua'
 
-    " i3
-    Plug 'mboughaba/i3config.vim'
-    
     " Indent-python
     Plug 'vim-scripts/indentpython.vim'
 
@@ -86,8 +82,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'lervag/vimtex'
 
     Plug 'Yggdroot/indentLine'
-
+    Plug 'jdhao/better-escape.vim'
     Plug 'honza/vim-snippets'
+
 call plug#end()
 
 colorscheme dracula

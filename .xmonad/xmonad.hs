@@ -88,10 +88,10 @@ myModMask :: KeyMask
 myModMask = mod4Mask       -- Sets modkey to super/windows key
 
 myTerminal :: String
-myTerminal = "kitty"   -- Sets default terminal
+myTerminal = "kitty"       -- Sets default terminal
 
 myBrowser :: String
-myBrowser = "firefox "               -- Sets firefox as browser
+myBrowser = "firefox "     -- Sets firefox as browser
 
 myEditor :: String
 myEditor = myTerminal ++ " -e nvim "  -- Sets nvim as editor
@@ -126,8 +126,7 @@ myStartupHook = do
           spawnOnce "teams &"
           spawnOnce "syncthing &"
           spawnOnce "rclone --vfs-cache-mode writes mount onedrive: ~/onedrive &"
-          spawnOnce "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &"
-          -- spawnOnce "kak -d -s mysession &"
+          spawnOnce "lxsession &"
 
 
 ------------------------------------------------------------------------
@@ -470,7 +469,7 @@ myManageHook = composeAll
 -- this to a value of less than 1 (such as 0.9 for 90% opacity).
 myLogHook :: X ()
 myLogHook = fadeInactiveLogHook fadeAmount
-    where fadeAmount = 0.8
+    where fadeAmount = 0.95
 
 ------------------------------------------------------------------------
 -- KEYBINDINGS

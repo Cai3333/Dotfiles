@@ -10,5 +10,6 @@ export READER=/usr/bin/zathura
 PATH=$HOME/bin:$PATH
 PATH=$HOME/.local/bin:$PATH
 PATH=$HOME/AppImages:$PATH
+PATH=$HOME/.local/share/applications:$PATH
 PATH=$HOME/.emacs.d/bin:$PATH
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

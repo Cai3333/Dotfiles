@@ -3,14 +3,10 @@ inoremap <expr> <c-j> ("\<C-n>")
 inoremap <expr> <c-k> ("\<C-p>")
 
 " Use alt + hjkl to resize windows
-nnoremap <M-S-j>    :resize -2<CR>
-nnoremap <M-S-k>    :resize +2<CR>
-nnoremap <M-S-h>    :vertical resize -2<CR>
-nnoremap <M-S-l>    :vertical resize +2<CR>
-
-" I hate escape more than anything else
-inoremap jk <Esc>
-inoremap kj <Esc>
+nnoremap <A-S-j>    :resize -2<CR>
+nnoremap <A-S-k>    :resize +2<CR>
+nnoremap <A-S-h>    :vertical resize -2<CR>
+nnoremap <A-S-l>    :vertical resize +2<CR>
 
 " Easy CAPS
 inoremap <c-u> <ESC>viwUi
@@ -45,8 +41,6 @@ nnoremap <Leader>O O<Esc>^Da
 
 nnoremap <space>/ :Commentary<CR>
 vnoremap <space>/ :Commentary<CR>
-
-noremap <space>r :VsplitVifm<CR>
 
 " Use Alt vim keys to move line
 nnoremap <A-j> :m .+1<CR>==
