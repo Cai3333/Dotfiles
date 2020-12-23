@@ -44,6 +44,10 @@ function fish_prompt
   end
   
   echo -n -s $initial_indicator $whitespace $cwd $git_info $whitespace $ahead $status_indicator $whitespace
+
+  if set -q VIRTUAL_ENV
+    echo -n -s (set_color -b blue white) "(" (basename "$VIRTUAL_ENV") ")" (set_color normal) " "
+  end
 end
 
 function _git_ahead
@@ -171,6 +175,7 @@ alias la='exa -al --color=always --group-directories-first' # my preferred listi
 alias ls='exa -a --icons --color=always --group-directories-first'  # all files and dirs
 alias ll='exa -l --color=always --group-directories-first'  # long format
 alias lt='exa -aT --color=always --group-directories-first' # tree listing
+alias l.='exa -a | egrep "^\."'
 
 # pacman and yay
 alias sp='sudo pacman'

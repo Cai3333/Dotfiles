@@ -5,6 +5,7 @@ set page-padding 1
 set window-title-page true 
 set guioptions vc
 set sandbox none
+set recolor true
 
 # set scrolling options
 set scroll-step 40
@@ -29,25 +30,25 @@ map f toggle_fullscreen
 map [fullscreen] f toggle_fullscreen
 
 # ---- COLOUR SCHEME ----
-set notification-error-bg    "#3e4452"
+set notification-error-bg    "#282a36"
 set notification-error-fg    "#c678dd"
-set notification-warning-bg  "#3e4452"
+set notification-warning-bg  "#282a36"
 set notification-warning-fg  "#c678dd"
-set notification-bg          "#3e4452"
+set notification-bg          "#282a36"
 set notification-fg          "#c678dd"
-set completion-group-bg      "#3e4452"
+set completion-group-bg      "#282a36"
 set completion-group-fg      "#e5c07b"
 set completion-bg            "#282c34"
 set completion-fg            "#abb2bf"
 set completion-highlight-bg  "#e5c07b"
-set completion-highlight-fg  "#3e4452"
-set inputbar-bg              "#3e4452"
+set completion-highlight-fg  "#282a36"
+set inputbar-bg              "#282a36"
 set inputbar-fg              "#abb2bf"
-set statusbar-bg             "#3e4452"
+set statusbar-bg             "#282a36"
 set statusbar-fg             "#abb2bf"
 set highlight-color          "#e5c07b"
 set highlight-active-color   "#e06c75"
-set default-bg               "#3e4452"
+set default-bg               "#282a36"
 set default-fg               "#abb2bf"
 set recolor                  true
 set recolor-lightcolor       "#282c34"
@@ -55,4 +56,4 @@ set recolor-darkcolor        "#abb2bf"
 set index-bg                 "#282c34"
 set index-fg                 "#abb2bf"
 set index-active-bg          "#e5c07b"
-set index-active-fg          "#3e4452"
+set index-active-fg          "#282a36"

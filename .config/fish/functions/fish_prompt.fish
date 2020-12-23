@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.VARDYl/fish_prompt.fish @ line 2
+# Defined in /tmp/fish.Amtffv/fish_prompt.fish @ line 2
 function fish_prompt
   set -l last_status $status
   set -l cyan (set_color -o 98be65)
@@ -37,6 +37,10 @@ function fish_prompt
   if [ "$CMD_DURATION" -gt 300000 ]
     echo The last command took (math "$CMD_DURATION/1000") seconds.
   end
-
+  
   echo -n -s $initial_indicator $whitespace $cwd $git_info $whitespace $ahead $status_indicator $whitespace
+
+  if set -q VIRTUAL_ENV
+    echo -n -s (set_color -b blue white) "(" (basename "$VIRTUAL_ENV") ")" (set_color normal) " "
+  end
 end
