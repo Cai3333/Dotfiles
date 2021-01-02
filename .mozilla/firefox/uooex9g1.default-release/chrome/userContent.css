@@ -13,3 +13,4 @@ html body.illustrated.netTimeout.neterror div#errorPageContainer.container div#t
 font-size: 0px !important;}
 html body.illustrated.netTimeout.neterror div#errorPageContainer.container div#text-container div.title h1.title-text::before{font-size: 32px !important;content: "You're too slow!" !important;}
 html body.illustrated.netTimeout.neterror div#errorPageContainer.container div#text-container div#errorLongContent div#errorShortDesc::before{font-size: 15px;content: "(Actually, it's the server)";}
+
