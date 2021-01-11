@@ -298,7 +298,6 @@ exec --no-startup-id i3-msg 'workspace $ws5; exec kitty -e calcurse'
 exec --no-startup-id i3-msg 'workspace $ws3; exec kitty -e cmus'
 exec_always --no-startup-id lutris
 exec --no-startup-id i3-msg 'workspace $ws1; exec firefox'
-exec --no-startup-id Teams
 exec_always --no-startup-id picom --experimental-backends
 
 

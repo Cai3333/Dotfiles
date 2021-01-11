@@ -123,7 +123,6 @@ myStartupHook = do
           spawnOnce "setxkbmap -option ctrl:nocaps &"
           spawnOnce "xcape -e 'Control_L=Escape' &"
           spawnOnce "discord &"
-          spawnOnce "teams &"
           spawnOnce "syncthing &"
           spawnOnce "rclone --vfs-cache-mode writes mount onedrive: ~/onedrive &"
           spawnOnce "lxsession &"

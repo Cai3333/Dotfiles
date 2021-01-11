@@ -52,6 +52,7 @@ set default-bg               "#282a36"
 set default-fg               "#abb2bf"
 set recolor                  true
 set recolor-darkcolor        "#abb2bf"
+set recolor-lightcolor       "#2e3440" 
 set index-bg                 "#282c34"
 set index-fg                 "#abb2bf"
 set index-active-bg          "#e5c07b"
