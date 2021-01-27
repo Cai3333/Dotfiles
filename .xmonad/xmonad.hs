@@ -120,8 +120,7 @@ myStartupHook = do
           spawnOnce "/usr/bin/emacs --daemon &"
           spawnOnce "xautolock -time 60 -locker blurlock &"
           spawnOnce "xset s off -dpms &"
-          spawnOnce "setxkbmap -option ctrl:nocaps &"
-          spawnOnce "xcape -e 'Control_L=Escape' &"
+          spawnOnce "setxkbmap -option caps:escape &"
           spawnOnce "discord &"
           spawnOnce "syncthing &"
           spawnOnce "rclone --vfs-cache-mode writes mount onedrive: ~/onedrive &"
@@ -304,8 +303,8 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                  w = 0.9
                  t = 0.95 -h
                  l = 0.95 -w
-    spawnNotes = myTerminal ++ " --name notes -e calcurse"
-    findNotes  = resource =? "notes"
+    spawnNotes = "tutanota-desktop"
+    findNotes  = className =? "tutanota-desktop"
     manageNotes= customFloating $ W.RationalRect l t w h
                where
                  h = 0.9
@@ -436,6 +435,7 @@ myManageHook = composeAll
      -- name of my workspaces, and the names would very long if using clickable workspaces.
      [ className =? "Lutris"     --> doShift (myWorkspaces !! 4),
        className =? "Microsoft Teams - Preview" --> doShift (myWorkspaces !! 3),
+       className =? "Steam" --> doShift (myWorkspaces !! 5),
        className =? "discord"               --> doShift (myWorkspaces !! 2),
        title =? "Create or select new Steam library folder:"     --> doFloat,
        title =? "zenity"                    --> doFloat,
@@ -489,9 +489,10 @@ myKeys =
     -- Useful programs to have a keybinding for launch
         , ("M-<Return>", spawn (myTerminal ++ " -e fish"))  -- Runs default terminal with fish
         , ("M-<F2>", spawn (myBrowser))
+        , ("M-S-<F2>", spawn ("librewolf"))
         , ("M-<F3>", spawn (myTerminal ++ " -e vifmrun"))
-        , ("M-<F7>", spawn ("zathura $HOME/Documents/TIMETABLE.pdf"))
         , ("M-S-<F3>", spawn ("pcmanfm"))
+        , ("M-<F7>", spawn ("zathura $HOME/Documents/TIMETABLE.pdf"))
         , ("M-<F9>", spawn ("dmenuunicode.sh"))             -- Run script found in ~/bin/
         , ("M-S-x", spawn ("xkill"))
 
@@ -639,6 +640,5 @@ main = do
                         , ppTitle = xmobarColor "#b3afc2" "" . shorten 60     -- Title of active window in xmobar
                         , ppSep =  "<fc=#666666> <fn=2>|</fn> </fc>"          -- Separators in xmobar
                         , ppUrgent = xmobarColor "#C45500" "" . wrap "!" "!"  -- Urgent workspace
-                        , ppOrder  = \(ws:l:t:ex) -> [ws,l]++ex++[t]
                         }
         } `additionalKeysP` myKeys
