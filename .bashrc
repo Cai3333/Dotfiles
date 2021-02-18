@@ -98,7 +98,7 @@ alias em="/usr/bin/emacs -nw"
 alias emacs="emacsclient -c -a 'emacs'"
 
 # youtube-dl
-alias yta="youtube-dl --extract-audio -o '~/Music/Si/%(title)s.%(ext)s' --audio-format mp3 " 
+alias yta="youtube-dl --extract-audio -o '~/Music/%(title)s.%(ext)s' --audio-format mp3 " 
 alias ytb="youtube-dl -f bestvideo+bestaudio -o '~/Videos/%(title)s.%(ext)s' "
 
 # get fastest mirrors

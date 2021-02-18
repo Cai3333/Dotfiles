@@ -51,3 +51,5 @@ aug i3config_ft_detection
   au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
 aug end
         
+
+let g:python3_host_prog = '/usr/bin/python3.9'
