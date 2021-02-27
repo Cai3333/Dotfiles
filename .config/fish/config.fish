@@ -1,4 +1,5 @@
 thefuck --alias | source 
+fish_vi_key_bindings
 
 set fish_greeting
 
@@ -225,7 +226,7 @@ alias yta="youtube-dl --extract-audio -o '~/Music/%(title)s.%(ext)s' --audio-for
 alias ytb="youtube-dl -f bestvideo+bestaudio -o '~/Videos/%(title)s.%(ext)s' "
 
 # git bare
-alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME' 
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # Extraction
 function extract -d "extract files from archives"
