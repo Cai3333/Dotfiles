@@ -82,7 +82,7 @@ import XMonad.Util.SpawnOnce
 -- in the config. Setting values for things like font, terminal and editor
 -- means you only have to change the value here to make changes globally.
 myFont :: String
-myFont = "xft:Mononoki Nerd Font:bold:size=7:antialias=true:hinting=true"
+myFont = "xft:Mononoki Nerd Font:bold:size=10:antialias=true:hinting=true"
 
 myModMask :: KeyMask
 myModMask = mod4Mask       -- Sets modkey to super/windows key
@@ -120,6 +120,7 @@ myStartupHook = do
           spawnOnce "xset s off -dpms &"
           spawnOnce "setxkbmap -option caps:escape &"
           spawnOnce "discord &"
+          spawnOnce "lxsession &"
           spawnOnce "syncthing &"
           spawnOnce "xinput set-prop 9 'Coordinate Transformation Matrix' 2 0 0 0 2 0 0 0 1 &"
 
@@ -489,7 +490,7 @@ myKeys =
         , ("M-S-<F2>", spawn ("librewolf"))
         , ("M-<F3>", spawn (myTerminal ++ " -e vifmrun"))
         , ("M-S-<F3>", spawn ("pcmanfm"))
-        , ("M-<F7>", spawn ("zathura $HOME/Documents/TIMETABLE.pdf"))
+        , ("M-<F7>", spawn ("zathura $HOME/Syncthing/OnedriveSyncthing/TIMETABLE.pdf"))
         , ("M-<F9>", spawn ("dmenuunicode.sh"))             -- Run script found in ~/bin/
         , ("M-S-x", spawn ("xkill"))
 
