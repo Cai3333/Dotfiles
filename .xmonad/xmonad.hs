@@ -115,14 +115,15 @@ myStartupHook :: X ()
 myStartupHook = do
           spawnOnce "nitrogen --restore &"
           spawnOnce "picom &"
-          spawnOnce "redshift -l 40.305012:-3.732700 &"
+          spawnOnce "redshift &"
           spawnOnce "clipit &"
           spawnOnce "xset s off -dpms &"
           spawnOnce "setxkbmap -option caps:escape &"
           spawnOnce "discord &"
           spawnOnce "lxsession &"
           spawnOnce "syncthing &"
-          spawnOnce "xinput set-prop 9 'Coordinate Transformation Matrix' 2 0 0 0 2 0 0 0 1 &"
+          spawnOnce "xinput set-prop 9 'Coordinate Transformation Matrix' 1 0 0 0 1 0 0 0 1 &"
+          spawnOnce "/usr/lib/xfce4/notifyd/xfce4-notifyd &"
 
 
 ------------------------------------------------------------------------
