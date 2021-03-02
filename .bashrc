@@ -135,8 +135,7 @@ alias mailsync="mw -Y"
 alias rss="newsboat"
 
 # git bare
-alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME' 
-
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 
 ### OTHER STUFF ###
