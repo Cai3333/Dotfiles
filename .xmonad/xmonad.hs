@@ -123,7 +123,6 @@ myStartupHook = do
           spawnOnce "lxsession &"
           spawnOnce "syncthing &"
           spawnOnce "xinput set-prop 9 'Coordinate Transformation Matrix' 1 0 0 0 1 0 0 0 1 &"
-          spawnOnce "/usr/lib/xfce4/notifyd/xfce4-notifyd &"
 
 
 ------------------------------------------------------------------------
