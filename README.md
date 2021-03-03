@@ -1,5 +1,3 @@
-<img src='/Pictures/screenshots/main.png'>
-
 <h1 align="center">🚀✨ My dotfiles! ✨🚀</h1>
 
 
@@ -46,8 +44,8 @@ Even if you're not, just look through the gallery 📷:
 
 
 <a id="gal"></a>
-<img src='/screenshots/main.png'>
-<img src='/screenshots/firefox_zathura.png'>
+<img src='https://github.com/FuzzyGrim/dotfiles/blob/master/screenshots/main.png'>
+<img src='https://github.com/FuzzyGrim/dotfiles/blob/master/screenshots/firefox_zathura.png'>
 
 
 
