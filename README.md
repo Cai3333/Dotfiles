@@ -2,10 +2,10 @@
 
 
 <p align="center">
-  <a href="https://github.com/Axarva/dotfiles-2.0/stargazers"><img src="https://img.shields.io/github/stars/Axarva/dotfiles-2.0?color=ffd5cd&style=for-the-badge&logo=starship"></a>
-  <a href="https://github.com/Axarva/dotfiles-2.0/issues"><img src="https://img.shields.io/github/issues/Axarva/dotfiles-2.0?color=d35d6e&style=for-the-badge&logo=codecov"></a>
-  <a href="https://github.com/Axarva/dotfiles-2.0/network/members"><img src="https://img.shields.io/github/forks/Axarva/dotfiles-2.0?color=84afdb&style=for-the-badge&logo=jfrog-bintray"></a>
-  <a href="https://github.com/Axarva/dotfiles-2.0/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-orange.svg?color=90c861&style=for-the-badge&logo=mitsubishi"></a>
+  <a href="https://github.com/FuzzyGrim/dotfiles/stargazers"><img src="https://img.shields.io/github/stars/Axarva/dotfiles-2.0?color=ffd5cd&style=for-the-badge&logo=starship"></a>
+  <a href="https://github.com/FuzzyGrim/dotfiles/issues"><img src="https://img.shields.io/github/issues/Axarva/dotfiles-2.0?color=d35d6e&style=for-the-badge&logo=codecov"></a>
+  <a href="https://github.com/FuzzyGrim/dotfiles/network/members"><img src="https://img.shields.io/github/forks/Axarva/dotfiles-2.0?color=84afdb&style=for-the-badge&logo=jfrog-bintray"></a>
+  <a href="https://github.com/Fuzzygrim/dotfiles/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-orange.svg?color=90c861&style=for-the-badge&logo=mitsubishi"></a>
 </p>
 
 ## Table of Contents
@@ -14,11 +14,6 @@
 - [Gallery 📷](#gal)
 - [Workflow 🖨️](#workflow)
 - [Keybinds ✍️](#keybinds)
-- [Installation 🤵‍](#inst)
-  - [Arch Install 🌇](#arch)
-  - [Other Install 🚂](#other)
-- [Dependencies 📊](#deps)
-- [Troubleshooting 🔫](#trouble)
 
 <a id="about"></a>
 
@@ -44,6 +39,7 @@ Even if you're not, just look through the gallery 📷:
 
 
 <a id="gal"></a>
+<img src='https://github.com/FuzzyGrim/dotfiles/blob/master/screenshots/default.png'>
 <img src='https://github.com/FuzzyGrim/dotfiles/blob/master/screenshots/main.png'>
 <img src='https://github.com/FuzzyGrim/dotfiles/blob/master/screenshots/firefox_zathura.png'>
 
