@@ -12,7 +12,6 @@
 
 - [About ⁉️](#about)
 - [Gallery 📷](#gal)
-- [Workflow 🖨️](#workflow)
 - [Keybinds ✍️](#keybinds)
 
 <a id="about"></a>
