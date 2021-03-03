@@ -12,6 +12,7 @@
 
 - [About ⁉️](#about)
 - [Gallery 📷](#gal)
+- [Workflow 🖨️](#workflow)
 - [Keybinds ✍️](#keybinds)
 
 <a id="about"></a>
@@ -43,6 +44,14 @@ Even if you're not, just look through the gallery 📷:
 <img src='https://github.com/FuzzyGrim/dotfiles/blob/master/screenshots/firefox_zathura.png'>
 
 
+<a id="workflow"></a>
+
+## Workflow 🖨️
+
+<p align="center">
+  <img src="https://github.com/FuzzyGrim/gifs/blob/master/screenshots/workflow.gif">
+</p>
+
 
 <a id="keybinds"></a>
 ## Keybinds ✍️
@@ -51,7 +60,7 @@ These are the basic keybinds. Read through the `xmonad/xmonad.hs` file for more 
 
 | Keybind                |                  Function                   |
 | ---------------------- |  ----------------------------------------   |
-| `Win + Enter`          |           Launch terminal (kitty)           |
+| `Win + Enter`          |           launch terminal (kitty)           |
 | `Win + Shift + Enter`  | opens run launcher (XMonad’s shell xprompt) |
 | `Win + Shift + q`      |                Close window                 |
 | `Win + SPACE`          |          toggles fullscreen on/off          |
@@ -67,7 +76,7 @@ These are the basic keybinds. Read through the `xmonad/xmonad.hs` file for more 
 | `Win + TAB`            |           Switch through layouts            |
 | `Win + T`              |        Make a floating window tiled         |
 
-Note: `Toggling` means to enable if inactiv or to disable if active.
+Note: `Toggling` means to enable if inactive or to disable if active.
 
 
 Note: `Win` refers to the `Super` key.
