@@ -49,7 +49,7 @@ Even if you're not, just look through the gallery 📷:
 ## Workflow 🖨️
 
 <p align="center">
-  <img src="https://github.com/FuzzyGrim/gifs/blob/master/screenshots/workflow.gif">
+  <img src="https://github.com/FuzzyGrim/dotfiles/blob/master/screenshots/workflow.gif">
 </p>
 
 
