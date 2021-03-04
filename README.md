@@ -56,7 +56,7 @@ Even if you're not, just look through the gallery 📷:
 <a id="keybinds"></a>
 ## Keybinds ✍️
 
-These are the basic keybinds. Read through the `xmonad/xmonad.hs` file for more keybinds like increasing gaps and restoring gaps.
+These are the basic keybinds. Read through the `.xmonad/xmonad.hs` file for more keybinds like increasing gaps and restoring gaps.
 
 | Keybind                |                  Function                   |
 | ---------------------- |  ----------------------------------------   |
