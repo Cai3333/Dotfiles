@@ -1,5 +1,5 @@
 ------------------------
--------MANGADEX---------
+--------MANGADEX--------
 ------------------------
 https://mangadex.org/rss/2gSKCD9vaYZpPUFMwtxfz3mTu5NdyQcG/manga_id/31477 "~Solo Leveling"
 https://mangadex.org/rss/2gSKCD9vaYZpPUFMwtxfz3mTu5NdyQcG/manga_id/51123?h=0 "~β"
@@ -21,7 +21,7 @@ https://mangadex.org/rss/2gSKCD9vaYZpPUFMwtxfz3mTu5NdyQcG/manga_id/33326?h=0 "~K
 https://mangadex.org/rss/Qu3AkS8pYRcUyzH4NMKD2WdTVX7waFfG/manga_id/61989?h=0 "~Goddess Café Terrace"
 
 ------------------------
--------YOUTUBE----------
+--------YOUTUBE---------
 ------------------------
 https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg "~Distrotube"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCld68syR8Wi-GY_n4CaoJGA "~Brodie"
@@ -29,6 +29,10 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA "~M
 https://www.youtube.com/feeds/videos.xml?channel_id=UC-8QAzbLcRglXeN_MY9blyw "~Ben Awad"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~Luke Smith"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCjr2bPAyPV7t35MvcgT3W8Q "~The Hated One"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCxQKHvKbmSzGMvUrVtJYnUA "~LearnLinuxTV"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCfp-lNJy4QkIGnaEE6NtDSg "~Learn Linux"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCJdmdUp5BrsWsYVQUylCMLg "~Erik Dubois"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCX_WM2O-X96URC5n66G-hvw "~EF - Linux Made Simple"
 ------------------------
 https://www.youtube.com/feeds/videos.xml?channel_id=UCdRx6BjmUwdP7pfGIYPRHaQ "~Alexelcapo"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCcmxOGYGF51T1XsqQLewGtQ "~Trash Taste"
@@ -43,3 +47,13 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCLoHnzt9KzQ4fLvHXn-H30w "~R
 https://www.youtube.com/feeds/videos.xml?channel_id=UCkOu814wigKaeu-b2hFdU6w "~Pianta"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCRIxFJ5UicWOUdoUYyJTD1Q "~Gbay99"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCzDI_VuYb14FLu9f8uXOeSA "~Joseju"
+
+------------------------
+----------NEWS----------
+------------------------
+https://itsfoss.com/feed/ "~It's FOSS"
+https://www.linuxjournal.com/node/feed "~Linux Journal"
+https://linuxinsider.com/rss-feed "~Linux Insider"
+https://www.reddit.com/r/linux/.rss "r/linux"
+https://www.cyberciti.biz/atom/atom.xml "~Nixcracft"
+https://www.omgubuntu.co.uk/feed "~Omg Ubuntu"
