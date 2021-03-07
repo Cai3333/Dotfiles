@@ -578,8 +578,8 @@ myKeys =
         , ("<XF86AudioMute>", spawn "amixer set Master toggle")
         , ("<XF86AudioLowerVolume>", spawn "amixer set Master 5%- unmute")
         , ("<XF86AudioRaiseVolume>", spawn "amixer set Master 5%+ unmute")
-        , ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 10 && notify-send 'brightness up'")
-        , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 10 && notify-send 'brightness up'")
+        , ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 10")
+        , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 10")
         
         -- entire screen and save to clipboard
         , ("<Print>", spawn "maim | xclip -selection clipboard -t image/png")
