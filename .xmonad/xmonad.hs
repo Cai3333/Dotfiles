@@ -117,7 +117,7 @@ myStartupHook = do
           spawnOnce "picom &"
           spawnOnce "redshift &"
           spawnOnce "clipit &"
-          spawnOnce "xset s off -dpms &"
+--          spawnOnce "xset s off -dpms &"
           spawnOnce "setxkbmap -option caps:escape &"
           spawnOnce "discord &"
           spawnOnce "lxsession &"
@@ -281,8 +281,9 @@ searchList = [ ("a", archwiki)
 myScratchPads :: [NamedScratchpad]
 myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                 , NS "cmus" spawnCmus findCmus manageCmus
-                , NS "notes" spawnNotes findNotes manageNotes
-                , NS "rss" spawnRss findRss manageRss
+                , NS "tutanota" spawnTuta findTuta manageTuta
+                , NS "newsboat" spawnRss findRss manageRss
+                , NS "fluent-reader" spawnfr findfr managefr
                 ]
   where
     spawnTerm  = myTerminal ++ " --name scratchpad"
@@ -301,17 +302,25 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                  w = 0.9
                  t = 0.95 -h
                  l = 0.95 -w
-    spawnNotes = "tutanota-desktop"
-    findNotes  = className =? "tutanota-desktop"
-    manageNotes= customFloating $ W.RationalRect l t w h
+    spawnTuta = "tutanota-desktop"
+    findTuta  = className =? "tutanota-desktop"
+    manageTuta= customFloating $ W.RationalRect l t w h
                where
                  h = 0.9
                  w = 0.9
                  t = 0.95 -h
                  l = 0.95 -w
-    spawnRss = myTerminal ++ " --name rss -e newsboat"
-    findRss  = resource =? "rss"
+    spawnRss = myTerminal ++ " --name newsboat -e newsboat"
+    findRss  = resource =? "newsboat"
     manageRss= customFloating $ W.RationalRect l t w h
+               where
+                 h = 0.9
+                 w = 0.9
+                 t = 0.95 -h
+                 l = 0.95 -w
+    spawnfr = "Fluent.Reader.1.0.0.AppImage"
+    findfr  = className =? "fluent-reader"
+    managefr= customFloating $ W.RationalRect l t w h
                where
                  h = 0.9
                  w = 0.9
@@ -561,8 +570,9 @@ myKeys =
     -- Scratchpads
         , ("M-<F1>", namedScratchpadAction myScratchPads "terminal")
         , ("M-<F4>", namedScratchpadAction myScratchPads "cmus")
-        , ("M-<F5>", namedScratchpadAction myScratchPads "notes")
-        , ("M-<F6>", namedScratchpadAction myScratchPads "rss")
+        , ("M-<F5>", namedScratchpadAction myScratchPads "tutanota")
+        , ("M-S-<F6>", namedScratchpadAction myScratchPads "newsboat")
+        , ("M-<F6>", namedScratchpadAction myScratchPads "fluent-reader")
 
     -- Controls for cmus music player (SUPER-u followed by a key)
         , ("M-u p", spawn "cmus-remote -u")
