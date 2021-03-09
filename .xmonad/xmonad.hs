@@ -322,10 +322,10 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
     findfr  = className =? "fluent-reader"
     managefr= customFloating $ W.RationalRect l t w h
                where
-                 h = 0.9
-                 w = 0.9
-                 t = 0.95 -h
-                 l = 0.95 -w
+                 h = 0.98
+                 w = 1
+                 t = 1 -h
+                 l = 1 -w
 
 ------------------------------------------------------------------------
 -- LAYOUTS
