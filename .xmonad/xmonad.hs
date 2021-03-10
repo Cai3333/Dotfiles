@@ -318,7 +318,7 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                  w = 0.9
                  t = 0.95 -h
                  l = 0.95 -w
-    spawnfr = "Fluent.Reader.1.0.0.AppImage"
+    spawnfr = "fluent-reader"
     findfr  = className =? "fluent-reader"
     managefr= customFloating $ W.RationalRect l t w h
                where
