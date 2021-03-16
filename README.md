@@ -106,12 +106,12 @@ Note: `Win` refers to the `Super` key.
 Alright, let's get to the main stuff.
 
 ```bash
-loginctl suspend
+TODO
 ```
 
 
 <a id="disclaimer"></a>
-## Disclaimer
+## Disclaimer ⚠️
 
 All of the configs and scripts in this repo belong to my personal setup. None of them is guaranteed to work properly on your machine, so use them carefully and responsibly, and as always remember to make backups. Other than that, feel free to take inspiration or include them in your setup.
 
