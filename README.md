@@ -14,6 +14,9 @@
 - [Gallery 📷](#gal)
 - [Workflow 🖨️](#workflow)
 - [Keybinds ✍️](#keybinds)
+- [Personal installation 🤵‍](#inst)
+- [Troubleshooting 🔫](#trouble)
+
 
 <a id="about"></a>
 
@@ -81,6 +84,18 @@ Note: `Toggling` means to enable if inactive or to disable if active.
 
 Note: `Win` refers to the `Super` key.
 
-   
-   
+
+<a id="inst"></a>
+## Installation 🤵‍
+
+### Introduction of Linux Rice
+
+<summary>Please read <a target="_blank" href="https://crispgm.com/page/the-fascinating-arch-linux-rice.html">this</a> and <a target="_blank" href="https://jie-fang.github.io/blog/basics-of-ricing">this</a>.</summary>
+  
+Alright, let's get to the main stuff.
+
+```bash
+loginctl suspend
+```
+
 <h1 align="center">🌟 Good Luck and Cheers! 🌟</h1>
