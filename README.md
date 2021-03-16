@@ -15,7 +15,7 @@
 - [Workflow 🖨️](#workflow)
 - [Keybinds ✍️](#keybinds)
 - [Personal installation 🤵‍](#inst)
-- [Disclaimer 🔫](#disclaimer)
+- [Disclaimer⚠️ ](#disclaimer)
 
 
 <a id="about"></a>
