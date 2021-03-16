@@ -15,7 +15,7 @@
 - [Workflow 🖨️](#workflow)
 - [Keybinds ✍️](#keybinds)
 - [Personal installation 🤵‍](#inst)
-- [Troubleshooting 🔫](#trouble)
+- [Disclaimer 🔫](#disclaimer)
 
 
 <a id="about"></a>
@@ -90,12 +90,30 @@ Note: `Win` refers to the `Super` key.
 
 ### Introduction of Linux Rice
 
+<details>
 <summary>Please read <a target="_blank" href="https://crispgm.com/page/the-fascinating-arch-linux-rice.html">this</a> and <a target="_blank" href="https://jie-fang.github.io/blog/basics-of-ricing">this</a>.</summary>
+  
+<br>
+
+<p align="center"><a href="#introduction-of-linux-rice"><img src="https://i.redd.it/yu0auhxk5nyz.png" alt="unixporn"/></a></p>
+
+</details>
+
+
+<a id="inst"></a>
+
   
 Alright, let's get to the main stuff.
 
 ```bash
 loginctl suspend
 ```
+
+
+<a id="disclaimer"></a>
+## Disclaimer
+
+All of the configs and scripts in this repo belong to my personal setup. None of them is guaranteed to work properly on your machine, so use them carefully and responsibly, and as always remember to make backups. Other than that, feel free to take inspiration or include them in your setup.
+
 
 <h1 align="center">🌟 Good Luck and Cheers! 🌟</h1>
