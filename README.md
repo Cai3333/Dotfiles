@@ -93,12 +93,14 @@ Note: `Win` refers to the `Super` key.
 
 ### Introduction of Linux Rice
 
+<details>
 <summary>Please read <a target="_blank" href="https://crispgm.com/page/the-fascinating-arch-linux-rice.html">this</a> and <a target="_blank" href="https://jie-fang.github.io/blog/basics-of-ricing">this</a>.</summary>
   
 <br>
 
 <p align="center"><a href="#introduction-of-linux-rice"><img src="https://i.redd.it/yu0auhxk5nyz.png" alt="unixporn"/></a></p>
 
+</details>
 
 
 <a id="inst"></a>
