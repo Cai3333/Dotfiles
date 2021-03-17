@@ -105,10 +105,9 @@ Note: `Win` refers to the `Super` key.
 
 <a id="inst"></a>
 
-  
-Alright, let's get to the main stuff. Dependencies needed after installing ArcoLinux xmonad edition.
-
 ##
+
+Alright, let's get to the main stuff. Dependencies needed after installing ArcoLinux xmonad edition.
 
 <a id="arch"></a>
 ### From Arch Linux's official repositories:
