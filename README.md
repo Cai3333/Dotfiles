@@ -14,7 +14,10 @@
 - [Gallery 📷](#gal)
 - [Workflow 🖨️](#workflow)
 - [Keybinds ✍️](#keybinds)
-- [Personal installation 🤵‍](#inst)
+- [Personal installation (ArcoLinux Xmonad) 🤵‍](#inst)
+  - [Official repositories 🌇](#arch)
+  - [AUR 🚂](#aur)
+  - [Other Install 🚂](#other)
 - [Disclaimer ⚠️ ](#disclaimer)
 
 
@@ -103,12 +106,80 @@ Note: `Win` refers to the `Super` key.
 <a id="inst"></a>
 
   
-Alright, let's get to the main stuff.
+Alright, let's get to the main stuff. Dependencies needed after installing ArcoLinux xmonad edition.
+
+<a id="arch"></a>
+### From Arch Linux's official repositories:
 
 ```bash
-TODO
+sudo pacman -S cmus dunst exa firefox fish fzf interl-undervolt kitty kvantum-qt5 libreoffice-still lxapperance lxsession maim mpv newboat nitrogen pcmanfm picom redshift stacer steam syncthing thefuck timeshift tpl ttf-font-awesome ttf-ubuntu-font-family vifm vlc xdotool xorg-xbacklight youtube-dl zathura zathura-pdf-mupdf
+```
+-    cmus (:bind -f common u shell ~/bin/update-library.sh)
+-    dunst
+-    exa
+-    firefox
+-    fish
+-    fzf
+-    interl-undervolt
+-    kitty
+-    kvantum-qt5
+-    libreoffice-still
+-    lxapperance
+-    lxsession
+-    maim
+-    mpv
+-    newboat
+-    nitrogen
+-    pcmanfm
+-    picom
+-    redshift (/etc/geoclue/geoclue.conf --> url=https://location.services.mozilla.com/v1/geolocate?key=geoclue)
+-    stacer
+-    steam
+-    syncthing
+-    thefuck
+-    timeshift
+-    tpl (systemctl enable/start tlp.service)
+-    ttf-font-awesome
+-    ttf-ubuntu-font-family
+-    vifm
+-    vlc
+-    xdotool
+-    xorg-xbacklight
+-    youtube-dl
+-    zathura
+-    zathura-pdf-mupdf
+
+<a id="aur"></a>
+### From Arch Linux's AUR:
+
+```bash
+paru -S ant-dracula-kvantum-theme-git clipit nerd-fonts-mononoki powerline-shell qimgv-git standardnotes-bin teams ttf-ms-fonts ttf-vista-fonts vscodium-bin
+```
+-    ant-dracula-kvantum-theme-git
+-    clipit
+-    nerd-fonts-mononoki
+-    powerline-shell
+-    qimgv-git
+-    stacer
+-    standardnotes-bin
+-    vscodium-bin
+
+
+<a id="other"></a>
+### Other things :art::
+
+#### KVM Guide:
+
+```bash
+paru -S qemu virt-manager ebtables qemu-arch-extra ovmf dnsmasq bridge-utils openbsd-netcat
 ```
 
+```bash
+sudo systemctl enable libvirtd
+sudo systemctl start libvirtd
+sudo systemctl status libvirtd
+sudo usermod -G libvirt -a USERNAME
+```
 
 <a id="disclaimer"></a>
 ## Disclaimer ⚠️
