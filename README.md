@@ -17,7 +17,10 @@
 - [Personal installation (ArcoLinux Xmonad) 🤵‍](#inst)
   - [Official repositories 🌇](#arch)
   - [AUR 🚂](#aur)
-  - [Other Install 🚂](#other)
+  - [Other Installations :relaxed:](#other)
+    - [KVM :computer:](#kvm)
+    - [League of Legendsi :monkey:] (#lol)
+    -
 - [Disclaimer ⚠️ ](#disclaimer)
 
 
@@ -169,6 +172,7 @@ paru -S ant-dracula-kvantum-theme-git clipit nerd-fonts-mononoki powerline-shell
 <a id="other"></a>
 ### Other things :art::
 
+<a id="kvm"></a>
 #### KVM:
 
 Dependencies:
@@ -186,6 +190,7 @@ sudo systemctl status libvirtd
 sudo usermod -G libvirt -a USERNAME
 ```
 
+<a id="lol"></a>
 #### League of Legends:
 
 ##### Install wine, lutris and dependencies:
@@ -227,6 +232,8 @@ If the value printed still says something like 4096, try the ulimits method belo
 
 ###### Install the game:
 [Select the one that says: "This is a compilation of the contributions from r/leagueoflinux reddit"](https://lutris.net/games/league-of-legends/)
+
+You need to let the client in the login page download everything it wants, THEN close it to complete the installation. Then, open the game and you should be able to log into the client without problems.
 
 ##### Final configs:
 Before starting the game, you will need to open a terminal and execute this command: 
