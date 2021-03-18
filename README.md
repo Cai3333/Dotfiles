@@ -19,7 +19,7 @@
   - [AUR 🚂](#aur)
   - [Other Installations :relaxed:](#other)
     - [KVM :computer:](#kvm)
-    - [League of Legends :monkey:] (#lol)
+    - [League of Legends :monkey:] (#league)
 - [Disclaimer ⚠️ ](#disclaimer)
 
 
@@ -189,7 +189,7 @@ sudo systemctl status libvirtd
 sudo usermod -G libvirt -a USERNAME
 ```
 
-<a id="lol"></a>
+<a id="league"></a>
 #### League of Legends:
 
 ##### Install wine, lutris and dependencies:
