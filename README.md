@@ -169,7 +169,7 @@ paru -S ant-dracula-kvantum-theme-git clipit nerd-fonts-mononoki powerline-shell
 <a id="other"></a>
 ### Other things :art::
 
-#### KVM Guide:
+#### KVM:
 
 Dependencies:
 
@@ -188,12 +188,12 @@ sudo usermod -G libvirt -a USERNAME
 
 #### League of Legends:
 
-Install wine and dependencies:
+##### Install wine, lutris and dependencies:
 
 ```bash
-sudo pacman -S wine-staging winetricks giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo libxcomposite lib32-libxcomposite libxinerama lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader cups samba dosbox 
+sudo pacman -S wine-staging winetricks giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo libxcomposite lib32-libxcomposite libxinerama lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader cups samba dosbox lutris 
 ```
-Drivers:
+##### Drivers (Nvidia):
 
 First, enable multilib.
 
@@ -206,8 +206,6 @@ Include = /etc/pacman.d/mirrorlist</pre>
 
 Then upgrade the system `sudo pacman -Syu`.
 
-### Nvidia:
-
 _**Warning**: Please ensure your graphics card is supported by modern Nvidia driver before installing._
 _For a list of supported GPUs click here: https://www.nvidia.com/Download/driverResults.aspx/149138/en-us_
 
@@ -215,8 +213,32 @@ Proprietary driver and support for Vulkan are required for proper functionality 
 
 To install it, execute following command:
 
-    sudo pacman -S nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader
+    sudo pacman -S nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader 
 
+###### Enable Esync compability:
+
+First step is to run the `ulimit -Hn` command. If the value printed is equal or greater to 524288 then you're all set, your system is ready to use Esync! If you are running Systemd 240 or later, this should already be the case.
+
+**Modifying Systemd configuration**<br> 
+You (with root privileges or `sudo`) need to edit both `/etc/systemd/system.conf` and `/etc/systemd/user.conf` by adding `DefaultLimitNOFILE=524288`. If `DefaultLimitNOFILE=` already exist in both `system.conf` and `user.conf`, add `524288` after `=` and make sure to uncomment the line (remove the `#`) to make it functional.<br><br>
+Once the files are edited, restart your computer for the changes to take effect. To verify if the limits were applied, run `ulimit -Hn` to see open files limit (it should report `524288`).<br>
+
+If the value printed still says something like 4096, try the ulimits method below.
+
+###### Install the game:
+[Select the one that says: "This is a compilation of the contributions from r/leagueoflinux reddit"](https://lutris.net/games/league-of-legends/)
+
+##### Final configs:
+Before starting the game, you will need to open a terminal and execute this command: 
+
+    sudo sh -c 'sysctl -w abi.vsyscall32=0'
+
+Once this is done, try starting the game. If it works, great, you have a working LoL installation, enjoy the game! (Though, you might want to check out the optimization section below.)
+
+If not, please check whether you have lib32-libldap installed. In my case, for example, without installing this dependency, the game simply refuses to launch.
+
+You can use this command for keeping the setting persistant:
+    sudo bash -c 'echo "abi.vsyscall32 = 0" >> /etc/sysctl.d/vsyscall.conf && sysctl -p'
 
 
 <a id="disclaimer"></a>
