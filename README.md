@@ -107,7 +107,7 @@ Note: `Win` refers to the `Super` key.
 
 ##
 
-Alright, let's get to the main stuff. Dependencies needed after installing ArcoLinux xmonad edition.
+Alright, let's get to the main stuff. These are the dependencies needed after installing ArcoLinux Xmonad edition.
 
 <a id="arch"></a>
 ### From Arch Linux's official repositories:
@@ -171,9 +171,13 @@ paru -S ant-dracula-kvantum-theme-git clipit nerd-fonts-mononoki powerline-shell
 
 #### KVM Guide:
 
+Dependencies:
+
 ```bash
 paru -S qemu virt-manager ebtables qemu-arch-extra ovmf dnsmasq bridge-utils openbsd-netcat
 ```
+
+Configuration:
 
 ```bash
 sudo systemctl enable libvirtd
@@ -181,6 +185,39 @@ sudo systemctl start libvirtd
 sudo systemctl status libvirtd
 sudo usermod -G libvirt -a USERNAME
 ```
+
+#### League of Legends:
+
+Install wine and dependencies:
+
+```bash
+sudo pacman -S wine-staging winetricks giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo libxcomposite lib32-libxcomposite libxinerama lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader cups samba dosbox 
+```
+Drivers:
+
+First, enable multilib.
+
+To enable multilib repository, uncomment the `[multilib]` section in `/etc/pacman.conf`
+
+<pre style="margin-bottom: 0; border-bottom:none; padding-bottom:0.8em;">/etc/pacman.conf
+--------------------------------------------------------------------------------------
+[multilib]
+Include = /etc/pacman.d/mirrorlist</pre>
+
+Then upgrade the system `sudo pacman -Syu`.
+
+### Nvidia:
+
+_**Warning**: Please ensure your graphics card is supported by modern Nvidia driver before installing._
+_For a list of supported GPUs click here: https://www.nvidia.com/Download/driverResults.aspx/149138/en-us_
+
+Proprietary driver and support for Vulkan are required for proper functionality of games.
+
+To install it, execute following command:
+
+    sudo pacman -S nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader
+
+
 
 <a id="disclaimer"></a>
 ## Disclaimer ⚠️
