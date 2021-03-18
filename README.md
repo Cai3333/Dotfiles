@@ -20,7 +20,6 @@
   - [Other Installations :relaxed:](#other)
     - [KVM :computer:](#kvm)
     - [League of Legendsi :monkey:] (#lol)
-    -
 - [Disclaimer ⚠️ ](#disclaimer)
 
 
