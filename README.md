@@ -19,7 +19,7 @@
   - [AUR 🚂](#aur)
   - [Other Installations :relaxed:](#other)
     - [KVM :computer:](#kvm)
-    - [League of Legends](#league)
+    - [League of Legends :monkey_face:](#league)
 - [Disclaimer ⚠️ ](#disclaimer)
 
 
