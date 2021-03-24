@@ -15,6 +15,9 @@ set splitbelow                          " Horizontal splits will automatically b
 set splitright                          " Vertical splits will automatically be to the right
 set t_Co=256                            " Support 256 colors
 set conceallevel=0                      " So that I can see `` in markdown files
+let g:vim_json_syntax_conceal = 0
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
 set expandtab                           " Converts tabs to spaces
 set tabstop=4                           " Insert 4 spaces for a tab
 set softtabstop=4
@@ -36,10 +39,13 @@ set formatoptions-=cro                  " Stop newline continution of comments
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 "set autochdir                          " Your working directory will always be the same as your working directory
 set noswapfile				            " Don't use swapfile
-set scrolloff=12				            " Keep space from bottom and top
+set scrolloff=12				        " Keep space from bottom and top
 set termguicolors
 autocmd BufEnter * silent! lcd %:p:h
-
+set textwidth=0
+set wrapmargin=1                        " The option wrapmargin defines the number of characters from the right window border where wrapping starts. This option is only used, if textwidth is set to zero.
+set formatoptions+=t                    " enables auto-wrap of text. By removing l from formatoptions, also lines that are already longer are wrapped.
+set formatoptions-=l
 
 au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 

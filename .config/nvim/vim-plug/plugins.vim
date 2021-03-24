@@ -18,9 +18,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
     " Theme
-    Plug 'dracula/vim', { 'as': 'dracula' }
-    Plug 'arcticicestudio/nord-vim'
-
+    Plug 'dracula/vim'
+    
     " Status line
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -72,14 +71,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Multicursor
     Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
-    Plug 'vimwiki/vimwiki'
-
     Plug 'vim-scripts/c.vim'
     Plug 'vim-scripts/SingleCompile'
 
     Plug 'godlygeek/tabular'
-    Plug 'plasticboy/vim-markdown'
     Plug 'lervag/vimtex'
+    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
     Plug 'Yggdroot/indentLine'
     Plug 'jdhao/better-escape.vim'
@@ -88,6 +85,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 call plug#end()
 
 colorscheme dracula
+
 
 " Automatically install missing plugins on startup
 autocmd VimEnter *
