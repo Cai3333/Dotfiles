@@ -444,6 +444,7 @@ myManageHook = composeAll
        className =? "Microsoft Teams - Preview" --> doShift (myWorkspaces !! 3),
        className =? "Steam" --> doShift (myWorkspaces !! 5),
        className =? "discord"               --> doShift (myWorkspaces !! 2),
+       className =? "megasync"               --> doShift (myWorkspaces !! 8),
        title =? "Create or select new Steam library folder:"     --> doFloat,
        title =? "zenity"                    --> doFloat,
        title =? "Steam Library Folders"     --> doFloat,
