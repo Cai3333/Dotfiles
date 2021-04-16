@@ -112,7 +112,7 @@ Alright, let's get to the main stuff. These are the dependencies needed after in
 ### From Arch Linux's official repositories:
 
 ```bash
-sudo pacman -S cmus dunst exa firefox fish fzf interl-undervolt kitty kvantum-qt5 libreoffice-still lxapperance lxsession maim mpv newboat nitrogen pcmanfm picom redshift stacer steam syncthing thefuck timeshift tpl ttf-font-awesome ttf-ubuntu-font-family vifm vlc xdotool xorg-xbacklight youtube-dl zathura zathura-pdf-mupdf 
+sudo pacman -S cmus dunst exa firefox fish fzf interl-undervolt kitty kvantum-qt5 libreoffice-still lxapperance lxsession maim mpv ncdu nitrogen pcmanfm picom redshift stacer steam syncthing thefuck timeshift tpl ttf-font-awesome ttf-ubuntu-font-family vifm vlc xdotool xorg-xbacklight youtube-dl zathura zathura-pdf-mupdf 
 ```
 -    cmus (:bind -f common u shell ~/bin/update-library.sh)
 -    dunst
@@ -129,6 +129,7 @@ sudo pacman -S cmus dunst exa firefox fish fzf interl-undervolt kitty kvantum-qt
 -    maim
 -    mpv
 -    newboat
+-    ncdu
 -    nitrogen
 -    pcmanfm
 -    picom
@@ -153,10 +154,12 @@ sudo pacman -S cmus dunst exa firefox fish fzf interl-undervolt kitty kvantum-qt
 ### From Arch Linux's AUR:
 
 ```bash
-paru -S ant-dracula-kvantum-theme-git clipit nerd-fonts-mononoki powerline-shell qimgv-git standardnotes-bin teams ttf-ms-fonts ttf-vista-fonts vscodium-bin 
+paru -S ant-dracula-kvantum-theme-git clipit cryptomator nerd-fonts-mononoki megasync powerline-shell qimgv-git standardnotes-bin teams ttf-ms-fonts ttf-vista-fonts vscodium-bin 
 ```
 -    ant-dracula-kvantum-theme-git
 -    clipit
+-    cryptomator
+-    megasync
 -    nerd-fonts-mononoki
 -    powerline-shell
 -    qimgv-git
