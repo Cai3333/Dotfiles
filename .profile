@@ -11,5 +11,5 @@ export READER=/usr/bin/zathura
 
 PATH=$HOME/bin:$PATH
 PATH=$HOME/.local/bin:$PATH
-PATH=$HOME/AppImages:$PATH
+PATH=$HOME/Applications:$PATH
 PATH=$HOME/.local/share/applications:$PATH
