@@ -34,12 +34,12 @@ import XMonad.Hooks.SetWMName
 import XMonad.Hooks.WorkspaceHistory
 
     -- Layouts
+import XMonad.Layout.Accordion
 import XMonad.Layout.GridVariants (Grid(Grid))
 import XMonad.Layout.SimplestFloat
 import XMonad.Layout.Spiral
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Tabbed
-import XMonad.Layout.ThreeColumns
 
     -- Layouts modifiers
 import XMonad.Layout.LayoutModifier
@@ -384,6 +384,11 @@ tabs     = renamed [Replace "tabs"]
            -- I cannot add spacing to this layout because it will
            -- add spacing between window and tabs which looks bad.
            $ tabbed shrinkText myTabTheme
+tallAccordion  = renamed [Replace "tallAccordion"]
+           $ Accordion
+wideAccordion  = renamed [Replace "wideAccordion"]
+           $ Mirror Accordion
+
 
 myTabTheme = def { fontName            = myFont
                  , activeColor         = "#c792ea"
@@ -406,6 +411,9 @@ myLayoutHook = avoidStruts $ mouseResize $ windowArrange $ T.toggleLayouts float
                                  ||| noBorders tabs
                                  ||| grid
                                  ||| spirals
+                                 ||| tallAccordion
+                                 ||| wideAccordion
+
 
 ------------------------------------------------------------------------
 -- WORKSPACES
@@ -444,7 +452,7 @@ myManageHook = composeAll
        className =? "Microsoft Teams - Preview" --> doShift (myWorkspaces !! 3),
        className =? "Steam" --> doShift (myWorkspaces !! 5),
        className =? "discord"               --> doShift (myWorkspaces !! 2),
-       className =? "megasync"               --> doShift (myWorkspaces !! 8),
+       className =? "MEGAsync"               --> doShift (myWorkspaces !! 5),
        title =? "Create or select new Steam library folder:"     --> doFloat,
        title =? "zenity"                    --> doFloat,
        title =? "Steam Library Folders"     --> doFloat,
