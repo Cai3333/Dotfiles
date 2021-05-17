@@ -52,21 +52,6 @@ ex ()
 
 ### ALIASES ###
 
-# git
-alias addup='git add -u'
-alias addall='git add .'
-alias branch='git branch'
-alias checkout='git checkout'
-alias clone='git clone'
-alias commit='git commit -m'
-alias fetch='git fetch'
-alias pull='git pull origin'
-alias push='git push origin'
-alias status='git status'
-alias tag='git tag'
-alias newtag='git tag -a'
-
-
 # Changing "ls" to "exa"
 alias la='exa -al --color=always --group-directories-first' # my preferred listing
 alias ls='exa -a --icons --color=always --group-directories-first'  # all files and dirs
@@ -95,6 +80,10 @@ alias .5='cd ../../../../..'
 # Emacs
 alias em="/usr/bin/emacs -nw"
 alias emacs="emacsclient -c -a 'emacs'"
+
+# Pacman and Paru
+alias pacfind="pacman -Slq | fzf --multi --preview 'cat <(pacman -Si {1}) <(pacman -Fl {1} | awk "{print \$2}")' | xargs -ro sudo pacman -S" # fzf pacman
+alias parufind="paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S"
 
 # youtube-dl
 alias yta="youtube-dl --extract-audio -o '~/Syncthing/Music/%(title)s.%(ext)s' --audio-format mp3 " 
@@ -125,13 +114,6 @@ alias psmem10='ps auxf | sort -nr -k 4 | head -10'
 
 # get error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
-
-# mail
-alias mail="neomutt"
-alias mailsync="mw -Y"
-
-# rss
-alias rss="newsboat"
 
 # git bare
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'

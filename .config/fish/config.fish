@@ -177,9 +177,12 @@ alias ll='exa -l --color=always --group-directories-first'  # long format
 alias lt='exa -aT --color=always --group-directories-first' # tree listing
 alias l.='exa -a | egrep "^\."'
 
-# pacman and yay
+# pacman and paru
 alias sp='sudo pacman'
 alias cleanup='sudo pacman -Rns (pacman -Qtdq)'  # remove orphaned packages
+alias pacfind="pacman -Slq | fzf --multi --preview 'cat <(pacman -Si {1}) <(pacman -Fl {1} | awk "{print \$2}")' | xargs -ro sudo pacman -S" # fzf pacman
+alias parufind="paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S"
+
 
 # get fastest mirrors
 alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
@@ -212,13 +215,6 @@ alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
 
 # get error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
-
-# mail
-alias mail="neomutt"
-alias mailsync="mw -Y"
-
-# rss
-alias rss="newsboat"
 
 # youtube-dl
 alias yta="youtube-dl --extract-audio -o '~/Syncthing/Music/%(title)s.%(ext)s' --audio-format mp3 " 
