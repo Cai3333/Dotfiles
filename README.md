@@ -112,7 +112,7 @@ Alright, let's get to the main stuff. These are the dependencies needed after in
 ### From Arch Linux's official repositories:
 
 ```bash
-sudo pacman -S cmus dunst exa firefox fish fzf intel-undervolt kitty kvantum-qt5 libreoffice-still lxappearance lxsession maim mpv ncdu nitrogen pcmanfm picom redshift stacer steam syncthing thefuck timeshift tlp ttf-font-awesome ttf-ubuntu-font-family vifm vlc xclip xdotool xorg-xbacklight xorg-xinput youtube-dl zathura zathura-pdf-mupdf 
+sudo pacman -S cmus dunst exa firefox fish fzf intel-undervolt kitty kvantum-qt5 libreoffice-still lxappearance lxsession maim mpv ncdu nitrogen pcmanfm picom redshift steam syncthing thefuck timeshift tlp ttf-font-awesome ttf-ubuntu-font-family vifm vlc xclip xdotool xorg-xbacklight xorg-xinput youtube-dl zathura zathura-pdf-mupdf 
 ```
 -    cmus (:bind -f common u shell ~/bin/update-library.sh)
 -    dunst
@@ -128,13 +128,11 @@ sudo pacman -S cmus dunst exa firefox fish fzf intel-undervolt kitty kvantum-qt5
 -    lxsession
 -    maim
 -    mpv
--    newboat
 -    ncdu
 -    nitrogen
 -    pcmanfm
 -    picom
 -    redshift (/etc/geoclue/geoclue.conf --> url=https://location.services.mozilla.com/v1/geolocate?key=geoclue)
--    stacer
 -    steam
 -    syncthing
 -    thefuck
@@ -156,7 +154,7 @@ sudo pacman -S cmus dunst exa firefox fish fzf intel-undervolt kitty kvantum-qt5
 ### From Arch Linux's AUR:
 
 ```bash
-paru -S ant-dracula-kvantum-theme-git clipit cryptomator ferdi-nightly-bin megasync neovim-nightly-bin nerd-fonts-mononoki powerline-shell qimgv-git standardnotes-bin teams ttf-ms-fonts ttf-vista-fonts vscodium-bin 
+paru -S ant-dracula-kvantum-theme-git clipit cryptomator ferdi-nightly-bin megasync neovim-nightly-bin nerd-fonts-mononoki powerline-shell qimgv-git stacer-bin timeshift-autosnap ttf-ms-fonts ttf-vista-fonts vscodium-bin 
 ```
 -    ant-dracula-kvantum-theme-git
 -    clipit
@@ -167,8 +165,10 @@ paru -S ant-dracula-kvantum-theme-git clipit cryptomator ferdi-nightly-bin megas
 -    nerd-fonts-mononoki
 -    powerline-shell
 -    qimgv-git
--    stacer
--    standardnotes-bin
+-    stacer-bin
+-    timeshift-autosnap
+-    ttf-ms-fonts 
+-    ttf-vista-fonts 
 -    vscodium-bin
 
 
