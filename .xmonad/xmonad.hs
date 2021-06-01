@@ -117,9 +117,7 @@ myStartupHook = do
           spawnOnce "picom &"
           spawnOnce "redshift &"
           spawnOnce "clipit &"
---          spawnOnce "xset s off -dpms &"
           spawnOnce "setxkbmap -option caps:escape &"
-          spawnOnce "discord &"
           spawnOnce "lxsession &"
           spawnOnce "syncthing &"
           spawnOnce "xinput set-prop 9 'Coordinate Transformation Matrix' 1 0 0 0 1 0 0 0 1 &"
@@ -452,6 +450,7 @@ myManageHook = composeAll
        className =? "Microsoft Teams - Preview" --> doShift (myWorkspaces !! 3),
        className =? "Steam" --> doShift (myWorkspaces !! 5),
        className =? "discord"               --> doShift (myWorkspaces !! 2),
+       className =? "Ferdi"               --> doShift (myWorkspaces !! 2),
        className =? "MEGAsync"               --> doShift (myWorkspaces !! 5),
        title =? "Create or select new Steam library folder:"     --> doFloat,
        title =? "zenity"                    --> doFloat,
@@ -508,7 +507,6 @@ myKeys =
         , ("M-S-<F2>", spawn ("librewolf"))
         , ("M-<F3>", spawn (myTerminal ++ " -e vifmrun"))
         , ("M-S-<F3>", spawn ("pcmanfm"))
-        , ("M-<F7>", spawn ("zathura $HOME/Syncthing/OnedriveSyncthing/TIMETABLE.pdf"))
         , ("M-<F9>", spawn ("dmenuunicode.sh"))             -- Run script found in ~/bin/
         , ("M-S-x", spawn ("xkill"))
 
@@ -603,12 +601,12 @@ myKeys =
         -- entire screen and save to clipboard
         , ("<Print>", spawn "maim | xclip -selection clipboard -t image/png")
         -- entire screen and save to clipboard and folder
-        , ("M-<Print>", spawn "maim | xclip -selection clipboard -t image/png; xclip -selection clipboard -t image/png -o > ~/Pictures/screenshots/$(date +%F-%H:%M:%S).png && notify-send 'image saved to ~/Pictures/screenshots'")
+        , ("M-<Print>", spawn "maim | xclip -selection clipboard -t image/png; xclip -selection clipboard -t image/png -o > ~/Syncthing/Shared/Personal/screenshots/$(date +%F-%H:%M:%S).png && notify-send 'image saved to Syncthing/screenshots'")
 
         -- select and save to clipboard
         , ("S-<Print>", spawn "maim -s | xclip -selection clipboard -t image/png")
         -- select and save to clipboard and folder
-        , ("M-S-<Print>", spawn "maim -s | xclip -selection clipboard -t image/png; xclip -selection clipboard -t image/png -o > ~/Pictures/screenshots/$(date +%F-%H:%M:%S).png && notify-send 'image saved to ~/Pictures/screenshots'")
+        , ("M-S-<Print>", spawn "maim -s | xclip -selection clipboard -t image/png; xclip -selection clipboard -t image/png -o > ~/Syncthing/Shared/Personal/screenshots/$(date +%F-%H:%M:%S).png && notify-send 'image saved to Syncthing/screenshots'")
         ]
     -- Appending search engine prompts to keybindings list.
     -- Look at "search engines" section of this config for values for "k".
