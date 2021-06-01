@@ -112,7 +112,7 @@ Alright, let's get to the main stuff. These are the dependencies needed after in
 ### From Arch Linux's official repositories:
 
 ```bash
-sudo pacman -S cmus dunst exa firefox fish fzf interl-undervolt kitty kvantum-qt5 libreoffice-still lxapperance lxsession maim mpv ncdu nitrogen pcmanfm picom redshift stacer steam syncthing thefuck timeshift tpl ttf-font-awesome ttf-ubuntu-font-family vifm vlc xdotool xorg-xbacklight youtube-dl zathura zathura-pdf-mupdf 
+sudo pacman -S cmus dunst exa firefox fish fzf intel-undervolt kitty kvantum-qt5 libreoffice-still lxappearance lxsession maim mpv ncdu nitrogen pcmanfm picom redshift stacer steam syncthing thefuck timeshift tlp ttf-font-awesome ttf-ubuntu-font-family vifm vlc xclip xdotool xorg-xbacklight xorg-xinput youtube-dl zathura zathura-pdf-mupdf 
 ```
 -    cmus (:bind -f common u shell ~/bin/update-library.sh)
 -    dunst
@@ -120,11 +120,11 @@ sudo pacman -S cmus dunst exa firefox fish fzf interl-undervolt kitty kvantum-qt
 -    firefox
 -    fish
 -    fzf
--    interl-undervolt
+-    intel-undervolt
 -    kitty
 -    kvantum-qt5
 -    libreoffice-still
--    lxapperance
+-    lxappearance
 -    lxsession
 -    maim
 -    mpv
@@ -139,13 +139,15 @@ sudo pacman -S cmus dunst exa firefox fish fzf interl-undervolt kitty kvantum-qt
 -    syncthing
 -    thefuck
 -    timeshift
--    tpl (systemctl enable/start tlp.service)
+-    tlp (systemctl enable --now tlp.service)
 -    ttf-font-awesome
 -    ttf-ubuntu-font-family
 -    vifm
 -    vlc
+-    xclip
 -    xdotool
 -    xorg-xbacklight
+-    xorg-xinput
 -    youtube-dl
 -    zathura
 -    zathura-pdf-mupdf
@@ -154,12 +156,14 @@ sudo pacman -S cmus dunst exa firefox fish fzf interl-undervolt kitty kvantum-qt
 ### From Arch Linux's AUR:
 
 ```bash
-paru -S ant-dracula-kvantum-theme-git clipit cryptomator nerd-fonts-mononoki megasync powerline-shell qimgv-git standardnotes-bin teams ttf-ms-fonts ttf-vista-fonts vscodium-bin 
+paru -S ant-dracula-kvantum-theme-git clipit cryptomator ferdi-nightly-bin megasync neovim-nightly-bin nerd-fonts-mononoki powerline-shell qimgv-git standardnotes-bin teams ttf-ms-fonts ttf-vista-fonts vscodium-bin 
 ```
 -    ant-dracula-kvantum-theme-git
 -    clipit
 -    cryptomator
+-    ferdi-nightly-bin
 -    megasync
+-    neovim-nightly-bin
 -    nerd-fonts-mononoki
 -    powerline-shell
 -    qimgv-git
