@@ -112,8 +112,9 @@ Alright, let's get to the main stuff. These are the dependencies needed after in
 ### From Arch Linux's official repositories:
 
 ```bash
-sudo pacman -S cmus dunst exa firefox fish fzf intel-undervolt kitty kvantum-qt5 libreoffice-still lxappearance lxsession maim mpv ncdu nitrogen pcmanfm picom redshift steam syncthing thefuck tlp ttf-font-awesome ttf-ubuntu-font-family vifm vlc xclip xdotool xorg-xbacklight xorg-xinput youtube-dl zathura zathura-pdf-mupdf 
+sudo pacman -S cbatticon cmus dunst exa firefox fish fzf intel-undervolt kitty kvantum-qt5 libreoffice-still lxappearance lxsession maim mpv ncdu nitrogen papirus-icon-theme pcmanfm picom redshift steam syncthing thefuck tlp ttf-font-awesome ttf-ubuntu-font-family upower vifm vlc xclip xdotool xorg-xbacklight xorg-xinput youtube-dl zathura zathura-pdf-mupdf 
 ```
+-    cbatticon
 -    cmus (:bind -f common u shell ~/bin/update-library.sh)
 -    dunst
 -    exa
@@ -130,6 +131,7 @@ sudo pacman -S cmus dunst exa firefox fish fzf intel-undervolt kitty kvantum-qt5
 -    mpv
 -    ncdu
 -    nitrogen
+-    papirus-icon-theme
 -    pcmanfm
 -    picom
 -    redshift (/etc/geoclue/geoclue.conf --> url=https://location.services.mozilla.com/v1/geolocate?key=geoclue)
@@ -139,6 +141,7 @@ sudo pacman -S cmus dunst exa firefox fish fzf intel-undervolt kitty kvantum-qt5
 -    tlp (systemctl enable --now tlp.service)
 -    ttf-font-awesome
 -    ttf-ubuntu-font-family
+-    upower
 -    vifm
 -    vlc
 -    xclip
@@ -153,11 +156,12 @@ sudo pacman -S cmus dunst exa firefox fish fzf intel-undervolt kitty kvantum-qt5
 ### From Arch Linux's AUR:
 
 ```bash
-paru -S ant-dracula-kvantum-theme-git clipit ferdi-nightly-bin megasync neovim-nightly-bin nerd-fonts-mononoki powerline-shell qimgv-git stacer-bin timeshift-autosnap ttf-ms-fonts ttf-vista-fonts vscodium-bin 
+paru -S ant-dracula-kvantum-theme-git clipit ferdi-nightly-bin fluent-reader megasync neovim-nightly-bin nerd-fonts-mononoki powerline-shell qimgv-git stacer-bin timeshift-autosnap ttf-ms-fonts ttf-vista-fonts vscodium-bin 
 ```
 -    ant-dracula-kvantum-theme-git
 -    clipit
 -    ferdi-nightly-bin
+-    fluent-reader
 -    megasync
 -    neovim-nightly-bin
 -    nerd-fonts-mononoki
