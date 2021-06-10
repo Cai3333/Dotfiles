@@ -114,15 +114,6 @@ altMask = mod1Mask         -- Setting this for use in xprompts
 myStartupHook :: X ()
 myStartupHook = do
           spawnOnce "nitrogen --restore &"
-          spawnOnce "picom &"
-          spawnOnce "redshift &"
-          spawnOnce "setxkbmap -option caps:escape &"
-          spawnOnce "lxsession &"
-          spawnOnce "syncthing &"
-          spawnOnce "nm-applet &"
-	      spawnOnce "setxkbmap es &"
-          spawnOnce "xinput set-prop 9 'Coordinate Transformation Matrix' 1 0 0 0 1 0 0 0 1 &"
-
 
 ------------------------------------------------------------------------
 -- XPROMPT SETTINGS
@@ -280,8 +271,6 @@ searchList = [ ("a", archwiki)
 myScratchPads :: [NamedScratchpad]
 myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                 , NS "cmus" spawnCmus findCmus manageCmus
-                , NS "tutanota" spawnTuta findTuta manageTuta
-                , NS "newsboat" spawnRss findRss manageRss
                 , NS "fluent-reader" spawnfr findfr managefr
                 ]
   where
@@ -296,22 +285,6 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
     spawnCmus  = myTerminal ++ " --name cmus -e cmus"
     findCmus   = resource =? "cmus"
     manageCmus = customFloating $ W.RationalRect l t w h
-               where
-                 h = 0.9
-                 w = 0.9
-                 t = 0.95 -h
-                 l = 0.95 -w
-    spawnTuta = "tutanota-desktop"
-    findTuta  = className =? "tutanota-desktop"
-    manageTuta= customFloating $ W.RationalRect l t w h
-               where
-                 h = 0.9
-                 w = 0.9
-                 t = 0.95 -h
-                 l = 0.95 -w
-    spawnRss = myTerminal ++ " --name newsboat -e newsboat"
-    findRss  = resource =? "newsboat"
-    manageRss= customFloating $ W.RationalRect l t w h
                where
                  h = 0.9
                  w = 0.9
@@ -578,8 +551,6 @@ myKeys =
     -- Scratchpads
         , ("M-<F1>", namedScratchpadAction myScratchPads "terminal")
         , ("M-<F4>", namedScratchpadAction myScratchPads "cmus")
-        , ("M-<F5>", namedScratchpadAction myScratchPads "tutanota")
-        , ("M-S-<F6>", namedScratchpadAction myScratchPads "newsboat")
         , ("M-<F6>", namedScratchpadAction myScratchPads "fluent-reader")
 
     -- Controls for cmus music player (SUPER-u followed by a key)
