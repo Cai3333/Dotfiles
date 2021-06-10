@@ -39,10 +39,11 @@ fi
 nitrogen --restore &
 picom &
 redshift &
+cbatticon &
 setxkbmap -option caps:escape &
 xsetroot -cursor_name left_ptr &
 xinput set-prop 9 'Coordinate Transformation Matrix' 1 0 0 0 1 0 0 0 1 &
-xset s off &
+xset s off -dpms &
 syncthing &
 lxsession & 
 exec xmonad
