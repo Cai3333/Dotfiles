@@ -112,7 +112,7 @@ Alright, let's get to the main stuff. These are the dependencies needed after in
 ### From Arch Linux's official repositories:
 
 ```bash
-sudo pacman -S cmus dunst exa firefox fish fzf intel-undervolt kitty kvantum-qt5 libreoffice-still lxappearance lxsession maim mpv ncdu nitrogen pcmanfm picom redshift steam syncthing thefuck timeshift tlp ttf-font-awesome ttf-ubuntu-font-family vifm vlc xclip xdotool xorg-xbacklight xorg-xinput youtube-dl zathura zathura-pdf-mupdf 
+sudo pacman -S cmus dunst exa firefox fish fzf intel-undervolt kitty kvantum-qt5 libreoffice-still lxappearance lxsession maim mpv ncdu nitrogen pcmanfm picom redshift steam syncthing thefuck tlp ttf-font-awesome ttf-ubuntu-font-family vifm vlc xclip xdotool xorg-xbacklight xorg-xinput youtube-dl zathura zathura-pdf-mupdf 
 ```
 -    cmus (:bind -f common u shell ~/bin/update-library.sh)
 -    dunst
@@ -136,7 +136,6 @@ sudo pacman -S cmus dunst exa firefox fish fzf intel-undervolt kitty kvantum-qt5
 -    steam
 -    syncthing
 -    thefuck
--    timeshift
 -    tlp (systemctl enable --now tlp.service)
 -    ttf-font-awesome
 -    ttf-ubuntu-font-family
@@ -154,11 +153,10 @@ sudo pacman -S cmus dunst exa firefox fish fzf intel-undervolt kitty kvantum-qt5
 ### From Arch Linux's AUR:
 
 ```bash
-paru -S ant-dracula-kvantum-theme-git clipit cryptomator ferdi-nightly-bin megasync neovim-nightly-bin nerd-fonts-mononoki powerline-shell qimgv-git stacer-bin timeshift-autosnap ttf-ms-fonts ttf-vista-fonts vscodium-bin 
+paru -S ant-dracula-kvantum-theme-git clipit ferdi-nightly-bin megasync neovim-nightly-bin nerd-fonts-mononoki powerline-shell qimgv-git stacer-bin timeshift-autosnap ttf-ms-fonts ttf-vista-fonts vscodium-bin 
 ```
 -    ant-dracula-kvantum-theme-git
 -    clipit
--    cryptomator
 -    ferdi-nightly-bin
 -    megasync
 -    neovim-nightly-bin
