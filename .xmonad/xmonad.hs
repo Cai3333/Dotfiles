@@ -116,10 +116,11 @@ myStartupHook = do
           spawnOnce "nitrogen --restore &"
           spawnOnce "picom &"
           spawnOnce "redshift &"
-          spawnOnce "clipit &"
           spawnOnce "setxkbmap -option caps:escape &"
           spawnOnce "lxsession &"
           spawnOnce "syncthing &"
+          spawnOnce "nm-applet &"
+	      spawnOnce "setxkbmap es &"
           spawnOnce "xinput set-prop 9 'Coordinate Transformation Matrix' 1 0 0 0 1 0 0 0 1 &"
 
 

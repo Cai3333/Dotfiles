@@ -150,3 +150,5 @@ set skip-completed-text on
 eval "$(thefuck --alias)"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+source .profile
