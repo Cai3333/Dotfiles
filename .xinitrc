@@ -8,28 +8,16 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
-
-
-
-
-
-
-
     xrdb -merge $sysresources
-
 fi
+
+setxkbmap es &
 
 if [ -f $sysmodmap ]; then
     xmodmap $sysmodmap
 fi
 
 if [ -f "$userresources" ]; then
-
-
-
-
-
-
 
     xrdb -merge "$userresources"
 
@@ -48,4 +36,14 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
+nitrogen --restore &
+picom &
+redshift &
+setxkbmap -option caps:escape &
+xsetroot -cursor_name left_ptr &
+xinput set-prop 9 'Coordinate Transformation Matrix' 1 0 0 0 1 0 0 0 1 &
+xset s off &
+syncthing &
+lxsession & 
 exec xmonad
+
