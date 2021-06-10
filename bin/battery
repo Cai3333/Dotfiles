@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 # If this script doesn't work look at the output of upower -e and upower -d
