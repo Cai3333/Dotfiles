@@ -46,7 +46,6 @@ set textwidth=0
 set wrapmargin=1                        " The option wrapmargin defines the number of characters from the right window border where wrapping starts. This option is only used, if textwidth is set to zero.
 set formatoptions+=t                    " enables auto-wrap of text. By removing l from formatoptions, also lines that are already longer are wrapped.
 set formatoptions-=l
-set undofile
 
 au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 

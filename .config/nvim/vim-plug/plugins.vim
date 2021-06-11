@@ -82,6 +82,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'jdhao/better-escape.vim'
     Plug 'honza/vim-snippets'
 
+    Plug 'arp242/undofile_warn.vim'
+
 call plug#end()
 
 colorscheme dracula
