@@ -479,7 +479,7 @@ myKeys =
         , ("M-<Return>", spawn (myTerminal ++ " -e fish"))  -- Runs default terminal with fish
         , ("M-<F2>", spawn (myBrowser))
         , ("M-S-<F2>", spawn ("librewolf"))
-        , ("M-<F3>", spawn (myTerminal ++ " -e vifmrun"))
+        , ("M-<F3>", spawn (myTerminal ++ " -e ranger"))
         , ("M-S-<F3>", spawn ("pcmanfm"))
         , ("M-<F9>", spawn ("dmenuunicode.sh"))             -- Run script found in ~/bin/
         , ("M-S-x", spawn ("xkill"))
