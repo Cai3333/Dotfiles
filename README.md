@@ -112,7 +112,7 @@ Alright, let's get to the main stuff. These are the dependencies needed after in
 ### From Arch Linux's official repositories:
 
 ```bash
-sudo pacman -S cbatticon cmus dunst exa firefox fish fzf intel-undervolt kitty kvantum-qt5 libreoffice-still lxappearance lxsession maim mpv ncdu nitrogen papirus-icon-theme pcmanfm picom redshift steam syncthing thefuck tlp ttf-font-awesome ttf-ubuntu-font-family upower vifm vlc xclip xdotool xorg-xbacklight xorg-xinput youtube-dl zathura zathura-pdf-mupdf 
+sudo pacman -S cbatticon cmus dunst exa firefox fish fzf gvfs intel-undervolt kitty kvantum-qt5 libreoffice-still lxappearance lxsession maim mpv ncdu nitrogen pacman-contrib papirus-icon-theme pcmanfm picom ranger redshift steam syncthing thefuck tlp ttf-font-awesome ttf-ubuntu-font-family ueberzug upower vlc xclip xdotool xorg-xbacklight xorg-xinput youtube-dl zathura zathura-pdf-mupdf 
 ```
 -    cbatticon
 -    cmus (:bind -f common u shell ~/bin/update-library.sh)
@@ -121,6 +121,7 @@ sudo pacman -S cbatticon cmus dunst exa firefox fish fzf intel-undervolt kitty k
 -    firefox
 -    fish
 -    fzf
+-    gvfs
 -    intel-undervolt
 -    kitty
 -    kvantum-qt5
@@ -131,9 +132,11 @@ sudo pacman -S cbatticon cmus dunst exa firefox fish fzf intel-undervolt kitty k
 -    mpv
 -    ncdu
 -    nitrogen
+-    pacman-contrib
 -    papirus-icon-theme
 -    pcmanfm
 -    picom
+-    ranger
 -    redshift (/etc/geoclue/geoclue.conf --> url=https://location.services.mozilla.com/v1/geolocate?key=geoclue)
 -    steam
 -    syncthing
@@ -141,8 +144,8 @@ sudo pacman -S cbatticon cmus dunst exa firefox fish fzf intel-undervolt kitty k
 -    tlp (systemctl enable --now tlp.service)
 -    ttf-font-awesome
 -    ttf-ubuntu-font-family
+-    ueberzug
 -    upower
--    vifm
 -    vlc
 -    xclip
 -    xdotool
