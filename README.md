@@ -112,7 +112,7 @@ Alright, let's get to the main stuff. These are the dependencies needed after in
 ### From Arch Linux's official repositories:
 
 ```bash
-sudo pacman -S cbatticon cmus dunst exa firefox fish fzf gvfs intel-undervolt kitty kvantum-qt5 libreoffice-still lxappearance lxsession maim mpv ncdu nitrogen pacman-contrib papirus-icon-theme pcmanfm picom ranger redshift steam syncthing thefuck tlp ttf-font-awesome ttf-ubuntu-font-family ueberzug upower vlc xclip xdotool xorg-xbacklight xorg-xinput youtube-dl zathura zathura-pdf-mupdf 
+sudo pacman -S cbatticon cmus dunst exa firefox fish fzf gvfs intel-undervolt kitty kvantum-qt5 libreoffice-still lxappearance lxsession maim mpv ncdu nitrogen pacman-contrib papirus-icon-theme pcmanfm picom ranger redshift steam syncthing thefuck tlp ttf-ubuntu-font-family ueberzug upower vlc xclip xdotool xorg-xbacklight xorg-xinput youtube-dl zathura zathura-pdf-mupdf 
 ```
 -    cbatticon
 -    cmus (:bind -f common u shell ~/bin/update-library.sh)
@@ -142,7 +142,6 @@ sudo pacman -S cbatticon cmus dunst exa firefox fish fzf gvfs intel-undervolt ki
 -    syncthing
 -    thefuck
 -    tlp (systemctl enable --now tlp.service)
--    ttf-font-awesome
 -    ttf-ubuntu-font-family
 -    ueberzug
 -    upower
