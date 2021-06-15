@@ -1,6 +1,5 @@
 <h1 align="center">🚀✨ My dotfiles! ✨🚀</h1>
 
-
 <p align="center">
   <a href="https://github.com/FuzzyGrim/dotfiles/stargazers"><img src="https://img.shields.io/github/stars/FuzzyGrim/dotfiles?color=ffd5cd&style=for-the-badge&logo=starship"></a>
   <a href="https://github.com/FuzzyGrim/dotfiles/issues"><img src="https://img.shields.io/github/issues/FuzzyGrim/dotfiles?color=d35d6e&style=for-the-badge&logo=codecov"></a>
@@ -158,9 +157,10 @@ sudo pacman -S cbatticon cmus dunst exa firefox fish fzf gvfs intel-undervolt ki
 ### From Arch Linux's AUR:
 
 ```bash
-paru -S ant-dracula-kvantum-theme-git clipit ferdi-nightly-bin fluent-reader megasync neovim-nightly-bin nerd-fonts-mononoki powerline-shell qimgv-git stacer-bin timeshift-autosnap ttf-ms-fonts ttf-vista-fonts vscodium-bin 
+paru -S ant-dracula-kvantum-theme-git auto-cpufreq clipit ferdi-nightly-bin fluent-reader megasync neovim-nightly-bin nerd-fonts-mononoki powerline-shell qimgv-git stacer-bin timeshift-autosnap ttf-ms-fonts ttf-vista-fonts vscodium-bin 
 ```
 -    ant-dracula-kvantum-theme-git
+-    auto-cpufreq
 -    clipit
 -    ferdi-nightly-bin
 -    fluent-reader
