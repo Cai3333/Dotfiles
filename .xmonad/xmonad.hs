@@ -28,7 +28,7 @@ import XMonad.Hooks.DynamicLog (dynamicLogWithPP, wrap, xmobarPP, xmobarColor, s
 import XMonad.Hooks.EwmhDesktops  -- for some fullscreen events, also for xcomposite in obs.
 import XMonad.Hooks.FadeInactive
 import XMonad.Hooks.ManageDocks (avoidStruts, docksEventHook, manageDocks, ToggleStruts(..))
-import XMonad.Hooks.ManageHelpers (isFullscreen, doFullFloat)
+import XMonad.Hooks.ManageHelpers (isFullscreen, doFullFloat, doCenterFloat)
 import XMonad.Hooks.ServerMode
 import XMonad.Hooks.SetWMName
 import XMonad.Hooks.WorkspaceHistory
@@ -426,10 +426,10 @@ myManageHook = composeAll
        className =? "discord"               --> doShift (myWorkspaces !! 2),
        className =? "Ferdi"               --> doShift (myWorkspaces !! 2),
        className =? "MEGAsync"               --> doShift (myWorkspaces !! 5),
-       title =? "Create or select new Steam library folder:"     --> doFloat,
+       title =? "Create or select new Steam library folder:"     --> doCenterFloat,
+       title =? "Steam Library Folders"     --> doCenterFloat,
+       title =? "Steam - News"              --> doCenterFloat,
        title =? "zenity"                    --> doFloat,
-       title =? "Steam Library Folders"     --> doFloat,
-       title =? "Oracle VM VirtualBox Manager"     --> doFloat,
        className =? "confirm"               --> doFloat,
        className =? "dialog"                --> doFloat,
        className =? "download"              --> doFloat,
@@ -444,9 +444,9 @@ myManageHook = composeAll
        className =? "leagueclientux.exe"    --> doFloat,
        className =? "Wine"                  --> doFloat,
        className =? "Manage History"        --> doFloat,
-       className =? "Pavucontrol"           --> doFloat,
+       className =? "Pavucontrol"           --> doCenterFloat,
        title =? "Microsoft Teams Notification" --> doFloat,
-       (className =? "firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
+       (className =? "firefox" <&&> resource =? "Dialog") --> doCenterFloat  -- Float Firefox Dialog
      ] <+> namedScratchpadManageHook myScratchPads
 
 ------------------------------------------------------------------------
