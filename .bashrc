@@ -152,3 +152,5 @@ eval "$(thefuck --alias)"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 source .profile
+
+source /home/xilac/.config/broot/launcher/bash/br
