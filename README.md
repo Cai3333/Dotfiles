@@ -111,12 +111,13 @@ Alright, let's get to the main stuff. These are the dependencies needed after in
 ### From Arch Linux's official repositories:
 
 ```bash
-sudo pacman -S cbatticon cmus dunst exa firefox fish fzf gvfs intel-undervolt kitty kvantum-qt5 libreoffice-still lxappearance lxsession maim mpv ncdu nitrogen pacman-contrib papirus-icon-theme pcmanfm picom ranger redshift steam syncthing thefuck tlp ttf-ubuntu-font-family ueberzug upower vlc xclip xdotool xorg-xbacklight xorg-xinput youtube-dl zathura zathura-pdf-mupdf 
+sudo pacman -S broot cbatticon cmus dunst exa firefox fish fzf gvfs intel-undervolt kitty kvantum-qt5 libreoffice-still lxappearance lxsession maim mpv nitrogen pacman-contrib papirus-icon-theme pcmanfm picom ranger redshift steam syncthing thefuck tlp ttf-ubuntu-font-family ueberzug upower vlc xclip xdotool xorg-xbacklight xorg-xinput youtube-dl zathura zathura-pdf-mupdf 
 ```
+-    broot (A better way to navigate directories)
 -    cbatticon
 -    cmus (:bind -f common u shell ~/bin/update-library.sh)
 -    dunst
--    exa
+-    exa (A modern replacement for ls)
 -    firefox
 -    fish
 -    fzf
@@ -129,7 +130,6 @@ sudo pacman -S cbatticon cmus dunst exa firefox fish fzf gvfs intel-undervolt ki
 -    lxsession
 -    maim
 -    mpv
--    ncdu
 -    nitrogen
 -    pacman-contrib
 -    papirus-icon-theme
@@ -157,13 +157,14 @@ sudo pacman -S cbatticon cmus dunst exa firefox fish fzf gvfs intel-undervolt ki
 ### From Arch Linux's AUR:
 
 ```bash
-paru -S ant-dracula-kvantum-theme-git auto-cpufreq clipit ferdi-nightly-bin fluent-reader megasync neovim-nightly-bin nerd-fonts-mononoki powerline-shell qimgv-git stacer-bin timeshift-autosnap ttf-ms-fonts ttf-vista-fonts vscodium-bin 
+paru -S ant-dracula-kvantum-theme-git auto-cpufreq clipit ferdi-nightly-bin fluent-reader gdu-binmegasync neovim-nightly-bin nerd-fonts-mononoki powerline-shell qimgv-git stacer-bin timeshift-autosnap ttf-ms-fonts ttf-vista-fonts vscodium-bin 
 ```
 -    ant-dracula-kvantum-theme-git
 -    auto-cpufreq
 -    clipit
 -    ferdi-nightly-bin
 -    fluent-reader
+-    gdu-bin (Pretty fast disk usage analyzer written in Go)
 -    megasync
 -    neovim-nightly-bin
 -    nerd-fonts-mononoki
