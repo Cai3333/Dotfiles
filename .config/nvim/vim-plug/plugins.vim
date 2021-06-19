@@ -8,6 +8,8 @@ endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 
+
+    Plug 'jeffkreeftmeijer/vim-numbertoggle'
     " Better Syntax Support
     Plug 'sheerun/vim-polyglot'
 
@@ -24,8 +26,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 
-    Plug 'jeffkreeftmeijer/vim-numbertoggle'
-
+    " Ranger support
     Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
 
     " Fzf
@@ -71,12 +72,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Multicursor
     Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
-    Plug 'vim-scripts/c.vim'
-    Plug 'vim-scripts/SingleCompile'
-
     Plug 'godlygeek/tabular'
-    Plug 'lervag/vimtex'
-    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
     Plug 'Yggdroot/indentLine'
     Plug 'jdhao/better-escape.vim'
@@ -84,9 +80,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     Plug 'arp242/undofile_warn.vim'
 
+    Plug 'lervag/vimtex'
+
 call plug#end()
 
 colorscheme dracula
+let g:dracula_italic = 0
 
 
 " Automatically install missing plugins on startup

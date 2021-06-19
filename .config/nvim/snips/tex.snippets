@@ -1,11 +1,17 @@
-snippet meta
+snippet template
 \documentclass{article}
+\usepackage[utf8]{inputenc}
+
 \title{$1}
 \author{Xila Cai}
+\date{`date +%F`}
 
 \begin{document}
 
 \maketitle
+
+\section{Introducción}
+
 
 \end{document}
 endsnippet
@@ -38,4 +44,8 @@ endsnippet
 
 snippet ref
 \ref{{$1}}
+endsnippet
+
+snippet today "Date"
+`date +%F`
 endsnippet

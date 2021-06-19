@@ -34,10 +34,7 @@ let g:startify_bookmarks = [
             \ { 'q': '~/.config/qtile/config.py' },
             \ { 'i': '~/.config/nvim/init.vim' },
             \ { 'b': '~/.bashrc' },
-            \ '~/Documents/Python/Alien-Invasion',
             \ '~/Downloads',
-            \ '~/Pictures',
-            \ '~/Music',
             \ ]
 
 let g:startify_enable_special = 0

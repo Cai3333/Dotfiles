@@ -2,15 +2,15 @@
 inoremap <expr> <c-j> ("\<C-n>")
 inoremap <expr> <c-k> ("\<C-p>")
 
-" Use alt + hjkl to resize windows
+" Use alt + shift + hjkl to resize windows
 nnoremap <A-S-j>    :resize -2<CR>
 nnoremap <A-S-k>    :resize +2<CR>
 nnoremap <A-S-h>    :vertical resize -2<CR>
 nnoremap <A-S-l>    :vertical resize +2<CR>
 
 " Easy CAPS
-inoremap <c-u> <ESC>viwUi
-nnoremap <c-u> viwU<Esc>
+inoremap <A-u> <ESC>viwUi
+nnoremap <A-u> viwU<Esc>
 
 " TAB in general mode will move to text buffer
 nnoremap <TAB> :bnext<CR>
@@ -50,14 +50,5 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
-" Use 0 to jump to beginning
-nnoremap <Home> 0
-
-map <F8> :w! \| !comp <c-r>%<CR><CR>
 map <F7> :!opout <c-r>%<CR><CR>
-
-" Compile C code
-" nnoremap <silent> <F8> :w <CR> :!clear;gcc % -o %< && ./%< <CR>
-noremap <F9> :SCCompile<cr>
-noremap <F10> :SCCompileRun<cr>
-
+map <F8> :w! \| !comp <c-r>%<CR><CR>

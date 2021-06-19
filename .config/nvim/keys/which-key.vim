@@ -24,18 +24,16 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
 
 " Single mappings
-let g:which_key_map['/'] = [ '<Plug>NERDCommenterToggle'  , 'comment' ]
 let g:which_key_map['e'] = [ ':CocCommand explorer'       , 'explorer' ]
 let g:which_key_map['r'] = [ ':RnvimrToggle'              , 'ranger' ]
 let g:which_key_map['f'] = [ ':Files'                     , 'search files' ]
 let g:which_key_map['h'] = [ '<C-W>s'                     , 'split below']
-let g:which_key_map['S'] = [ ':Startify'                  , 'start screen' ]
 let g:which_key_map['T'] = [ ':Rg'                        , 'search text' ]
 let g:which_key_map['v'] = [ '<C-W>v'                     , 'split right']
 
 " s is for search
-let g:which_key_map.s = {
-      \ 'name' : '+search' ,
+let g:which_key_map.F = {
+      \ 'name' : '+FZF' ,
       \ '/' : [':History/'              , 'history'],
       \ ';' : [':FzfPreviewCommandPalette'              , 'commands'],
       \ 'a' : [':Ag'                    , 'text Ag'],
@@ -63,31 +61,6 @@ let g:which_key_map.s = {
       \ 'y' : [':Filetypes'             , 'file types'],
       \ 'z' : [':FZF'                   , 'FZF'],
       \ }
-" b is for buffer
-let g:which_key_map.b = {
-      \ 'name' : '+buffer' ,
-      \ '>' : [':BufferMoveNext'        , 'move next'],
-      \ '<' : [':BufferMovePrevious'    , 'move prev'],
-      \ '1' : [':BufferGoto 1'          , 'buffer 1'],
-      \ '2' : [':BufferGoto 2'          , 'buffer 2'],
-      \ '3' : [':BufferGoto 3'          , 'buffer 3'],
-      \ '4' : [':BufferGoto 4'          , 'buffer 4'],
-      \ '5' : [':BufferGoto 5'          , 'buffer 5'],
-      \ '6' : [':BufferGoto 6'          , 'buffer 6'],
-      \ '7' : [':BufferGoto 7'          , 'buffer 7'],
-      \ '8' : [':BufferGoto 8'          , 'buffer 8'],
-      \ '9' : [':BufferGoto 9'          , 'buffer 9'],
-      \ '0' : [':BufferGoto 0'          , 'buffer 0'],
-      \ 'b' : [':BufferPick'            , 'pick buffer'],
-      \ 'd' : [':Bdelete'               , 'delete-buffer'],
-      \ 'D' : [':BufferOrderByDirectory', 'order by directory'],
-      \ 'f' : ['bfirst'                 , 'first-buffer'],
-      \ 'l' : ['blast'                  , 'last buffer'],
-      \ 'L' : [':BufferOrderByLanguage' , 'order by language'],
-      \ 'n' : ['bnext'                  , 'next-buffer'],
-      \ 'p' : ['bprevious'              , 'previous-buffer'],
-      \ '?' : ['Buffers'                , 'fzf-buffer'],
-      \ }
 
 let g:which_key_map.t = {
       \ 'name' : '+terminal' ,
@@ -100,7 +73,28 @@ let g:which_key_map.t = {
       \ 't' : [':FloatermToggle'                                , 'toggle'],
       \ }
 
-let g:which_key_map.l = {
+let g:which_key_map.g = {
+      \ 'name' : '+git' ,
+      \ 'a' : [':Git add'       , 'add'],
+      \ 'c' : [':Git commit'    , 'commit'],
+      \ 'p' : [':Git push'      , 'push'],
+      \ 'l' : [':Git pull'      , 'pull'],
+      \ 'd' : [':Git diff'      , 'diff'],
+      \ 's' : [':Gdiffsplit'    , 'split diff'],
+      \ 'g' : [':Gbrowse'       , 'open Github'],
+      \ 'b' : [':GV'            , 'commit browser'],
+      \ 'f' : [':GV?'           , 'current file commits'],
+      \ }
+
+let g:which_key_map.S = {
+      \ 'name' : '+startify' ,
+      \ 'l' : [':SLoad'             , 'load session'],
+      \ 's' : [':SSave[!]'          , 'save session'],
+      \ 'd' : [':SDelete[!]'        , 'delete session'],
+      \ 'c' : [':SClose'            , 'close session'],
+      \ }
+
+let g:which_key_map.L = {
       \ 'name' : '+lsp' ,
       \ '.' : [':CocConfig'                          , 'config'],
       \ ';' : ['<Plug>(coc-refactor)'                , 'refactor'],
