@@ -151,3 +151,7 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " Explorer
 nmap <space>e :CocCommand explorer<CR>
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
+
+" Spell Checker
+vmap <space>a <Plug>(coc-codeaction-selected)
+nmap <space>a <Plug>(coc-codeaction-selected)

@@ -1,4 +1,3 @@
-autocmd FileType tex setlocal spell spelllang=es
 au BufRead *.tex let g:indentLine_setConceal = 0
 let g:tex_flavor='latex'
 let g:vimtex_view_method = 'zathura'

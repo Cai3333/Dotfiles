@@ -81,6 +81,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'arp242/undofile_warn.vim'
 
     Plug 'lervag/vimtex'
+    Plug 'neovimhaskell/haskell-vim'
 
 call plug#end()
 
