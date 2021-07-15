@@ -111,25 +111,25 @@ Alright, let's get to the main stuff. These are the dependencies needed after in
 ### From Arch Linux's official repositories:
 
 ```bash
-sudo pacman -S broot cbatticon cmus dunst exa firefox fish fzf gvfs intel-undervolt kitty kvantum-qt5 libreoffice-still lxappearance lxsession maim mpv nitrogen pacman-contrib papirus-icon-theme pcmanfm picom ranger redshift steam syncthing thefuck tlp ttf-ubuntu-font-family ueberzug upower vlc xclip xdotool xorg-xbacklight xorg-xinput youtube-dl zathura zathura-pdf-mupdf 
+sudo pacman -S broot cbatticon cmus dunst exa exfatprogs firefox fish fzf gvfs intel-undervolt kitty lxappearance lxsession maim mpv neovim nitrogen pacman-contrib papirus-icon-theme pcmanfm picom ranger redshift steam syncthing thefuck tlp ttf-font-awesome ttf-ubuntu-font-family ueberzug upower vlc xclip xdotool xorg-xbacklight xorg-xinput youtube-dl zathura zathura-pdf-mupdf 
 ```
 -    broot (A better way to navigate directories)
 -    cbatticon
 -    cmus (:bind -f common u shell ~/bin/update-library.sh)
 -    dunst
 -    exa (A modern replacement for ls)
+-    exfatprogs
 -    firefox
 -    fish
 -    fzf
 -    gvfs
 -    intel-undervolt
 -    kitty
--    kvantum-qt5
--    libreoffice-still
 -    lxappearance
 -    lxsession
 -    maim
 -    mpv
+-    neovim
 -    nitrogen
 -    pacman-contrib
 -    papirus-icon-theme
@@ -141,6 +141,7 @@ sudo pacman -S broot cbatticon cmus dunst exa firefox fish fzf gvfs intel-underv
 -    syncthing
 -    thefuck
 -    tlp (systemctl enable --now tlp.service)
+-    ttf-font-awesome
 -    ttf-ubuntu-font-family
 -    ueberzug
 -    upower
@@ -157,20 +158,20 @@ sudo pacman -S broot cbatticon cmus dunst exa firefox fish fzf gvfs intel-underv
 ### From Arch Linux's AUR:
 
 ```bash
-paru -S ant-dracula-kvantum-theme-git auto-cpufreq clipit ferdi-nightly-bin fluent-reader gdu-binmegasync neovim-nightly-bin nerd-fonts-mononoki powerline-shell qimgv-git stacer-bin timeshift-autosnap ttf-ms-fonts ttf-vista-fonts vscodium-bin 
+paru -S auto-cpufreq clipit cryptomator ferdi-nightly-bin fluent-reader freetube-bin gdu-bin megasync nerd-fonts-mononoki qimgv-git stacer-bin timeshift timeshift-autosnap ttf-ms-fonts ttf-vista-fonts vscodium-bin 
 ```
--    ant-dracula-kvantum-theme-git
 -    auto-cpufreq
 -    clipit
+-    cryptomator
 -    ferdi-nightly-bin
 -    fluent-reader
+-    freetube-bin
 -    gdu-bin (Pretty fast disk usage analyzer written in Go)
 -    megasync
--    neovim-nightly-bin
 -    nerd-fonts-mononoki
--    powerline-shell
 -    qimgv-git
 -    stacer-bin
+-    timeshift
 -    timeshift-autosnap
 -    ttf-ms-fonts 
 -    ttf-vista-fonts 
