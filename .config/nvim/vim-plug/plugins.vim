@@ -10,8 +10,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
 
     Plug 'jeffkreeftmeijer/vim-numbertoggle'
-    " Better Syntax Support
-    Plug 'sheerun/vim-polyglot'
 
     " Auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'

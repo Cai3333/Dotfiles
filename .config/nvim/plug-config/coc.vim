@@ -90,13 +90,6 @@ augroup mygroup
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
-" Applying codeAction to the selected region.
-" Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-" Remap keys for applying codeAction to the current buffer.
-nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
 
@@ -151,7 +144,3 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " Explorer
 nmap <space>e :CocCommand explorer<CR>
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
-
-" Spell Checker
-vmap <space>a <Plug>(coc-codeaction-selected)
-nmap <space>a <Plug>(coc-codeaction-selected)

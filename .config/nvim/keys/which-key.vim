@@ -56,7 +56,7 @@ let g:which_key_map.F = {
 
 let g:which_key_map.t = {
       \ 'name' : '+terminal' ,
-      \ ';' : [':FloatermNew --wintype=normal --position=right --width=0.3'       , 'terminal'],
+      \ ';' : [':FloatermNew --wintype=normal --height=0.4'       , 'terminal'],
       \ 'c' : [':FloatermNew gramma check %'                    , 'gramma'],
       \ 'f' : [':FloatermNew fzf'                               , 'fzf'],
       \ 'g' : [':FloatermNew lazygit'                           , 'git'],
