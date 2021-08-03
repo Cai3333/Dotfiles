@@ -111,7 +111,7 @@ Alright, let's get to the main stuff. These are the dependencies needed after in
 ### From Arch Linux's official repositories:
 
 ```bash
-sudo pacman -S broot cbatticon cmus dunst exa exfatprogs firefox fish fzf gvfs intel-undervolt kitty lxappearance lxsession maim mpv neovim nitrogen pacman-contrib papirus-icon-theme pcmanfm picom ranger redshift steam syncthing thefuck tlp ttf-font-awesome ttf-ubuntu-font-family ueberzug upower vlc xclip xdotool xorg-xbacklight xorg-xinput youtube-dl zathura zathura-pdf-mupdf 
+sudo pacman -S broot cbatticon cmus dunst exa exfatprogs firefox fish fzf gvfs intel-undervolt kitty lxappearance lxsession maim mpv neovim feh pacman-contrib papirus-icon-theme pcmanfm picom ranger redshift steam syncthing thefuck tlp ttf-font-awesome ttf-ubuntu-font-family ueberzug upower vlc xclip xdotool xorg-xbacklight xorg-xinput youtube-dl zathura zathura-pdf-mupdf 
 ```
 -    broot (A better way to navigate directories)
 -    cbatticon
@@ -130,7 +130,7 @@ sudo pacman -S broot cbatticon cmus dunst exa exfatprogs firefox fish fzf gvfs i
 -    maim
 -    mpv
 -    neovim
--    nitrogen
+-    feh
 -    pacman-contrib
 -    papirus-icon-theme
 -    pcmanfm
