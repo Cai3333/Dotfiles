@@ -350,4 +350,13 @@ return packer.startup(function()
          require("core.mappings").vim_fugitive()
       end,
    }
+
+   use {
+      "folke/which-key.nvim",
+      config = function()
+        require("which-key").setup {}
+      end
+    }
+
+   use 'beauwilliams/focus.nvim'
 end)

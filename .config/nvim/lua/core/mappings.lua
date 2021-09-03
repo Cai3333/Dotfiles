@@ -69,6 +69,14 @@ M.misc = function()
       map("n", maps.new_tab, ":tabnew <CR>") -- new tabs
       map("n", maps.line_number_toggle, ":set nu! <CR>") -- toggle numbers
       map("n", maps.save_file, ":w <CR>") -- ctrl + s to save file
+      map("n", maps.inc_height, ":resize +2 <CR>")
+      map("n", maps.dec_height, ":resize -2 <CR>")
+      map("n", maps.inc_width, ":vertical resize +2 <CR>")
+      map("n", maps.dec_width, ":vertical resize -2 <CR>")
+      map("n", maps.line_up, ":m +1 <CR>")
+      map("n", maps.line_down, ":m -2 <CR>")
+      map("v", maps.visual_line_up, ":m '>+1<CR>gv=gv")
+      map("v", maps.visualline_down, ":m '<-2<CR>gv=gv")
 
       -- terminal mappings --
       local term_maps = maps.terminal

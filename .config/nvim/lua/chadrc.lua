@@ -43,9 +43,9 @@ M.options = {
    cmdheight = 1,
    copy_cut = true, -- copy cut text ( x key ), visual and normal mode
    copy_del = true, -- copy deleted text ( dd key ), visual and normal mode
-   expandtab = true,
-   hidden = true,
-   ignorecase = true,
+   expandtab = true, -- Converts tabs to spaces
+   hidden = true, -- Required to keep multiple buffers open multiple buffers
+   ignorecase = true, -- Case insensitive autocomplete
    insert_nav = true, -- navigation in insertmode
    mapleader = " ",
    mouse = "a",
@@ -53,16 +53,29 @@ M.options = {
    -- relative numbers in normal mode tool at the bottom of options.lua
    numberwidth = 2,
    permanent_undo = true,
-   shiftwidth = 2,
+   shiftwidth = 4,
    smartindent = true,
-   tabstop = 8, -- Number of spaces that a <Tab> in the file counts for
+   autoindent = true, -- Good auto indent
+   smarttab = true, -- Makes tabbing smarter will realize you have 2 vs 4
+   tabstop = 4, -- Number of spaces that a <Tab> in the file counts for
+   softtabstop = 4, 
    timeoutlen = 400,
-   relativenumber = false,
+   relativenumber = true,
    ruler = false,
    updatetime = 250,
    -- used for updater
    update_url = "https://github.com/NvChad/NvChad",
    update_branch = "main",
+   modifiable = true,
+   splitbelow = true, -- Horizontal splits will automatically be below
+   splitright = true, -- Vertical splits will automatically be to the right
+   autochdir = true, -- Your working directory will always be the same as your working file
+   scrolloff = 12, -- Keep space from bottom and top
+   textwidth = 0,
+   wrapmargin = 1,
+   formatoptions = "jcroqt",
+   noshowmode = true,
+   noswapfile = true,
 }
 
 -- these are plugin related options
@@ -90,7 +103,7 @@ M.plugin_status = {
    neoscroll = true, -- smooth scroll
    telescope_media = false, -- see media files in telescope picker
    truezen = false, -- no distraction mode for nvim
-   vim_fugitive = false, -- git in nvim
+   vim_fugitive = true, -- git in nvim
    vim_matchup = true, -- % magic, match it but improved
 }
 
@@ -116,6 +129,14 @@ M.mappings = {
    new_tab = "<C-t>b", -- open a new vim tab
    save_file = "<C-s>", -- save file using :w
    theme_toggler = "<leader>tt", -- for theme toggler, see in ui.theme_toggler
+   inc_height = "<A-S-k>",
+   dec_height = "<A-S-j>",
+   inc_width = "<A-S-l>",
+   dec_width = "<A-S-h>",
+   line_up = "<A-j>",
+   line_down = "<A-k>",
+   visual_line_up = "<A-j>",
+   visualline_down = "<A-k>",
 
    -- terminal related mappings
    terminal = {

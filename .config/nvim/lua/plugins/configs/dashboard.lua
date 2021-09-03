@@ -36,5 +36,5 @@ g.dashboard_custom_section = {
 g.dashboard_custom_footer = {
    "   ",
    -- "NvChad Loaded " .. plugins_count .. " plugins",
-   "NvChad v0.5",
+   "My neovim config",
 }
