@@ -58,6 +58,7 @@ M.options = {
    noswapfile = true,
 }
 
+-- NvChad included plugin options & overrides
 M.plugins = {
    -- enable and disable plugins (false for disable)
       status = {
@@ -104,29 +105,13 @@ M.plugins = {
       -- timeout to be used for using escape with a key combination, see mappings.plugins.better_escape
       esc_insertmode_timeout = 300,
    },
-   default_plugin_config_replace = {},
+   default_plugin_config_replace = {
+      luasnip = "custom.luasnip",
+   },
 }
 
 M.ui = {
   theme = "chadracula"
-}
-
--- NvChad included plugin options & overrides
-M.plugins = {
-   options = {
-       lspconfig = {
-         servers = {"html", "cssls", "pyright"},
-      },
-   },
-   -- To change the Packer `config` of a plugin that comes with NvChad,
-   -- add a table entry below matching the plugin github name
-   --              '-' -> '_', remove any '.lua', '.nvim' extensions
-   -- this string will be called in a `require`
-   --              use "(custom.configs).my_func()" to call a function
-   --              use "custom.blankline" to call a file
-   default_plugin_config_replace = {
-      luasnip = "custom.luasnip",
-   },
 }
 
 return M
