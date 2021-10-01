@@ -13,7 +13,8 @@ bufferline.setup {
       offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
       buffer_close_icon = "",
       modified_icon = "",
-      close_icon = "%@NvChad_bufferline_quitvim@%X",
+      -- close_icon = "%@NvChad_bufferline_quitvim@%X",
+      close_icon = "",
       show_close_icon = true,
       left_trunc_marker = "",
       right_trunc_marker = "",
@@ -60,6 +61,16 @@ bufferline.setup {
          gui = "bold",
       },
       buffer_visible = {
+         guifg = colors.light_grey,
+         guibg = colors.black2,
+      },
+
+      -- for diagnostics = "nvim_lsp"
+      error = {
+         guifg = colors.light_grey,
+         guibg = colors.black2,
+      },
+      error_diagnostic = {
          guifg = colors.light_grey,
          guibg = colors.black2,
       },
