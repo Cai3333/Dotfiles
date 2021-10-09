@@ -113,7 +113,7 @@ altMask = mod1Mask         -- Setting this for use in xprompts
 ------------------------------------------------------------------------
 myStartupHook :: X ()
 myStartupHook = do
-          spawnOnce "nitrogen --restore &"
+          spawnOnce ""
 
 ------------------------------------------------------------------------
 -- XPROMPT SETTINGS
@@ -182,11 +182,9 @@ systemPromptCmds = [
     ]
 
 codePromptCmds = [
-        ("bash", spawn (myTerminal ++ " -e nvim ~/.bashrc")),
-        ("Qtile", spawn (myTerminal ++ " -e nvim ~/.config/qtile/config.py")),
-        ("i3", spawn (myTerminal ++ " -e nvim ~/.config/i3/config")),
         ("Xmonad", spawn (myTerminal ++ " -e nvim ~/.xmonad/xmonad.hs")),
-        ("fish", spawn (myTerminal ++ " -e nvim ~/.config/fish/config.fish"))
+        ("fish", spawn (myTerminal ++ " -e nvim ~/.config/fish/config.fish")),
+        ("bash", spawn (myTerminal ++ " -e nvim ~/.bashrc"))
     ]
 
 ------------------------------------------------------------------------
@@ -272,6 +270,7 @@ myScratchPads :: [NamedScratchpad]
 myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                 , NS "cmus" spawnCmus findCmus manageCmus
                 , NS "fluent-reader" spawnfr findfr managefr
+                , NS "lofi" spawnLofi findLofi manageLofi
                 ]
   where
     spawnTerm  = myTerminal ++ " --name scratchpad"
@@ -298,6 +297,14 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                  w = 1
                  t = 1 -h
                  l = 1 -w
+    spawnLofi = myTerminal ++ " --name lofi -e lofi-terminal -u 'https://www.youtube.com/watch?v=5qap5aO4i9A'"
+    findLofi   = resource =? "lofi"
+    manageLofi = customFloating $ W.RationalRect l t w h
+               where
+                 h = 0.9
+                 w = 0.9
+                 t = 0.95 -h
+                 l = 0.95 -w
 
 ------------------------------------------------------------------------
 -- LAYOUTS
@@ -478,22 +485,18 @@ myKeys =
     -- Useful programs to have a keybinding for launch
         , ("M-<Return>", spawn (myTerminal ++ " -e fish"))  -- Runs default terminal with fish
         , ("M-<F2>", spawn (myBrowser))
-        , ("M-S-<F2>", spawn ("librewolf"))
         , ("M-<F3>", spawn (myTerminal ++ " -e ranger"))
         , ("M-S-<F3>", spawn ("pcmanfm"))
-        , ("M-<F9>", spawn ("dmenuunicode.sh"))             -- Run script found in ~/bin/
+        , ("M-<F9>", spawn ("dmenuunicode"))             -- Run script found in ~/bin/
         , ("M-S-x", spawn ("xkill"))
-
-    -- Controls for system (SUPER-0 followed by a key)
-        , ("M-u p", spawn "cmus-remote -u")
-        , ("M-u l", spawn "cmus-remote -n")
-        , ("M-u h", spawn "cmus-remote -r")
 
     -- Kill windows
         , ("M-S-q", kill1)                         -- Kill the currently focused client
         , ("M-S-a", killAll)                       -- Kill all windows on current workspace
 
-    -- Workspaces
+    -- Workspaceslofi-terminal -u "https://www.youtube.com/watch?v=5qap5aO4i9A"
+        , ("M-.", nextScreen)  -- Switch focus to next monitor
+        , ("M-,", prevScreen)  -- Switch focus to prev monitor
         , ("M-S-<KP_Add>", shiftTo Next nonNSP >> moveTo Next nonNSP)       -- Shifts focused window to next ws
         , ("M-S-<KP_Subtract>", shiftTo Prev nonNSP >> moveTo Prev nonNSP)  -- Shifts focused window to prev ws
 
@@ -551,13 +554,15 @@ myKeys =
     -- Scratchpads
         , ("M-<F1>", namedScratchpadAction myScratchPads "terminal")
         , ("M-<F4>", namedScratchpadAction myScratchPads "cmus")
+        , ("M-<F5>", namedScratchpadAction myScratchPads "lofi")
         , ("M-<F6>", namedScratchpadAction myScratchPads "fluent-reader")
+
 
     -- Controls for cmus music player (SUPER-u followed by a key)
         , ("M-u p", spawn "cmus-remote -u")
         , ("M-u l", spawn "cmus-remote -n")
         , ("M-u h", spawn "cmus-remote -r")
-        , ("M-+", spawn ("cmus-remote -v +5%"))
+        , ("M-=", spawn ("cmus-remote -v +5%"))
         , ("M--", spawn ("cmus-remote -v -5%"))
 
     -- Multimedia Keys
@@ -597,8 +602,9 @@ myKeys =
 ------------------------------------------------------------------------
 main :: IO ()
 main = do
-    -- Launching three instances of xmobar on their monitors.
+    -- Launching instances of xmobar on their monitors.
     xmproc0 <- spawnPipe "xmobar -x 0 ~/.config/xmobar/xmobarrc0"
+    xmproc1 <- spawnPipe "xmobar -x 1 ~/.config/xmobar/xmobarrc1"
     -- the xmonad, ya know...what the WM is named after!
     xmonad $ ewmh def
         { manageHook = ( isFullscreen --> doFullFloat ) <+> myManageHook <+> manageDocks
@@ -620,8 +626,9 @@ main = do
         , focusedBorderColor = myFocusColor
         , logHook = workspaceHistoryHook <+> myLogHook <+> dynamicLogWithPP xmobarPP
                         { ppOutput = \x -> hPutStrLn xmproc0 x
+                                        >> hPutStrLn xmproc1 x    
                         , ppCurrent = xmobarColor "#98be65" "" . wrap " [" "] " -- Current workspace in xmobar
-                        , ppVisible = xmobarColor "#98be65" ""                -- Visible but not current workspace
+                        , ppVisible = xmobarColor "#98be65" "" .wrap "" "*"                -- Visible but not current workspace
                         , ppHidden = xmobarColor "#c792ea" "" . wrap "" ""    -- Hidden workspaces in xmobar
                         , ppHiddenNoWindows = xmobarColor "#82AAFF" ""        -- Hidden workspaces (no windows)
                         , ppTitle = xmobarColor "#b3afc2" "" . shorten 60     -- Title of active window in xmobar
