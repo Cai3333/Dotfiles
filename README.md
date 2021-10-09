@@ -48,8 +48,8 @@ Even if you're not, just look through the gallery 📷:
 
 <a id="gal"></a>
 <img src='https://github.com/FuzzyGrim/dotfiles/blob/master/screenshots/default.png'>
-<img src='https://github.com/FuzzyGrim/dotfiles/blob/master/screenshots/1'>
-<img src='https://github.com/FuzzyGrim/dotfiles/blob/master/screenshots/2'>
+<img src='https://github.com/FuzzyGrim/dotfiles/blob/master/screenshots/1.png'>
+<img src='https://github.com/FuzzyGrim/dotfiles/blob/master/screenshots/2.png'>
 
 
 <a id="workflow"></a>
@@ -64,7 +64,7 @@ Even if you're not, just look through the gallery 📷:
 <a id="keybinds"></a>
 ## Keybinds ✍️
 
-These are the basic keybinds. Read through the `.xmonad/xmonad.hs` file for more keybindings.
+These are the basic keybinds. Read through the `.xmonad/xmonad.hs` file for more keybinds like increasing gaps and restoring gaps.
 
 | Keybind                |                  Function                   |
 | ---------------------- |  ----------------------------------------   |
@@ -73,7 +73,6 @@ These are the basic keybinds. Read through the `.xmonad/xmonad.hs` file for more
 | `Win + Shift + q`      |                Close window                 |
 | `Win + SPACE`          |          toggles fullscreen on/off          |
 | `Win + 1-9`            |       switch focus to workspace (1-9)       |
-| `Win + .`              |       switch focus to next monitor          |
 | `Win + SHIFT + 1-9`    |   send focused window to workspace (1-9)    |
 | `Win + Shift + r`      |               restarts xmonad               |
 | `Win + j`              |          Navigate through windows           |
@@ -84,6 +83,8 @@ These are the basic keybinds. Read through the `.xmonad/xmonad.hs` file for more
 | `MODKEY + l`           |                expand window                |
 | `Win + TAB`            |           Switch through layouts            |
 | `Win + T`              |        Make a floating window tiled         |
+
+Note: `Toggling` means to enable if inactive or to disable if active.
 
 
 Note: `Win` refers to the `Super` key.
@@ -148,7 +149,7 @@ sudo pacman -S cbatticon cmus dunst exa exfatprogs firefox fish fzf gvfs intel-u
 ### From Arch Linux's AUR:
 
 ```bash
-paru -S auto-cpufreq clipit cryptomator ferdi-nightly-bin fluent-reader freetube-bin joplin-desktop megasync nerd-fonts-mononoki timeshift timeshift-autosnap ttf-ms-fonts ttf-vista-fonts vscodium-bin 
+paru -S auto-cpufreq clipit cryptomator ferdi-nightly-bin fluent-reader freetube-bin joplin-desktop megasync nerd-fonts-mononoki stacer-bin timeshift timeshift-autosnap ttf-ms-fonts ttf-vista-fonts vscodium-bin 
 ```
 -    auto-cpufreq
 -    clipit
@@ -159,6 +160,7 @@ paru -S auto-cpufreq clipit cryptomator ferdi-nightly-bin fluent-reader freetube
 -    joplin-desktop
 -    megasync
 -    nerd-fonts-mononoki
+-    stacer-bin
 -    timeshift
 -    timeshift-autosnap
 -    ttf-ms-fonts 
