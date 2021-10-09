@@ -13,7 +13,7 @@
 - [Gallery 📷](#gal)
 - [Workflow 🖨️](#workflow)
 - [Keybinds ✍️](#keybinds)
-- [Personal installation (ArcoLinux Xmonad) 🤵‍](#inst)
+- [Installation (Arch Linux) 🤵‍](#inst)
   - [Official repositories 🌇](#arch)
   - [AUR 🚂](#aur)
 - [Disclaimer ⚠️ ](#disclaimer)
@@ -24,12 +24,16 @@
 ## About:
 
 
-- **[xmonad](https://github.com/FuzzyGrim/dotfiles/blob/master/.xmonad/xmonad.hs)**
-- **[xmobar](https://github.com/FuzzyGrim/dotfiles/tree/master/.config/xmobar/xmobarrc0)**
-- **[firefox](https://github.com/FuzzyGrim/dotfiles/blob/master/.mozilla/firefox/r056xtue.default-release/chrome/userChrome.css)**
-- **[zathura](https://github.com/FuzzyGrim/dotfiles/tree/master/.config/zathura/zathurarc)**
-- **[dunst](https://github.com/FuzzyGrim/dotfiles/blob/master/.config/dunst/dunstrc)**
-- *Insert more stuff here*
+- Browser: **[Firefox](https://github.com/FuzzyGrim/dotfiles/blob/master/.mozilla/firefox/r056xtue.default-release/chrome/userChrome.css)**
+- Fonts: Ubunto Mono
+- WM: **[Xmonad](https://github.com/FuzzyGrim/dotfiles/blob/master/.xmonad/xmonad.hs)**
+- Bar: **[Xmobar](https://github.com/FuzzyGrim/dotfiles/tree/master/.config/xmobar/xmobarrc0)**
+- Terminal: **[Kitty](https://github.com/FuzzyGrim/dotfiles/tree/master/.config/kitty)**
+- Editor: **[Neovim](https://github.com/FuzzyGrim/dotfiles/tree/master/.config/nvim)**
+- Shell: **[Fish](https://github.com/FuzzyGrim/dotfiles/tree/master/.config/fish)**
+- Prompt: **[Startship](https://github.com/FuzzyGrim/dotfiles/blob/master/.config/starship.toml)**
+- Viewer: **[Zathura](https://github.com/FuzzyGrim/dotfiles/tree/master/.config/zathura/zathurarc)**
+- Notification: **[Dunst](https://github.com/FuzzyGrim/dotfiles/blob/master/.config/dunst/dunstrc)**
 
 
 Hello! Thank you for dropping by! 👋
@@ -44,8 +48,8 @@ Even if you're not, just look through the gallery 📷:
 
 <a id="gal"></a>
 <img src='https://github.com/FuzzyGrim/dotfiles/blob/master/screenshots/default.png'>
-<img src='https://github.com/FuzzyGrim/dotfiles/blob/master/screenshots/main.png'>
-<img src='https://github.com/FuzzyGrim/dotfiles/blob/master/screenshots/firefox_zathura.png'>
+<img src='https://github.com/FuzzyGrim/dotfiles/blob/master/screenshots/1'>
+<img src='https://github.com/FuzzyGrim/dotfiles/blob/master/screenshots/2'>
 
 
 <a id="workflow"></a>
@@ -60,7 +64,7 @@ Even if you're not, just look through the gallery 📷:
 <a id="keybinds"></a>
 ## Keybinds ✍️
 
-These are the basic keybinds. Read through the `.xmonad/xmonad.hs` file for more keybinds like increasing gaps and restoring gaps.
+These are the basic keybinds. Read through the `.xmonad/xmonad.hs` file for more keybindings.
 
 | Keybind                |                  Function                   |
 | ---------------------- |  ----------------------------------------   |
@@ -69,6 +73,7 @@ These are the basic keybinds. Read through the `.xmonad/xmonad.hs` file for more
 | `Win + Shift + q`      |                Close window                 |
 | `Win + SPACE`          |          toggles fullscreen on/off          |
 | `Win + 1-9`            |       switch focus to workspace (1-9)       |
+| `Win + .`              |       switch focus to next monitor          |
 | `Win + SHIFT + 1-9`    |   send focused window to workspace (1-9)    |
 | `Win + Shift + r`      |               restarts xmonad               |
 | `Win + j`              |          Navigate through windows           |
@@ -80,28 +85,12 @@ These are the basic keybinds. Read through the `.xmonad/xmonad.hs` file for more
 | `Win + TAB`            |           Switch through layouts            |
 | `Win + T`              |        Make a floating window tiled         |
 
-Note: `Toggling` means to enable if inactive or to disable if active.
-
 
 Note: `Win` refers to the `Super` key.
 
 
 <a id="inst"></a>
 ## Installation 🤵‍
-
-### Introduction of Linux Rice
-
-<details>
-<summary>Please read <a target="_blank" href="https://crispgm.com/page/the-fascinating-arch-linux-rice.html">this</a> and <a target="_blank" href="https://jie-fang.github.io/blog/basics-of-ricing">this</a>.</summary>
-  
-<br>
-
-<p align="center"><a href="#introduction-of-linux-rice"><img src="https://i.redd.it/yu0auhxk5nyz.png" alt="unixporn"/></a></p>
-
-</details>
-
-
-<a id="inst"></a>
 
 ##
 
@@ -111,9 +100,8 @@ Alright, let's get to the main stuff. These are the dependencies needed after in
 ### From Arch Linux's official repositories:
 
 ```bash
-sudo pacman -S broot cbatticon cmus dunst exa exfatprogs firefox fish fzf gvfs intel-undervolt kitty lxappearance lxsession maim mpv neovim feh pacman-contrib papirus-icon-theme pcmanfm picom ranger redshift steam syncthing thefuck tlp ttf-font-awesome ttf-ubuntu-font-family ueberzug upower vlc xclip xdotool xorg-xbacklight xorg-xinput youtube-dl zathura zathura-pdf-mupdf 
+sudo pacman -S cbatticon cmus dunst exa exfatprogs firefox fish fzf gvfs intel-undervolt kitty lxappearance lxsession maim mpv ncdu nitrogen neovim pacman-contrib papirus-icon-theme pcmanfm picom ranger redshift steam syncthing thefuck tlp ttf-font-awesome ttf-ubuntu-font-family ueberzug unclutter upower vlc xclip xdotool xorg-xbacklight xorg-xinput youtube-dl zathura zathura-pdf-mupdf 
 ```
--    broot (A better way to navigate directories)
 -    cbatticon
 -    cmus (:bind -f common u shell ~/bin/update-library.sh)
 -    dunst
@@ -129,8 +117,9 @@ sudo pacman -S broot cbatticon cmus dunst exa exfatprogs firefox fish fzf gvfs i
 -    lxsession
 -    maim
 -    mpv
+-    ncdu
+-    nitrogen
 -    neovim
--    feh
 -    pacman-contrib
 -    papirus-icon-theme
 -    pcmanfm
@@ -144,6 +133,7 @@ sudo pacman -S broot cbatticon cmus dunst exa exfatprogs firefox fish fzf gvfs i
 -    ttf-font-awesome
 -    ttf-ubuntu-font-family
 -    ueberzug
+-    unclutter
 -    upower
 -    vlc
 -    xclip
@@ -158,7 +148,7 @@ sudo pacman -S broot cbatticon cmus dunst exa exfatprogs firefox fish fzf gvfs i
 ### From Arch Linux's AUR:
 
 ```bash
-paru -S auto-cpufreq clipit cryptomator ferdi-nightly-bin fluent-reader freetube-bin gdu-bin megasync nerd-fonts-mononoki qimgv-git stacer-bin timeshift timeshift-autosnap ttf-ms-fonts ttf-vista-fonts vscodium-bin 
+paru -S auto-cpufreq clipit cryptomator ferdi-nightly-bin fluent-reader freetube-bin joplin-desktop megasync nerd-fonts-mononoki timeshift timeshift-autosnap ttf-ms-fonts ttf-vista-fonts vscodium-bin 
 ```
 -    auto-cpufreq
 -    clipit
@@ -166,11 +156,9 @@ paru -S auto-cpufreq clipit cryptomator ferdi-nightly-bin fluent-reader freetube
 -    ferdi-nightly-bin
 -    fluent-reader
 -    freetube-bin
--    gdu-bin (Pretty fast disk usage analyzer written in Go)
+-    joplin-desktop
 -    megasync
 -    nerd-fonts-mononoki
--    qimgv-git
--    stacer-bin
 -    timeshift
 -    timeshift-autosnap
 -    ttf-ms-fonts 
