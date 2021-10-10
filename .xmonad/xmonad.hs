@@ -576,15 +576,20 @@ myKeys =
         , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 10")
         
         -- entire screen and save to clipboard
-        , ("<Print>", spawn "maim | xclip -selection clipboard -t image/png")
+        , ("<Print>", spawn "maim | xclip -selection clipboard -t image/png && notify-send 'image saved to clipboard'")
         -- entire screen and save to clipboard and folder
-        , ("M-<Print>", spawn "maim | xclip -selection clipboard -t image/png; xclip -selection clipboard -t image/png -o > ~/Syncthing/Shared/Personal/screenshots/$(date +%F-%H:%M:%S).png && notify-send 'image saved to Syncthing/screenshots'")
+        , ("M-<Print>", spawn "maim ~/Syncthing/Shared/Personal/screenshots/$(date +%F-%H:%M:%S).png | xclip -selection clipboard -t image/png && notify-send 'image saved to Syncthing/screenshots'")
+         -- focused window and save to clipboard and folder
+        , ("M-M1-<Print>", spawn "maim -i $(xdotool getactivewindow) ~/Syncthing/Shared/Personal/screenshots/$(date +%F-%H:%M:%S).png | xclip -selection clipboard -t image/png && notify-send 'image saved to Syncthing/screenshots'")
 
         -- select and save to clipboard
-        , ("S-<Print>", spawn "maim -s | xclip -selection clipboard -t image/png")
+        , ("S-<Print>", spawn "maim -s | xclip -selection clipboard -t image/png && notify-send 'image saved to clipboard'")
         -- select and save to clipboard and folder
         , ("M-S-<Print>", spawn "maim -s | xclip -selection clipboard -t image/png; xclip -selection clipboard -t image/png -o > ~/Syncthing/Shared/Personal/screenshots/$(date +%F-%H:%M:%S).png && notify-send 'image saved to Syncthing/screenshots'")
+        -- select and save RGB, has the ability to average out the pixel values of an area.
+        , ("M-S-p", spawn "maim -st 0 | convert - -resize 1x1! -format '%[pixel:p{0,0}]' info:- | xclip -sel clip && notify-send 'RGB saved to clipboard'")
         ]
+
     -- Appending search engine prompts to keybindings list.
     -- Look at "search engines" section of this config for values for "k".
         ++ [("M-s " ++ k, S.promptSearch dtXPConfig' f) | (k,f) <- searchList ]
