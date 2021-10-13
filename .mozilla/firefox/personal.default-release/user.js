@@ -271,18 +271,17 @@ user_pref("browser.urlbar.speculativeConnect.enabled", false);
 user_pref("dom.event.clipboardevents.enabled", false);
 
 
+// Disables playback of DRM-controlled HTML5 content, which, if enabled, 
+// automatically downloads the Widevine Content Decryption Module provided by Google Inc.
+user_pref("media.eme.enabled", false);
+
+
 // Websites can track the microphone and camera status of your device.
 user_pref("media.navigator.enabled", false);
 
 
 // Only accept from the originating site (block third-party cookies)
 user_pref("network.cookie.cookieBehavior", 1);
-
-// control when to send a cross-origin referer 0=always (default), 1=only if base domains match, 2=only if hosts match
-user_pref("network.http.referer.XOriginPolicy", 1);
-// control the amount of cross-origin information to send 0=send full URI (default), 1=scheme+host+port+path, 2=scheme+host+port ***/
-user_pref("network.http.referer.XOriginTrimmingPolicy", 1);
-
 
 // WebGL is a potential security risk. If you need it then enable it. RFP still randomizes canvas for naive scripts ***/
 user_pref("webgl.disabled", true);
@@ -312,6 +311,3 @@ user_pref("network.prefetch-next", false);
 // Not rendering IDNs as their Punycode equivalent leaves you open 
 // to phishing attacks that can be very difficult to notice
 user_pref("network.IDN_show_punycode", true)
-
-
-user_pref("browser.tabs.unloadOnLowMemory", false)
