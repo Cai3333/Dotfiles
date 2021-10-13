@@ -271,11 +271,6 @@ user_pref("browser.urlbar.speculativeConnect.enabled", false);
 user_pref("dom.event.clipboardevents.enabled", false);
 
 
-// Disables playback of DRM-controlled HTML5 content, which, if enabled, 
-// automatically downloads the Widevine Content Decryption Module provided by Google Inc.
-user_pref("media.eme.enabled", false);
-
-
 // Websites can track the microphone and camera status of your device.
 user_pref("media.navigator.enabled", false);
 
