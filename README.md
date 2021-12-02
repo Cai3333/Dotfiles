@@ -149,18 +149,17 @@ sudo pacman -S cbatticon cmus dunst exa exfatprogs firefox fish fzf gvfs intel-u
 ### From Arch Linux's AUR:
 
 ```bash
-paru -S auto-cpufreq clipit cryptomator ferdi-nightly-bin fluent-reader freetube-bin joplin-desktop megasync nerd-fonts-mononoki stacer-bin timeshift timeshift-autosnap ttf-ms-fonts ttf-vista-fonts vscodium-bin 
+paru -S auto-cpufreq clipit cryptomator-bin ferdi-bin fluent-reader freetube-bin joplin-desktop megasync nerd-fonts-mononoki timeshift timeshift-autosnap ttf-ms-fonts ttf-vista-fonts vscodium-bin 
 ```
 -    auto-cpufreq
 -    clipit
--    cryptomator
--    ferdi-nightly-bin
+-    cryptomator-bin
+-    ferdi-bin
 -    fluent-reader
 -    freetube-bin
 -    joplin-desktop
 -    megasync
 -    nerd-fonts-mononoki
--    stacer-bin
 -    timeshift
 -    timeshift-autosnap
 -    ttf-ms-fonts 
