@@ -57,6 +57,12 @@ else
   bind '$' __history_previous_command_arguments
 end
 
+
+function mkcd
+  mkdir $argv
+  and cd $argv
+end
+
 ### END OF FUNCTIONS ###
 
 
