@@ -777,7 +777,7 @@ user_pref("_user.js.parrot", "4500 syntax error: the parrot's popped 'is clogs")
  * [SETUP-WEB] RFP can cause some website breakage: mainly canvas, use a site exception via the urlbar
  * RFP also has a few side effects: mainly timezone is UTC0, and websites will prefer light theme
  * [1] https://bugzilla.mozilla.org/418986 ***/
-user_pref("privacy.resistFingerprinting", true);
+user_pref("privacy.resistFingerprinting", false);
 /* 4502: set new window sizes to round to hundreds [FF55+] [SETUP-CHROME]
  * Width will round down to multiples of 200s and height to 100s, to fit your screen.
  * The max values are a starting point to round from if you want some control
@@ -788,6 +788,16 @@ user_pref("privacy.resistFingerprinting", true);
  * [NOTE] To allow extensions to work on AMO, you also need 2662
  * [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1384330,1406795,1415644,1453988 ***/
 user_pref("privacy.resistFingerprinting.block_mozAddonManager", true); // [HIDDEN PREF]
+/* 4504: enable RFP letterboxing [FF67+]
+ * Dynamically resizes the inner window by applying margins in stepped ranges [2]
+ * If you use the dimension pref, then it will only apply those resolutions.
+ * The format is "width1xheight1, width2xheight2, ..." (e.g. "800x600, 1000x1000")
+ * [SETUP-WEB] This is independent of RFP (4501). If you're not using RFP, or you are but
+ * dislike the margins, then flip this pref, keeping in mind that it is effectively fingerprintable
+ * [WARNING] DO NOT USE: the dimension pref is only meant for testing
+ * [1] https://bugzilla.mozilla.org/1407366
+ * [2] https://hg.mozilla.org/mozilla-central/rev/6d2d7856e468#l2.32 ***/
+user_pref("privacy.resistFingerprinting.letterboxing", false); // [HIDDEN PREF]
    // user_pref("privacy.resistFingerprinting.letterboxing.dimensions", ""); // [HIDDEN PREF]
 /* 4505: experimental RFP [FF91+]
  * [WARNING] DO NOT USE unless testing, see [1] comment 12
@@ -1174,3 +1184,5 @@ user_pref("beacon.enabled", false);
 // Prevents Firefox from sending information about downloaded executable files 
 // to Google Safe Browsing to determine whether it should be blocked for safety reasons.
 user_pref("browser.safebrowsing.downloads.remote.enabled", false);
+
+
