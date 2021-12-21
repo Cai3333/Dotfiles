@@ -408,7 +408,7 @@ user_pref("media.eme.enabled", false);
  * Firefox's Autoplay Policy Documentation [PDF] is linked below via SUMO
  * [NOTE] If you have trouble with some video sites, then add an exception (2030)
  * [1] https://support.mozilla.org/questions/1293231 ***/
-user_pref("media.autoplay.blocking_policy", 2);
+user_pref("media.autoplay.blocking_policy", 1);
 
 /*** [SECTION 2300]: WEB WORKERS
    A worker is a JS "background task" running in a global context, i.e. it is different from
