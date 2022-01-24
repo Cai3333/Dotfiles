@@ -198,3 +198,5 @@ function extract -d "extract files from archives"
         end
     end
 end
+
+$HOME/Documents/Github/pokimg/pokimg
