@@ -113,7 +113,7 @@ altMask = mod1Mask         -- Setting this for use in xprompts
 ------------------------------------------------------------------------
 myStartupHook :: X ()
 myStartupHook = do
-          spawnOnce ""
+          spawnOnce "setxkbmap -layout us -variant altgr-intl -option nodeadkeys &"
 
 ------------------------------------------------------------------------
 -- XPROMPT SETTINGS
@@ -269,7 +269,6 @@ searchList = [ ("a", archwiki)
 myScratchPads :: [NamedScratchpad]
 myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                 , NS "cmus" spawnCmus findCmus manageCmus
-                , NS "fluent-reader" spawnfr findfr managefr
                 , NS "lofi" spawnLofi findLofi manageLofi
                 ]
   where
@@ -289,14 +288,6 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                  w = 0.9
                  t = 0.95 -h
                  l = 0.95 -w
-    spawnfr = "fluent-reader"
-    findfr  = className =? "fluent-reader"
-    managefr= customFloating $ W.RationalRect l t w h
-               where
-                 h = 0.98
-                 w = 1
-                 t = 1 -h
-                 l = 1 -w
     spawnLofi = myTerminal ++ " --name lofi -e lofi-terminal -u 'https://www.youtube.com/watch?v=5qap5aO4i9A'"
     findLofi   = resource =? "lofi"
     manageLofi = customFloating $ W.RationalRect l t w h
@@ -555,8 +546,6 @@ myKeys =
         , ("M-<F1>", namedScratchpadAction myScratchPads "terminal")
         , ("M-<F4>", namedScratchpadAction myScratchPads "cmus")
         , ("M-<F5>", namedScratchpadAction myScratchPads "lofi")
-        , ("M-<F6>", namedScratchpadAction myScratchPads "fluent-reader")
-
 
     -- Controls for cmus music player (SUPER-u followed by a key)
         , ("M-u p", spawn "cmus-remote -u")
@@ -578,14 +567,14 @@ myKeys =
         -- entire screen and save to clipboard
         , ("<Print>", spawn "maim | xclip -selection clipboard -t image/png && notify-send 'image saved to clipboard'")
         -- entire screen and save to clipboard and folder
-        , ("M-<Print>", spawn "maim ~/Syncthing/Shared/Personal/screenshots/$(date +%F-%H:%M:%S).png | xclip -selection clipboard -t image/png && notify-send 'image saved to Syncthing/screenshots'")
+        , ("M-<Print>", spawn "maim ~/Documents/Nextcloud/Personal/screenshots/$(date +%F-%H:%M:%S).png | xclip -selection clipboard -t image/png && notify-send 'image saved to Nextcloud/screenshots'")
          -- focused window and save to clipboard and folder
-        , ("M-M1-<Print>", spawn "maim -i $(xdotool getactivewindow) ~/Syncthing/Shared/Personal/screenshots/$(date +%F-%H:%M:%S).png | xclip -selection clipboard -t image/png && notify-send 'image saved to Syncthing/screenshots'")
+        , ("M-C-<Print>", spawn "maim -i $(xdotool getactivewindow) ~/Documents/Nextcloud/Personal/screenshots/$(date +%F-%H:%M:%S).png | xclip -selection clipboard -t image/png && notify-send 'image saved to Nextcloud/screenshots'")
 
         -- select and save to clipboard
         , ("S-<Print>", spawn "maim -s | xclip -selection clipboard -t image/png && notify-send 'image saved to clipboard'")
         -- select and save to clipboard and folder
-        , ("M-S-<Print>", spawn "maim -s | xclip -selection clipboard -t image/png; xclip -selection clipboard -t image/png -o > ~/Syncthing/Shared/Personal/screenshots/$(date +%F-%H:%M:%S).png && notify-send 'image saved to Syncthing/screenshots'")
+        , ("M-S-<Print>", spawn "maim -s | xclip -selection clipboard -t image/png; xclip -selection clipboard -t image/png -o > ~/Documents/Nextcloud/Personal/screenshots/$(date +%F-%H:%M:%S).png && notify-send 'image saved to Nextcloud/screenshots'")
         -- select and save RGB, has the ability to average out the pixel values of an area.
         , ("M-S-p", spawn "maim -st 0 | convert - -resize 1x1! -format '%[pixel:p{0,0}]' info:- | xclip -sel clip && notify-send 'RGB saved to clipboard'")
         ]
