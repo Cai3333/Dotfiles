@@ -565,16 +565,16 @@ myKeys =
         , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 10")
         
         -- entire screen and save to clipboard
-        , ("<Print>", spawn "maim | xclip -selection clipboard -t image/png && notify-send 'image saved to clipboard'")
+        , ("<Print>", spawn "maim --hidecursor | xclip -selection clipboard -t image/png && notify-send 'image saved to clipboard'")
         -- entire screen and save to clipboard and folder
-        , ("M-<Print>", spawn "maim ~/Documents/Nextcloud/Personal/screenshots/$(date +%F-%H:%M:%S).png | xclip -selection clipboard -t image/png && notify-send 'image saved to Nextcloud/screenshots'")
+        , ("M-<Print>", spawn "maim ~/Documents/Nextcloud/Personal/screenshots/$(date +%F-%H:%M:%S).png --hidecursor | xclip -selection clipboard -t image/png && notify-send 'image saved to Nextcloud/screenshots'")
          -- focused window and save to clipboard and folder
-        , ("M-C-<Print>", spawn "maim -i $(xdotool getactivewindow) ~/Documents/Nextcloud/Personal/screenshots/$(date +%F-%H:%M:%S).png | xclip -selection clipboard -t image/png && notify-send 'image saved to Nextcloud/screenshots'")
+        , ("M-C-<Print>", spawn "maim -i $(xdotool getactivewindow) ~/Documents/Nextcloud/Personal/screenshots/$(date +%F-%H:%M:%S).png --hidecursor | xclip -selection clipboard -t image/png && notify-send 'image saved to Nextcloud/screenshots'")
 
         -- select and save to clipboard
-        , ("S-<Print>", spawn "maim -s | xclip -selection clipboard -t image/png && notify-send 'image saved to clipboard'")
+        , ("S-<Print>", spawn "maim -s --hidecursor | xclip -selection clipboard -t image/png && notify-send 'image saved to clipboard'")
         -- select and save to clipboard and folder
-        , ("M-S-<Print>", spawn "maim -s | xclip -selection clipboard -t image/png; xclip -selection clipboard -t image/png -o > ~/Documents/Nextcloud/Personal/screenshots/$(date +%F-%H:%M:%S).png && notify-send 'image saved to Nextcloud/screenshots'")
+        , ("M-S-<Print>", spawn "maim -s --hidecursor | xclip -selection clipboard -t image/png; xclip -selection clipboard -t image/png -o > ~/Documents/Nextcloud/Personal/screenshots/$(date +%F-%H:%M:%S).png && notify-send 'image saved to Nextcloud/screenshots'")
         -- select and save RGB, has the ability to average out the pixel values of an area.
         , ("M-S-p", spawn "maim -st 0 | convert - -resize 1x1! -format '%[pixel:p{0,0}]' info:- | xclip -sel clip && notify-send 'RGB saved to clipboard'")
         ]
