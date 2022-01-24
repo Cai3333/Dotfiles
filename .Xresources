@@ -62,3 +62,8 @@ URxvt.keysym.Shift-Control-Up:    \033[1;6A
 URxvt.keysym.Control-Down:        \033[1;5B
 URxvt.keysym.Shift-Control-Down:  \033[1;6B
 
+
+! xsviv
+Sxiv.background: #282a36
+Sxiv.foreground: #6272a4
+Sxiv.font: Hack-9
