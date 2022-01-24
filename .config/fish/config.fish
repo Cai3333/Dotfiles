@@ -132,6 +132,8 @@ alias ytb="youtube-dl -f bestvideo+bestaudio -o '~/Videos/%(title)s.%(ext)s' "
 # git bare
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
+alias ssh="kitty +kitten ssh"
+
 # Extraction
 function extract -d "extract files from archives"
     # no arguments, write usage
