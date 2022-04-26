@@ -6,7 +6,6 @@ set -o vi
 bind -m vi-command 'Control-l: clear-screen'
 bind -m vi-insert 'Control-l: clear-screen'
 
-
 xhost +local:root > /dev/null 2>&1
 
 complete -cf sudo
@@ -49,6 +48,11 @@ ex ()
   fi
 }
 
+
+mkcd () {
+  mkdir "$1"
+  cd "$1"
+}
 
 ### ALIASES ###
 
