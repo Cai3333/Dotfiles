@@ -1186,3 +1186,5 @@ user_pref("beacon.enabled", false);
 user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 
 
+// Custom
+user_pref("browser.cache.disk.parent_directory", "/run/user/1000/firefox");
