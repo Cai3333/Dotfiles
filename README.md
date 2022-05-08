@@ -47,7 +47,6 @@ Even if you're not, just look through the gallery 📷:
 
 
 <a id="gal"></a>
-<img src='https://github.com/FuzzyGrim/dotfiles/blob/master/screenshots/default.png'>
 <img src='https://github.com/FuzzyGrim/dotfiles/blob/master/screenshots/1.png'>
 <img src='https://github.com/FuzzyGrim/dotfiles/blob/master/screenshots/2.png'>
 
@@ -101,7 +100,7 @@ Alright, let's get to the main stuff. These are the dependencies needed after in
 ### From Arch Linux's official repositories:
 
 ```bash
-sudo pacman -S cbatticon cmus dunst exa exfatprogs firefox fish fzf gvfs intel-undervolt kitty lxappearance lxsession maim mpv ncdu nitrogen neovim pacman-contrib papirus-icon-theme pcmanfm picom ranger redshift steam syncthing thefuck tlp ttf-font-awesome ttf-ubuntu-font-family ueberzug unclutter upower vlc xclip xdotool xorg-xbacklight xorg-xinput youtube-dl zathura zathura-pdf-mupdf 
+sudo pacman -S cbatticon cmus dunst exa exfatprogs firefox fish fzf gvfs intel-undervolt kitty lxappearance lxsession maim mpv ncdu nitrogen neovim pacman-contrib papirus-icon-theme pcmanfm picom profile-sync-daemon ranger redshift starship steam syncthing thefuck tlp ttf-font-awesome ttf-ubuntu-font-family ueberzug unclutter upower vlc xclip xdotool xorg-xbacklight xorg-xinput youtube-dl zathura zathura-pdf-mupdf 
 ```
 -    cbatticon
 -    cmus (:bind -f common u shell ~/bin/update-library.sh)
@@ -125,8 +124,10 @@ sudo pacman -S cbatticon cmus dunst exa exfatprogs firefox fish fzf gvfs intel-u
 -    papirus-icon-theme
 -    pcmanfm
 -    picom
+-    profile-sync-daemon
 -    ranger
 -    redshift (/etc/geoclue/geoclue.conf --> url=https://location.services.mozilla.com/v1/geolocate?key=geoclue)
+-    starship
 -    steam
 -    syncthing
 -    thefuck
@@ -149,21 +150,16 @@ sudo pacman -S cbatticon cmus dunst exa exfatprogs firefox fish fzf gvfs intel-u
 ### From Arch Linux's AUR:
 
 ```bash
-paru -S auto-cpufreq clipit cryptomator-bin ferdi-bin fluent-reader freetube-bin joplin-desktop megasync nerd-fonts-mononoki timeshift timeshift-autosnap ttf-ms-fonts ttf-vista-fonts vscodium-bin 
+paru -S auto-cpufreq clipit cryptomator-bin ferdi-bin joplin-desktop nerd-fonts-mononoki timeshift timeshift-autosnap vscodium-bin 
 ```
 -    auto-cpufreq
 -    clipit
 -    cryptomator-bin
 -    ferdi-bin
--    fluent-reader
--    freetube-bin
 -    joplin-desktop
--    megasync
 -    nerd-fonts-mononoki
 -    timeshift
 -    timeshift-autosnap
--    ttf-ms-fonts 
--    ttf-vista-fonts 
 -    vscodium-bin
 
 
