@@ -91,7 +91,7 @@ alias pacdelete="pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro
 alias parufind="paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S"
 
 # youtube-dl
-alias yta="youtube-dl --extract-audio -o '~/Syncthing/Music/%(title)s.%(ext)s' --audio-format mp3 " 
+alias yta="youtube-dl --extract-audio -o '~/Documents/Nextcloud/Music/%(title)s.%(ext)s' --audio-format mp3 " 
 alias ytb="youtube-dl -f bestvideo+bestaudio -o '~/Videos/%(title)s.%(ext)s' "
 
 # get fastest mirrors
