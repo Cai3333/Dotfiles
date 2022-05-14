@@ -118,8 +118,8 @@ myStartupHook = do
 ------------------------------------------------------------------------
 -- XPROMPT SETTINGS
 ------------------------------------------------------------------------
-dtXPConfig :: XPConfig
-dtXPConfig = def
+xpConfig :: XPConfig
+xpConfig = def
       { font                = myFont
       , bgColor             = "#282c34"
       , fgColor             = "#bbc2cf"
@@ -127,7 +127,7 @@ dtXPConfig = def
       , fgHLight            = "#000000"
       , borderColor         = "#535974"
       , promptBorderWidth   = 0
-      , promptKeymap        = dtXPKeymap
+      , promptKeymap        = xpKeymap
       , position            = Top
      -- , position            = CenteredAt { xpCenterY = 0.3, xpWidth = 0.3 }
       , height              = 20
@@ -147,8 +147,8 @@ dtXPConfig = def
 
 -- The same config above minus the autocomplete feature which is annoying
 -- on certain Xprompts, like the search engine prompts.
-dtXPConfig' :: XPConfig
-dtXPConfig' = dtXPConfig
+xpConfig' :: XPConfig
+xpConfig' = xpConfig
       { autoComplete        = Nothing
       }
 
@@ -163,18 +163,6 @@ promptList = [ ("m", manPrompt)          -- manpages prompt
              , ("x", xmonadPrompt)       -- xmonad prompt
              ]
 
--- Same as the above list except this is for my custom prompts.
-promptList' :: [(String, XPConfig -> String -> X (), String)]
-promptList' = [ ("c", calcPrompt, "qalc")         -- requires qalculate-gtk
-              ]
-
-calcPrompt c ans =
-    inputPrompt c (trim ans) ?+ \input ->
-        liftIO(runProcessWithInput "qalc" [input] "") >>= calcPrompt c
-    where
-        trim  = f . f
-            where f = reverse . dropWhile isSpace
-
 systemPromptCmds = [
         ("Shutdown", spawn (myTerminal ++ " -e poweroff")),
         ("Reboot", spawn (myTerminal ++ " -e reboot")),
@@ -187,11 +175,16 @@ codePromptCmds = [
         ("bash", spawn (myTerminal ++ " -e nvim ~/.bashrc"))
     ]
 
+keyboardPromptCmds = [
+        ("ES", spawn ("setxkbmap -layout es")),
+        ("US", spawn ("setxkbmap -layout us -variant altgr-intl -option nodeadkeys"))
+    ]
+
 ------------------------------------------------------------------------
 -- XPROMPT KEYMAP (emacs-like key bindings for xprompts)
 ------------------------------------------------------------------------
-dtXPKeymap :: M.Map (KeyMask,KeySym) (XP ())
-dtXPKeymap = M.fromList $
+xpKeymap :: M.Map (KeyMask,KeySym) (XP ())
+xpKeymap = M.fromList $
      map (first $ (,) controlMask)   -- control + <key>
      [ (xK_z, killBefore)            -- kill line backwards
      , (xK_k, killAfter)             -- kill line forwards
@@ -296,7 +289,6 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                  w = 0.9
                  t = 0.95 -h
                  l = 0.95 -w
-
 ------------------------------------------------------------------------
 -- LAYOUTS
 ------------------------------------------------------------------------
@@ -422,7 +414,7 @@ myManageHook = composeAll
        className =? "Microsoft Teams - Preview" --> doShift (myWorkspaces !! 3),
        className =? "Steam" --> doShift (myWorkspaces !! 5),
        className =? "discord"               --> doShift (myWorkspaces !! 2),
-       className =? "Ferdi"               --> doShift (myWorkspaces !! 2),
+       className =? "Hamsket"               --> doShift (myWorkspaces !! 2),
        className =? "MEGAsync"               --> doShift (myWorkspaces !! 5),
        title =? "Create or select new Steam library folder:"     --> doCenterFloat,
        title =? "Steam Library Folders"     --> doCenterFloat,
@@ -468,17 +460,16 @@ myKeys =
         [ ("M-S-r", spawn "xmonad --recompile; xmonad --restart")   -- Recompile and restarts xmonad
 
     -- Run Prompt
-        , ("M-S-<Return>", shellPrompt dtXPConfig)           -- Shell Prompt
-        , ("M1-C-c", calcPrompt dtXPConfig "qalc")           -- Calculator
-        , ("M-0", xmonadPromptC systemPromptCmds dtXPConfig) -- Prompt for log out, shutoff and restart
-        , ("M-S-c", xmonadPromptC codePromptCmds dtXPConfig) -- Prompt for editing dotfiles
+        , ("M-S-<Return>", shellPrompt xpConfig)           -- Shell Prompt
+        , ("M-0", xmonadPromptC systemPromptCmds xpConfig) -- Prompt for log out, shutoff and restart
+        , ("M-S-c", xmonadPromptC codePromptCmds xpConfig) -- Prompt for editing dotfiles
+        , ("M-S-l", xmonadPromptC keyboardPromptCmds xpConfig) -- Prompt for editing dotfiles
 
     -- Useful programs to have a keybinding for launch
         , ("M-<Return>", spawn (myTerminal ++ " -e fish"))  -- Runs default terminal with fish
         , ("M-<F2>", spawn (myBrowser))
         , ("M-<F3>", spawn (myTerminal ++ " -e ranger"))
         , ("M-S-<F3>", spawn ("pcmanfm"))
-        , ("M-<F9>", spawn ("dmenuunicode"))             -- Run script found in ~/bin/
         , ("M-S-x", spawn ("xkill"))
 
     -- Kill windows
@@ -567,9 +558,9 @@ myKeys =
         -- entire screen and save to clipboard
         , ("<Print>", spawn "maim --hidecursor | xclip -selection clipboard -t image/png && notify-send 'image saved to clipboard'")
         -- entire screen and save to clipboard and folder
-        , ("M-<Print>", spawn "maim ~/Documents/Nextcloud/Personal/screenshots/$(date +%F-%H:%M:%S).png --hidecursor | xclip -selection clipboard -t image/png && notify-send 'image saved to Nextcloud/screenshots'")
+        , ("M-C-<Print>", spawn "maim ~/Documents/Nextcloud/Personal/screenshots/$(date +%F-%H:%M:%S).png --hidecursor | xclip -selection clipboard -t image/png && notify-send 'image saved to Nextcloud/screenshots'")
          -- focused window and save to clipboard and folder
-        , ("M-C-<Print>", spawn "maim -i $(xdotool getactivewindow) ~/Documents/Nextcloud/Personal/screenshots/$(date +%F-%H:%M:%S).png --hidecursor | xclip -selection clipboard -t image/png && notify-send 'image saved to Nextcloud/screenshots'")
+        , ("M-<Print>", spawn "maim -i $(xdotool getactivewindow) ~/Documents/Nextcloud/Personal/screenshots/$(date +%F-%H:%M:%S).png --hidecursor | xclip -selection clipboard -t image/png && notify-send 'image saved to Nextcloud/screenshots'")
 
         -- select and save to clipboard
         , ("S-<Print>", spawn "maim -s --hidecursor | xclip -selection clipboard -t image/png && notify-send 'image saved to clipboard'")
@@ -581,12 +572,11 @@ myKeys =
 
     -- Appending search engine prompts to keybindings list.
     -- Look at "search engines" section of this config for values for "k".
-        ++ [("M-s " ++ k, S.promptSearch dtXPConfig' f) | (k,f) <- searchList ]
+        ++ [("M-s " ++ k, S.promptSearch xpConfig' f) | (k,f) <- searchList ]
         ++ [("M-S-s " ++ k, S.selectSearch f) | (k,f) <- searchList ]
     -- Appending some extra xprompts to keybindings list.
     -- Look at "xprompt settings" section this of config for values for "k".
-        ++ [("M-p " ++ k, f dtXPConfig') | (k,f) <- promptList ]
-        ++ [("M-p " ++ k, f dtXPConfig' g) | (k,f,g) <- promptList' ]
+        ++ [("M-p " ++ k, f xpConfig') | (k,f) <- promptList ]
     -- The following lines are needed for named scratchpads.
           where nonNSP          = WSIs (return (\ws -> W.tag ws /= "nsp"))
                 nonEmptyNonNSP  = WSIs (return (\ws -> isJust (W.stack ws) && W.tag ws /= "nsp"))
