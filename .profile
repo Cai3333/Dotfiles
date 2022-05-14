@@ -5,8 +5,13 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export BROWSER=/usr/bin/firefox
 export READER=/usr/bin/zathura
+export LIBVA_DRIVER_NAME="vdpau"
+export LIBVIRT_DEFAULT_URI="qemu:///system"
 
 PATH=$HOME/bin:$PATH
 PATH=$HOME/.local/bin:$PATH
 PATH=$HOME/Applications:$PATH
 PATH=$HOME/.local/share/applications:$PATH
+PATH=$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
