@@ -1,20 +1,18 @@
-local core_modules = {
-   "core.custom",
-   "core.options",
-   "core.autocmds",
-   "core.mappings",
-}
+vim.cmd "silent! command! NvChadUpdate lua require('nvchad').update_nvchad()"
 
-local hooks = require('core.hooks');
+local autocmd = vim.api.nvim_create_autocmd
 
-for _, module in ipairs(core_modules) do
-   local ok, err = pcall(require, module)
-   if not ok then
-      error("Error loading " .. module .. "\n\n" .. err)
-   end
-end
+-- Disable statusline in dashboard
+autocmd("FileType", {
+   pattern = "alpha",
+   callback = function()
+      vim.opt.laststatus = 0
+   end,
+})
 
--- set all the non plugin mappings
-require("core.mappings").misc()
-
-hooks.run("ready")
+autocmd("BufUnload", {
+   buffer = 0,
+   callback = function()
+      vim.opt.laststatus = 3
+   end,
+})
