@@ -180,6 +180,16 @@ keyboardPromptCmds = [
         ("US", spawn ("setxkbmap -layout us -variant altgr-intl -option nodeadkeys"))
     ]
 
+screenshotPromptCmds = [
+        ("Fullscreen/Clipboard", spawn ("maim --hidecursor | xclip -selection clipboard -t image/png && notify-send 'image saved to clipboard'")),
+        ("Fullscreen/Folder", spawn ("maim ~/Documents/Nextcloud/photos/screenshots/$(date +%F-%H:%M:%S).png --hidecursor | xclip -selection clipboard -t image/png && notify-send 'image saved to screenshots'")),
+        ("Focus/Folder", spawn ("maim -i $(xdotool getactivewindow) ~/Documents/Nextcloud/photos/screenshots/$(date +%F-%H:%M:%S).png --hidecursor | xclip -selection clipboard -t image/png && notify-send 'image saved to screenshots'")),
+        ("Focus/Folder/Cursor", spawn ("maim -i $(xdotool getactivewindow) ~/Documents/Nextcloud/photos/screenshots/$(date +%F-%H:%M:%S).png | xclip -selection clipboard -t image/png && notify-send 'image saved to screenshots'")),
+        ("Select/Clipboard", spawn ("maim -s --hidecursor | xclip -selection clipboard -t image/png && notify-send 'image saved to clipboard'")),
+        ("Select/Folder", spawn ("maim -s --hidecursor | xclip -selection clipboard -t image/png; xclip -selection clipboard -t image/png -o > ~/Documents/Nextcloud/photos/screenshots/$(date +%F-%H:%M:%S).png && notify-send 'image saved to screenshots'")),
+        ("RGB", spawn ("maim -st 0 | convert - -resize 1x1! -format '%[pixel:p{0,0}]' info:- | xclip -sel clip && notify-send 'RGB saved to clipboard'"))
+    ]
+
 ------------------------------------------------------------------------
 -- XPROMPT KEYMAP (emacs-like key bindings for xprompts)
 ------------------------------------------------------------------------
@@ -464,12 +474,12 @@ myKeys =
         , ("M-0", xmonadPromptC systemPromptCmds xpConfig) -- Prompt for log out, shutoff and restart
         , ("M-S-c", xmonadPromptC codePromptCmds xpConfig) -- Prompt for editing dotfiles
         , ("M-S-l", xmonadPromptC keyboardPromptCmds xpConfig) -- Prompt for editing dotfiles
+        , ("M-S-p", xmonadPromptC screenshotPromptCmds xpConfig) -- Prompt for screenshot options
 
     -- Useful programs to have a keybinding for launch
         , ("M-<Return>", spawn (myTerminal ++ " -e fish"))  -- Runs default terminal with fish
-        , ("M-<F2>", spawn (myBrowser))
-        , ("M-<F3>", spawn (myTerminal ++ " -e ranger"))
-        , ("M-S-<F3>", spawn ("pcmanfm"))
+        , ("M-v", spawn (myBrowser))
+        , ("M-S-v", spawn ("pcmanfm"))
         , ("M-S-x", spawn ("xkill"))
 
     -- Kill windows
@@ -535,8 +545,8 @@ myKeys =
 
     -- Scratchpads
         , ("M-<F1>", namedScratchpadAction myScratchPads "terminal")
-        , ("M-<F4>", namedScratchpadAction myScratchPads "cmus")
-        , ("M-<F5>", namedScratchpadAction myScratchPads "lofi")
+        , ("M-<F2>", namedScratchpadAction myScratchPads "cmus")
+        , ("M-<F3>", namedScratchpadAction myScratchPads "lofi")
 
     -- Controls for cmus music player (SUPER-u followed by a key)
         , ("M-u p", spawn "cmus-remote -u")
@@ -555,19 +565,8 @@ myKeys =
         , ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 10")
         , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 10")
         
-        -- entire screen and save to clipboard
-        , ("<Print>", spawn "maim --hidecursor | xclip -selection clipboard -t image/png && notify-send 'image saved to clipboard'")
-        -- entire screen and save to clipboard and folder
-        , ("M-C-<Print>", spawn "maim ~/Documents/Nextcloud/Personal/screenshots/$(date +%F-%H:%M:%S).png --hidecursor | xclip -selection clipboard -t image/png && notify-send 'image saved to Nextcloud/screenshots'")
-         -- focused window and save to clipboard and folder
-        , ("M-<Print>", spawn "maim -i $(xdotool getactivewindow) ~/Documents/Nextcloud/Personal/screenshots/$(date +%F-%H:%M:%S).png --hidecursor | xclip -selection clipboard -t image/png && notify-send 'image saved to Nextcloud/screenshots'")
-
         -- select and save to clipboard
-        , ("S-<Print>", spawn "maim -s --hidecursor | xclip -selection clipboard -t image/png && notify-send 'image saved to clipboard'")
-        -- select and save to clipboard and folder
-        , ("M-S-<Print>", spawn "maim -s --hidecursor | xclip -selection clipboard -t image/png; xclip -selection clipboard -t image/png -o > ~/Documents/Nextcloud/Personal/screenshots/$(date +%F-%H:%M:%S).png && notify-send 'image saved to Nextcloud/screenshots'")
-        -- select and save RGB, has the ability to average out the pixel values of an area.
-        , ("M-S-p", spawn "maim -st 0 | convert - -resize 1x1! -format '%[pixel:p{0,0}]' info:- | xclip -sel clip && notify-send 'RGB saved to clipboard'")
+        , ("<Print>", spawn "maim -s --hidecursor | xclip -selection clipboard -t image/png && notify-send 'image saved to clipboard'")
         ]
 
     -- Appending search engine prompts to keybindings list.
