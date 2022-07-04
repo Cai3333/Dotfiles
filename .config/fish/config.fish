@@ -127,7 +127,7 @@ alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
 alias jctl="journalctl -p 3 -xb"
 
 # youtube-dl
-alias yta="youtube-dl --extract-audio -o '~/Documents/Nextcloud//Music/%(title)s.%(ext)s' --audio-format mp3 " 
+alias yta="youtube-dl --extract-audio -o '~/Documents/Nextcloud/music/%(title)s.%(ext)s' --audio-format mp3"
 alias ytb="youtube-dl -f bestvideo+bestaudio -o '~/Videos/%(title)s.%(ext)s' "
 
 # git bare
