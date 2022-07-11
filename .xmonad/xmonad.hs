@@ -27,10 +27,12 @@ import qualified Data.Map as M
 import XMonad.Hooks.DynamicLog (dynamicLogWithPP, wrap, xmobarPP, xmobarColor, shorten, PP(..))
 import XMonad.Hooks.EwmhDesktops  -- for some fullscreen events, also for xcomposite in obs.
 import XMonad.Hooks.FadeInactive
-import XMonad.Hooks.ManageDocks (avoidStruts, docksEventHook, manageDocks, ToggleStruts(..))
+import XMonad.Hooks.ManageDocks (avoidStruts, docks, manageDocks, ToggleStruts(..))
 import XMonad.Hooks.ManageHelpers (isFullscreen, doFullFloat, doCenterFloat)
 import XMonad.Hooks.ServerMode
 import XMonad.Hooks.SetWMName
+import XMonad.Hooks.StatusBar
+import XMonad.Hooks.StatusBar.PP
 import XMonad.Hooks.WorkspaceHistory
 
     -- Layouts
@@ -320,47 +322,14 @@ tall     = renamed [Replace "tall"]
            $ limitWindows 12
            $ mySpacing' 8 
            $ ResizableTall 1 (3/100) (1/2) []
-wide     = renamed [Replace "wide"]
-           $ windowNavigation
-           $ addTabs shrinkText myTabTheme
-           $ subLayout [] (smartBorders Simplest)
-           $ limitWindows 12
-           $ mySpacing 8
-           $ Mirror
-           $ ResizableTall 1 (3/100) (1/2) []
-monocle  = renamed [Replace "monocle"]
-           $ windowNavigation
-           $ addTabs shrinkText myTabTheme
-           $ subLayout [] (smartBorders Simplest)
-           $ limitWindows 20 Full
+
 floats   = renamed [Replace "floats"]
-           $ windowNavigation
-           $ addTabs shrinkText myTabTheme
-           $ subLayout [] (smartBorders Simplest)
-           $ limitWindows 20 simplestFloat
-grid     = renamed [Replace "grid"]
-           $ windowNavigation
-           $ addTabs shrinkText myTabTheme
-           $ subLayout [] (smartBorders Simplest)
-           $ limitWindows 12
-           $ mySpacing 8
-           $ mkToggle (single MIRROR)
-           $ Grid (16/10)
-spirals  = renamed [Replace "spirals"]
-           $ windowNavigation
-           $ addTabs shrinkText myTabTheme
-           $ subLayout [] (smartBorders Simplest)
-           $ mySpacing' 8
-           $ spiral (6/7)
+           $ smartBorders
+           $ simplestFloat
 tabs     = renamed [Replace "tabs"]
            -- I cannot add spacing to this layout because it will
            -- add spacing between window and tabs which looks bad.
            $ tabbed shrinkText myTabTheme
-tallAccordion  = renamed [Replace "tallAccordion"]
-           $ Accordion
-wideAccordion  = renamed [Replace "wideAccordion"]
-           $ Mirror Accordion
-
 
 myTabTheme = def { fontName            = myFont
                  , activeColor         = "#c792ea"
@@ -372,19 +341,15 @@ myTabTheme = def { fontName            = myFont
                  }
 
 -- The layout hook
-myLayoutHook = avoidStruts $ mouseResize $ windowArrange $ T.toggleLayouts floats
+myLayoutHook = avoidStruts
+               $ mouseResize
+               $ windowArrange
+               $ T.toggleLayouts floats
                $ mkToggle (NBFULL ?? NOBORDERS ?? EOT) myDefaultLayout
-             where
-               -- I've commented out the layouts I don't use.
-               myDefaultLayout =     smartBorders tall
-                                 ||| wide
-                                 ||| noBorders monocle
-                                 ||| floats
-                                 ||| noBorders tabs
-                                 ||| grid
-                                 ||| spirals
-                                 ||| tallAccordion
-                                 ||| wideAccordion
+  where
+    myDefaultLayout = smartBorders tall
+                               ||| floats
+                               ||| noBorders tabs
 
 
 ------------------------------------------------------------------------
@@ -585,37 +550,39 @@ myKeys =
 ------------------------------------------------------------------------
 main :: IO ()
 main = do
-    -- Launching instances of xmobar on their monitors.
-    xmproc0 <- spawnPipe "xmobar -x 0 ~/.config/xmobar/xmobarrc0"
-    xmproc1 <- spawnPipe "xmobar -x 1 ~/.config/xmobar/xmobarrc1"
-    -- the xmonad, ya know...what the WM is named after!
-    xmonad $ ewmh def
-        { manageHook = ( isFullscreen --> doFullFloat ) <+> myManageHook <+> manageDocks
-        -- Run xmonad commands from command line with "xmonadctl command". Commands include:
-        -- shrink, expand, next-layout, default-layout, restart-wm, xterm, kill, refresh, run,
-        -- focus-up, focus-down, swap-up, swap-down, swap-master, sink, quit-wm. You can run
-        -- "xmonadctl 0" to generate full list of commands written to ~/.xsession-errors.
-        , handleEventHook    = serverModeEventHookCmd
-                               <+> serverModeEventHook
-                               <+> serverModeEventHookF "XMONAD_PRINT" (io . putStrLn)
-                               <+> docksEventHook
-        , modMask            = myModMask
-        , terminal           = myTerminal
-        , startupHook        = myStartupHook
-        , layoutHook         = myLayoutHook
-        , workspaces         = myWorkspaces
-        , borderWidth        = myBorderWidth
-        , normalBorderColor  = myNormColor
-        , focusedBorderColor = myFocusColor
-        , logHook = workspaceHistoryHook <+> myLogHook <+> dynamicLogWithPP xmobarPP
-                        { ppOutput = \x -> hPutStrLn xmproc0 x
-                                        >> hPutStrLn xmproc1 x    
-                        , ppCurrent = xmobarColor "#98be65" "" . wrap " [" "] " -- Current workspace in xmobar
-                        , ppVisible = xmobarColor "#98be65" "" .wrap "" "*"                -- Visible but not current workspace
-                        , ppHidden = xmobarColor "#c792ea" "" . wrap "" ""    -- Hidden workspaces in xmobar
-                        , ppHiddenNoWindows = xmobarColor "#82AAFF" ""        -- Hidden workspaces (no windows)
-                        , ppTitle = xmobarColor "#b3afc2" "" . shorten 60     -- Title of active window in xmobar
-                        , ppSep =  "<fc=#666666> <fn=2>|</fn> </fc>"          -- Separators in xmobar
-                        , ppUrgent = xmobarColor "#C45500" "" . wrap "!" "!"  -- Urgent workspace
-                        }
-        } `additionalKeysP` myKeys
+  -- Launching three instances of xmobar on their monitors.
+  xmproc0 <- spawnPipe "xmobar -x 0 ~/.config/xmobar/xmobarrc0"
+  xmproc1 <- spawnPipe "xmobar -x 1 ~/.config/xmobar/xmobarrc1"
+  -- the xmonad, ya know...what the WM is named after!
+  xmonad $ ewmh $ docks $ def
+    { manageHook         = myManageHook <+> manageDocks
+    , modMask            = myModMask
+    , terminal           = myTerminal
+    , startupHook        = myStartupHook
+    , layoutHook         = myLayoutHook
+    , workspaces         = myWorkspaces
+    , borderWidth        = myBorderWidth
+    , normalBorderColor  = myNormColor
+    , focusedBorderColor = myFocusColor
+    , logHook = dynamicLogWithPP $  filterOutWsPP [scratchpadWorkspaceTag] $ xmobarPP
+        { ppOutput = \x -> hPutStrLn xmproc0 x   -- xmobar on monitor 1
+                        >> hPutStrLn xmproc1 x   -- xmobar on monitor 2
+        , ppCurrent = xmobarColor "#98be65" "" . wrap " [" "] " -- Current workspace in xmobar
+          -- Visible but not current workspace
+        , ppVisible = xmobarColor "#98be65" "" .wrap "" "*"
+          -- Hidden workspace
+        , ppHidden = xmobarColor "#c792ea" "" . wrap "" ""
+          -- Hidden workspaces (no windows)
+        , ppHiddenNoWindows = xmobarColor "#82AAFF" ""
+          -- Title of active window
+        , ppTitle = xmobarColor "#b3afc2" "" . shorten 60
+          -- Separator character
+        , ppSep =  "<fc=#666666> <fn=2>|</fn> </fc>" 
+          -- Urgent workspace
+        , ppUrgent = xmobarColor "#C45500" "" . wrap "!" "!"
+          -- order of things in xmobar
+        , ppOrder  = \(ws:l:t:ex) -> [ws,l]++ex++[t]
+        }
+    }
+
+    `additionalKeysP` myKeys
