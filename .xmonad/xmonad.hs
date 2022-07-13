@@ -386,14 +386,9 @@ myManageHook = composeAll
      -- I'm doing it this way because otherwise I would have to write out the full
      -- name of my workspaces, and the names would very long if using clickable workspaces.
      [ className =? "Lutris"     --> doShift (myWorkspaces !! 4),
-       className =? "Microsoft Teams - Preview" --> doShift (myWorkspaces !! 3),
        className =? "Steam" --> doShift (myWorkspaces !! 5),
        className =? "discord"               --> doShift (myWorkspaces !! 2),
        className =? "Hamsket"               --> doShift (myWorkspaces !! 2),
-       className =? "MEGAsync"               --> doShift (myWorkspaces !! 5),
-       title =? "Create or select new Steam library folder:"     --> doCenterFloat,
-       title =? "Steam Library Folders"     --> doCenterFloat,
-       title =? "Steam - News"              --> doCenterFloat,
        title =? "zenity"                    --> doFloat,
        className =? "confirm"               --> doFloat,
        className =? "dialog"                --> doFloat,
@@ -405,13 +400,10 @@ myManageHook = composeAll
        className =? "Navigator"             --> doFloat,
        className =? "toolbar"               --> doFloat,
        className =? "confirmreset"          --> doFloat,
-       className =? "leagueclient.exe"      --> doFloat,
-       className =? "leagueclientux.exe"    --> doFloat,
-       className =? "Wine"                  --> doFloat,
-       className =? "Manage History"        --> doFloat,
+       className =? "riotclientux.exe"      --> doCenterFloat,
+       className =? "leagueclientux.exe"    --> doCenterFloat,
+       className =? "Wine"                  --> doCenterFloat,
        className =? "Pavucontrol"           --> doCenterFloat,
-       title =? "Microsoft Teams Notification" --> doFloat,
-       title =? "league of legends.exe" --> doCenterFloat,
        (className =? "firefox" <&&> resource =? "Dialog") --> doCenterFloat  -- Float Firefox Dialog
      ] <+> namedScratchpadManageHook myScratchPads
 
@@ -556,7 +548,7 @@ main = do
   xmproc1 <- spawnPipe "xmobar -x 1 ~/.config/xmobar/xmobarrc1"
   -- the xmonad, ya know...what the WM is named after!
   xmonad $ ewmhFullscreen $ ewmh $ docks $ def
-    { manageHook         = myManageHook <+> manageDocks
+    { manageHook         = ( isFullscreen --> doFullFloat ) <+> myManageHook <+> manageDocks
     , modMask            = myModMask
     , terminal           = myTerminal
     , startupHook        = myStartupHook
@@ -565,7 +557,7 @@ main = do
     , borderWidth        = myBorderWidth
     , normalBorderColor  = myNormColor
     , focusedBorderColor = myFocusColor
-    , logHook = dynamicLogWithPP $  filterOutWsPP [scratchpadWorkspaceTag] $ xmobarPP
+    , logHook = workspaceHistoryHook <+> myLogHook <+> dynamicLogWithPP xmobarPP
         { ppOutput = \x -> hPutStrLn xmproc0 x   -- xmobar on monitor 1
                         >> hPutStrLn xmproc1 x   -- xmobar on monitor 2
         , ppCurrent = xmobarColor "#98be65" "" . wrap " [" "] " -- Current workspace in xmobar
@@ -581,8 +573,6 @@ main = do
         , ppSep =  "<fc=#666666> <fn=2>|</fn> </fc>" 
           -- Urgent workspace
         , ppUrgent = xmobarColor "#C45500" "" . wrap "!" "!"
-          -- order of things in xmobar
-        , ppOrder  = \(ws:l:t:ex) -> [ws,l]++ex++[t]
         }
     }
 
