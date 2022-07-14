@@ -401,9 +401,6 @@ myManageHook = composeAll
        className =? "Navigator"             --> doFloat,
        className =? "toolbar"               --> doFloat,
        className =? "confirmreset"          --> doFloat,
-       className =? "riotclientux.exe"      --> doCenterFloat,
-       className =? "leagueclientux.exe"    --> doCenterFloat,
-       className =? "Wine"                  --> doCenterFloat,
        className =? "Pavucontrol"           --> doCenterFloat,
        (className =? "firefox" <&&> resource =? "Dialog") --> doCenterFloat  -- Float Firefox Dialog
      ] <+> namedScratchpadManageHook myScratchPads
@@ -548,7 +545,7 @@ main = do
   xmproc0 <- spawnPipe "xmobar -x 0 ~/.config/xmobar/xmobarrc0"
   xmproc1 <- spawnPipe "xmobar -x 1 ~/.config/xmobar/xmobarrc1"
   -- the xmonad, ya know...what the WM is named after!
-  xmonad $ ewmhFullscreen $ ewmh $ docks $ def
+  xmonad $ ewmh $ docks $ def
     { manageHook         = ( isFullscreen --> doFullFloat ) <+> myManageHook <+> manageDocks
     , modMask            = myModMask
     , terminal           = myTerminal
