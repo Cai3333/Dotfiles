@@ -116,6 +116,7 @@ altMask = mod1Mask         -- Setting this for use in xprompts
 myStartupHook :: X ()
 myStartupHook = do
           spawnOnce "setxkbmap -layout us -variant altgr-intl -option nodeadkeys &"
+          spawnOnce "setxkbmap -option caps:escape &"
 
 ------------------------------------------------------------------------
 -- XPROMPT SETTINGS
