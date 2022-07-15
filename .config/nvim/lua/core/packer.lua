@@ -8,10 +8,7 @@ M.bootstrap = function()
 
    if fn.empty(fn.glob(install_path)) > 0 then
       print "Cloning packer .."
-
       fn.system { "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path }
-
-      print "Packer cloned successfully!"
 
       -- install plugins + compile their configs
       vim.cmd "packadd packer.nvim"
@@ -26,9 +23,9 @@ M.options = {
    git = { clone_timeout = 6000 },
    display = {
       working_sym = "ﲊ",
-      error_sym = "✗",
-      done_sym = "﫟",
-      removed_sym = "",
+      error_sym = "✗ ",
+      done_sym = " ",
+      removed_sym = " ",
       moved_sym = "",
       open_fn = function()
          return require("packer.util").float { border = "single" }
@@ -37,7 +34,7 @@ M.options = {
 }
 
 -- merge overrides if there are any
-M.options = nvchad.load_override(M.options, "wbthomason/packer.nvim")
+M.options = require("core.utils").load_override(M.options, "wbthomason/packer.nvim")
 
 M.run = function(plugins)
    local present, packer = pcall(require, "packer")
@@ -47,8 +44,8 @@ M.run = function(plugins)
    end
 
    -- Override with chadrc values
-   plugins = nvchad.remove_default_plugins(plugins)
-   plugins = nvchad.merge_plugins(plugins)
+   plugins = require("core.utils").remove_default_plugins(plugins)
+   plugins = require("core.utils").merge_plugins(plugins)
 
    packer.init(M.options)
 
