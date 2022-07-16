@@ -132,6 +132,7 @@ alias ytb="youtube-dl -f bestvideo+bestaudio -o '~/Videos/%(title)s.%(ext)s' "
 
 # git bare
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias compose='/usr/bin/git --git-dir=$HOME/Documents/Github/docker-compose --work-tree=$HOME/Documents/Nextcloud/notes/docker'
 
 alias ssh="kitty +kitten ssh"
 
