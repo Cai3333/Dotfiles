@@ -29,6 +29,7 @@ M.options = {
     opt.textwidth = 0
     opt.wrapmargin = 1
     opt.formatoptions = "jcroqt"
+    opt.wildignorecase = true
   end,
 }
 
@@ -38,5 +39,18 @@ M.ui = {
 
 
 M.mappings = require "custom.mappings"
+M.plugins = {
+  ["folke/which-key.nvim"] = {
+    disable = false,
+    module = "which-key",
+    keys = "<leader>",
+    config = function()
+      require "plugins.configs.whichkey"
+    end,
+    setup = function()
+      require("core.utils").load_mappings "whichkey"
+    end,
+  }
+}
 
 return M
