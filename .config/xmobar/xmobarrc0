@@ -15,17 +15,8 @@ Config { font    = "xft:Ubuntu:weight=bold:pixelsize=13:antialias=true:hinting=t
               -- Time and date
               Run Date "<fn=1>\xf133 </fn> %b %d %Y (%H:%M)" "date" 580,
 
-              -- Cpu usage in percent
-              Run Cpu ["-t", "<fn=1>\xf108 </fn> cpu: <total>%","-H","50","--high","red"] 300,
-
-              --Cpu temperature
-              Run MultiCoreTemp ["-t", "<avg>°C", "-H", "80", "-h", "red"] 600,
-
-              -- Disk space free
-              Run DiskU [("/", "<fn=1>\xf0c7 </fn> ssd: <free> free")] [] 6000,
-
               -- Runs custom script to check battery
-              Run Com "battery" [] "battery" 600,
+              Run Com "battery" [] "battery" 300,
 
               -- Runs a checker for updates
               Run Com "bash" ["-c", "checkupdates | wc -l"] "updates" 6000,
@@ -38,8 +29,6 @@ Config { font    = "xft:Ubuntu:weight=bold:pixelsize=13:antialias=true:hinting=t
          alignSep = "}{",
          template = "  %UnsafeStdinReader% }{ \
               \<fc=#666666> <fn=2>|</fn> </fc> <action=`kitty -e sudo pacman -Syu`><fc=#e1acff> <fn=1> </fn>%updates%</fc> </action>\
-              \<fc=#666666> <fn=2>|</fn> </fc> <fc=#ecbe7b> %cpu% / %multicoretemp%</fc>\
-              \<fc=#666666> <fn=2>|</fn> </fc> <fc=#51afef> %disku% </fc>\
               \<fc=#666666> <fn=2>|</fn> </fc> <fc=#c678dd><fn=1>⚡</fn> %battery%</fc>\
               \<fc=#666666> <fn=2>|</fn> </fc> <fc=#46d9ff> %date% </fc>"
        }
