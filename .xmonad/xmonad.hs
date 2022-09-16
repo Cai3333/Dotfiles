@@ -513,13 +513,16 @@ myKeys =
 
     -- Multimedia Keys
         , ("<XF86AudioPlay>", spawn ("cmus-remote -u"))
+        , ("M4-<F8>", spawn ("cmus-remote -u"))
         , ("<XF86AudioPrev>", spawn ("cmus-remote -r"))
+        , ("M4-<F7>", spawn ("cmus-remote -r"))
         , ("<XF86AudioNext>", spawn ("cmus-remote -n"))
-        , ("<XF86AudioMute>", spawn "amixer set Master toggle")
-        , ("<XF86AudioLowerVolume>", spawn "amixer set Master 5%- unmute")
-        , ("<XF86AudioRaiseVolume>", spawn "amixer set Master 5%+ unmute")
-        , ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 10")
-        , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 10")
+        , ("M4-<F9>", spawn ("cmus-remote -n"))
+        , ("<XF86AudioMute>", spawn "volume mute")
+        , ("<XF86AudioLowerVolume>", spawn "volume down")
+        , ("<XF86AudioRaiseVolume>", spawn "volume up")
+        , ("<XF86MonBrightnessUp>", spawn "brightness up")
+        , ("<XF86MonBrightnessDown>", spawn "brightness down")
         
         -- select and save to clipboard
         , ("<Print>", spawn "maim -s --hidecursor | xclip -selection clipboard -t image/png && notify-send 'image saved to clipboard'")
