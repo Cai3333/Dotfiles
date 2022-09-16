@@ -544,9 +544,8 @@ myKeys =
 ------------------------------------------------------------------------
 main :: IO ()
 main = do
-  -- Launching three instances of xmobar on their monitors.
   xmproc0 <- spawnPipe "xmobar -x 0 ~/.config/xmobar/xmobarrc0"
-  xmproc1 <- spawnPipe "xmobar -x 1 ~/.config/xmobar/xmobarrc1"
+  xmproc1 <- spawnPipe "xmobar -x 1 ~/.config/xmobar/xmobarrc0"
   -- the xmonad, ya know...what the WM is named after!
   xmonad $ ewmh $ docks $ def
     { manageHook         = ( isFullscreen --> doFullFloat ) <+> myManageHook <+> manageDocks
