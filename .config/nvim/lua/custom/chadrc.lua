@@ -50,6 +50,18 @@ M.plugins = {
     setup = function()
       require("core.utils").load_mappings "whichkey"
     end,
+  },
+  ["beauwilliams/focus.nvim"] = {
+    config = function ()
+      require("focus").setup()
+    end,
+  },
+  ["goolord/alpha-nvim"] = {
+    after = "base46",
+    disable = false,
+    config = function()
+      require "plugins.configs.alpha"
+    end,
   }
 }
 
