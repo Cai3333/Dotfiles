@@ -294,7 +294,7 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                  w = 0.9
                  t = 0.95 -h
                  l = 0.95 -w
-    spawnLofi = myTerminal ++ " --name lofi -e lofi-terminal -u 'https://www.youtube.com/watch?v=5qap5aO4i9A'"
+    spawnLofi = myTerminal ++ " --name lofi -e lofi-terminal -u 'https://www.youtube.com/watch?v=jfKfPfyJRdk'"
     findLofi   = resource =? "lofi"
     manageLofi = customFloating $ W.RationalRect l t w h
                where
