@@ -65,28 +65,23 @@ Even if you're not, just look through the gallery 📷:
 
 These are the basic keybinds. Read through the `.xmonad/xmonad.hs` file for more keybinds like increasing gaps and restoring gaps.
 
-| Keybind                |                  Function                   |
-| ---------------------- |  ----------------------------------------   |
-| `Win + Enter`          |           launch terminal (kitty)           |
-| `Win + Shift + Enter`  | opens run launcher (XMonad’s shell xprompt) |
-| `Win + Shift + q`      |                Close window                 |
-| `Win + SPACE`          |          toggles fullscreen on/off          |
-| `Win + 1-9`            |       switch focus to workspace (1-9)       |
-| `Win + SHIFT + 1-9`    |   send focused window to workspace (1-9)    |
-| `Win + Shift + r`      |               restarts xmonad               |
-| `Win + j`              |          Navigate through windows           |
-| `Win + k`              |          Navigate through windows           |
-| `Win + SHIFT + j`      |              windows swap down              |
-| `Win + SHIFT + k`      |               windows swap up               |
-| `MODKEY + h`           |                shrink window                |
-| `MODKEY + l`           |                expand window                |
-| `Win + TAB`            |           Switch through layouts            |
-| `Win + T`              |        Make a floating window tiled         |
-
-Note: `Toggling` means to enable if inactive or to disable if active.
-
-
-Note: `Win` refers to the `Super` key.
+| Keybind                  |                  Function                   |
+| ----------------------   |  ----------------------------------------   |
+| `Super + Enter`          |           launch terminal (kitty)           |
+| `Super + Shift + Enter`  | opens run launcher (XMonad’s shell xprompt) |
+| `Super + Shift + q`      |                Close window                 |
+| `Super + SPACE`          |          toggles fullscreen on/off          |
+| `Super + 1-9`            |       switch focus to workspace (1-9)       |
+| `Super + SHIFT + 1-9`    |   send focused window to workspace (1-9)    |
+| `Super + Shift + r`      |               restarts xmonad               |
+| `Super + j`              |          Navigate through windows           |
+| `Super + k`              |          Navigate through windows           |
+| `Super + SHIFT + j`      |              windows swap down              |
+| `Super + SHIFT + k`      |               windows swap up               |
+| `Super + h`              |                shrink window                |
+| `Super + l`              |                expand window                |
+| `Super + TAB`            |           Switch through layouts            |
+| `Super + T`              |        Make a floating window tiled         |
 
 
 <a id="inst"></a>
