@@ -1,103 +1,68 @@
-local opt = vim.opt
-local g = vim.g
-local config = require("core.utils").load_config()
-
-g.vim_version = vim.version().minor
-g.nvchad_theme = config.ui.theme
-g.toggle_theme_icon = "   "
-g.transparency = config.ui.transparency
-g.theme_switcher_loaded = false
-
--- use filetype.lua instead of filetype.vim. it's enabled by default in neovim 0.8 (nightly)
-if g.vim_version < 8 then
-  g.did_load_filetypes = 0
-  g.do_filetype_lua = 1
-end
-
-opt.laststatus = 3 -- global statusline
-opt.showmode = false
-
-opt.title = true
-opt.clipboard = "unnamedplus"
-opt.cursorline = true
-
--- Indenting
-opt.expandtab = true
-opt.shiftwidth = 2
-opt.smartindent = true
-opt.tabstop = 2
-opt.softtabstop = 2
-
-opt.fillchars = { eob = " " }
-opt.ignorecase = true
-opt.smartcase = true
-opt.mouse = "a"
-
--- Numbers
-opt.number = true
-opt.numberwidth = 2
-opt.ruler = false
-
--- disable nvim intro
-opt.shortmess:append "sI"
-
-opt.signcolumn = "yes"
-opt.splitbelow = true
-opt.splitright = true
-opt.termguicolors = true
-opt.timeoutlen = 400
-opt.undofile = true
-
--- interval for writing swap file to disk, also used by gitsigns
-opt.updatetime = 250
-
--- go to previous/next line with h,l,left arrow and right arrow
--- when cursor reaches end/beginning of line
-opt.whichwrap:append "<>[]hl"
-
-g.mapleader = " "
-
--- disable some builtin vim plugins
-local default_plugins = {
-  "2html_plugin",
-  "getscript",
-  "getscriptPlugin",
-  "gzip",
-  "logipat",
-  "netrw",
-  "netrwPlugin",
-  "netrwSettings",
-  "netrwFileHandlers",
-  "matchit",
-  "tar",
-  "tarPlugin",
-  "rrhelper",
-  "spellfile_plugin",
-  "vimball",
-  "vimballPlugin",
-  "zip",
-  "zipPlugin",
-  "tutor",
-  "rplugin",
-  "syntax",
-  "synmenu",
-  "optwin",
-  "compiler",
-  "bugreport",
-  "ftplugin",
-}
-
-for _, plugin in pairs(default_plugins) do
-  g["loaded_" .. plugin] = 1
-end
-
-local default_providers = {
-  "node",
-  "perl",
-  "python3",
-  "ruby",
-}
-
-for _, provider in ipairs(default_providers) do
-  vim.g["loaded_" .. provider .. "_provider"] = 0
-end
+astronvim.vim_opts(astronvim.user_plugin_opts("options", {
+  opt = {
+    backspace = vim.opt.backspace + { "nostop" }, -- Don't stop backspace at insert
+    clipboard = "unnamedplus", -- Connection to the system clipboard
+    cmdheight = 0, -- hide command line unless needed
+    completeopt = { "menuone", "noselect" }, -- Options for insert mode completion
+    copyindent = true, -- Copy the previous indentation on autoindenting
+    cursorline = true, -- Highlight the text line of the cursor
+    expandtab = true, -- Enable the use of space in tab
+    fileencoding = "utf-8", -- File content encoding for the buffer
+    fillchars = { eob = " " }, -- Disable `~` on nonexistent lines
+    history = 100, -- Number of commands to remember in a history table
+    ignorecase = true, -- Case insensitive searching
+    laststatus = 3, -- globalstatus
+    lazyredraw = true, -- lazily redraw screen
+    mouse = "a", -- Enable mouse support
+    number = true, -- Show numberline
+    preserveindent = true, -- Preserve indent structure as much as possible
+    pumheight = 10, -- Height of the pop up menu
+    relativenumber = true, -- Show relative numberline
+    scrolloff = 8, -- Number of lines to keep above and below the cursor
+    shiftwidth = 2, -- Number of space inserted for indentation
+    showmode = false, -- Disable showing modes in command line
+    showtabline = 2, -- always display tabline
+    sidescrolloff = 8, -- Number of columns to keep at the sides of the cursor
+    signcolumn = "yes", -- Always show the sign column
+    smartcase = true, -- Case sensitivie searching
+    splitbelow = true, -- Splitting a new window below the current one
+    splitright = true, -- Splitting a new window at the right of the current one
+    swapfile = false, -- Disable use of swapfile for the buffer
+    tabstop = 2, -- Number of space in a tab
+    termguicolors = true, -- Enable 24-bit RGB color in the TUI
+    timeoutlen = 300, -- Length of time to wait for a mapped sequence
+    undofile = true, -- Enable persistent undo
+    updatetime = 300, -- Length of time to wait before triggering the plugin
+    wrap = false, -- Disable wrapping of lines longer than the width of window
+    writebackup = false, -- Disable making a backup before overwriting a file
+  },
+  g = {
+    highlighturl_enabled = true, -- highlight URLs by default
+    mapleader = " ", -- set leader key
+    zipPlugin = false, -- disable zip
+    load_black = false, -- disable black
+    loaded_2html_plugin = true, -- disable 2html
+    loaded_getscript = true, -- disable getscript
+    loaded_getscriptPlugin = true, -- disable getscript
+    loaded_gzip = true, -- disable gzip
+    loaded_logipat = true, -- disable logipat
+    loaded_matchit = true, -- disable matchit
+    loaded_netrwFileHandlers = true, -- disable netrw
+    loaded_netrwPlugin = true, -- disable netrw
+    loaded_netrwSettngs = true, -- disable netrw
+    loaded_remote_plugins = true, -- disable remote plugins
+    loaded_tar = true, -- disable tar
+    loaded_tarPlugin = true, -- disable tar
+    loaded_zip = true, -- disable zip
+    loaded_zipPlugin = true, -- disable zip
+    loaded_vimball = true, -- disable vimball
+    loaded_vimballPlugin = true, -- disable vimball
+    autoformat_enabled = true, -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
+    cmp_enabled = true, -- enable completion at start
+    autopairs_enabled = true, -- enable autopairs at start
+    diagnostics_enabled = true, -- enable diagnostics at start
+    status_diagnostics_enabled = true, -- enable diagnostics in statusline
+    icons_enabled = true, -- disable icons in the UI (disable if no nerd font is available)
+    ui_notifications_enabled = true, -- disable notifications when toggling UI elements
+  },
+}))

@@ -1,34 +1,22 @@
-vim.defer_fn(function()
-  pcall(require, "impatient")
-end, 0)
+local impatient_ok, impatient = pcall(require, "impatient")
+if impatient_ok then impatient.enable_profile() end
 
-require "core"
-require "core.options"
-
--- setup packer + plugins
-local fn = vim.fn
-local install_path = fn.stdpath "data" .. "/site/pack/packer/opt/packer.nvim"
-
-if fn.empty(fn.glob(install_path)) > 0 then
-  vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1e222a" })
-  print "Cloning packer .."
-  fn.system { "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path }
-
-  -- install plugins + compile their configs
-  vim.cmd "packadd packer.nvim"
-  require "plugins"
-  vim.cmd "PackerSync"
-
-  -- install binaries from mason.nvim & tsparsers
-  vim.api.nvim_create_autocmd("User", {
-    pattern = "PackerComplete",
-    callback = function()
-      vim.cmd "bw | MasonInstallAll" -- close packer window
-      require("packer").loader "nvim-treesitter"
-    end,
-  })
+for _, source in ipairs {
+  "core.utils",
+  "core.options",
+  "core.bootstrap",
+  "core.plugins",
+  "core.diagnostics",
+  "core.autocmds",
+  "core.mappings",
+  "configs.which-key-register",
+} do
+  local status_ok, fault = pcall(require, source)
+  if not status_ok then vim.api.nvim_err_writeln("Failed to load " .. source .. "\n\n" .. fault) end
 end
 
-pcall(require, "custom")
+astronvim.conditional_func(astronvim.user_plugin_opts("polish", nil, false))
 
-require("core.utils").load_mappings()
+if vim.fn.has "nvim-0.8" ~= 1 or vim.version().prerelease then
+  vim.schedule(function() astronvim.notify("Unsupported Neovim Version! Please check the requirements", "error") end)
+end
