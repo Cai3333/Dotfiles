@@ -184,12 +184,13 @@ keyboardPromptCmds = [
     ]
 
 screenshotPromptCmds = [
-        ("Fullscreen/Clipboard", spawn ("maim --hidecursor | xclip -selection clipboard -t image/png && notify-send 'image saved to clipboard'")),
-        ("Fullscreen/Folder", spawn ("maim ~/Documents/Nextcloud/photos/screenshots/$(date +%F-%H:%M:%S).png --hidecursor | xclip -selection clipboard -t image/png && notify-send 'image saved to screenshots'")),
-        ("Focus/Folder", spawn ("maim -i $(xdotool getactivewindow) ~/Documents/Nextcloud/photos/screenshots/$(date +%F-%H:%M:%S).png --hidecursor | xclip -selection clipboard -t image/png && notify-send 'image saved to screenshots'")),
-        ("Focus/Folder/Cursor", spawn ("maim -i $(xdotool getactivewindow) ~/Documents/Nextcloud/photos/screenshots/$(date +%F-%H:%M:%S).png | xclip -selection clipboard -t image/png && notify-send 'image saved to screenshots'")),
         ("Select/Clipboard", spawn ("maim -s --hidecursor | xclip -selection clipboard -t image/png && notify-send 'image saved to clipboard'")),
         ("Select/Folder", spawn ("maim -s --hidecursor | xclip -selection clipboard -t image/png; xclip -selection clipboard -t image/png -o > ~/Documents/Nextcloud/photos/screenshots/$(date +%F-%H:%M:%S).png && notify-send 'image saved to screenshots'")),
+        ("Focus/Clipboard", spawn ("maim -i $(xdotool getactivewindow) --hidecursor | xclip -selection clipboard -t image/png && notify-send 'image saved to clipboard'")),
+        ("Focus/Folder", spawn ("maim -i $(xdotool getactivewindow) ~/Documents/Nextcloud/photos/screenshots/$(date +%F-%H:%M:%S).png --hidecursor | xclip -selection clipboard -t image/png && notify-send 'image saved to screenshots'")),
+        ("Focus/Folder/Cursor", spawn ("maim -i $(xdotool getactivewindow) ~/Documents/Nextcloud/photos/screenshots/$(date +%F-%H:%M:%S).png | xclip -selection clipboard -t image/png && notify-send 'image saved to screenshots'")),
+        ("Fullscreen/Clipboard", spawn ("maim --hidecursor | xclip -selection clipboard -t image/png && notify-send 'image saved to clipboard'")),
+        ("Fullscreen/Folder", spawn ("maim ~/Documents/Nextcloud/photos/screenshots/$(date +%F-%H:%M:%S).png --hidecursor | xclip -selection clipboard -t image/png && notify-send 'image saved to screenshots'")),
         ("RGB", spawn ("maim -st 0 | convert - -resize 1x1! -format '%[pixel:p{0,0}]' info:- | xclip -sel clip && notify-send 'RGB saved to clipboard'"))
     ]
 
@@ -437,6 +438,7 @@ myKeys =
         , ("M-v", spawn (myBrowser))
         , ("M-S-v", spawn ("pcmanfm"))
         , ("M-S-x", spawn ("xkill"))
+        , ("M-S-b", spawn "xdotool sleep 1 type '$(xclip -o -sel clip)'")
 
     -- Kill windows
         , ("M-S-q", kill1)                         -- Kill the currently focused client
