@@ -1125,6 +1125,16 @@ user_pref("browser.startup.homepage_override.mstone", "ignore"); // master switc
 /* UX FEATURES ***/
 user_pref("browser.messaging-system.whatsNewPanel.enabled", false); // What's New toolbar icon [FF69+]
 user_pref("extensions.pocket.enabled", false); // Pocket Account [FF46+]
+user_pref("extensions.pocket.api", "0.0.0.0");
+user_pref("extensions.pocket.loggedOutVariant", "");
+user_pref("extensions.pocket.oAuthConsumerKey", "");
+user_pref("extensions.pocket.onSaveRecs", false);
+user_pref("extensions.pocket.onSaveRecs.locales", "");
+user_pref("extensions.pocket.showHome", false);
+user_pref("extensions.pocket.site", "0.0.0.0");
+user_pref("browser.newtabpage.activity-stream.pocketCta", "");
+user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
+user_pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.section.highlights.includePocket", false);
    // user_pref("extensions.screenshots.disabled", true); // [FF55+]
    // user_pref("identity.fxaccounts.enabled", false); // Firefox Accounts & Sync [FF60+] [RESTART]
    // user_pref("reader.parse-on-load.enabled", false); // Reader View
