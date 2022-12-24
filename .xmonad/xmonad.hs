@@ -6,7 +6,7 @@ import qualified XMonad.StackSet as W
 
     -- Actions
 import XMonad.Actions.CopyWindow (kill1, killAllOtherCopies)
-import XMonad.Actions.CycleWS (moveTo, shiftTo, WSType(..), nextScreen, prevScreen)
+import XMonad.Actions.CycleWS (moveTo, shiftTo, WSType(..), nextScreen, prevScreen, nextWS)
 import XMonad.Actions.GridSelect
 import XMonad.Actions.MouseResize
 import XMonad.Actions.Promote
@@ -444,11 +444,12 @@ myKeys =
         , ("M-S-q", kill1)                         -- Kill the currently focused client
         , ("M-S-a", killAll)                       -- Kill all windows on current workspace
 
-    -- Workspaceslofi-terminal -u "https://www.youtube.com/watch?v=5qap5aO4i9A"
+    -- Workspaces
         , ("M-.", nextScreen)  -- Switch focus to next monitor
         , ("M-,", prevScreen)  -- Switch focus to prev monitor
         , ("M-S-<KP_Add>", shiftTo Next nonNSP >> moveTo Next nonNSP)       -- Shifts focused window to next ws
         , ("M-S-<KP_Subtract>", shiftTo Prev nonNSP >> moveTo Prev nonNSP)  -- Shifts focused window to prev ws
+        , ("M-n", nextWS)
 
     -- Floating windows
         , ("M-f", sendMessage (T.Toggle "floats")) -- Toggles my 'floats' layout
