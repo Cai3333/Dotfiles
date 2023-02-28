@@ -1,9 +1,8 @@
 -- http://projects.haskell.org/xmobar/
 -- install xmobar with these flags: --flags="with_alsa" --flags="with_mpd" --flags="with_xft"  OR --flags="all_extensions"
 
-Config { font    = "xft:Ubuntu:weight=bold:pixelsize=13:antialias=true:hinting=true",
-       additionalFonts = [ "xft:Mononoki Nerd Font:pixelsize=14:antialias=true:hinting=true"
-                           ],
+Config { font            = "Ubuntu Bold 10",
+         additionalFonts = [ "Mononoki 13"],
        bgColor = "#282c34",
        fgColor = "#ff6c6b",
        position = TopSize L 100 24,
@@ -13,7 +12,7 @@ Config { font    = "xft:Ubuntu:weight=bold:pixelsize=13:antialias=true:hinting=t
        persistent = True,
        commands = [ 
               -- Time and date
-              Run Date "<fn=1>\xf133 </fn> %b %d %Y (%H:%M)" "date" 580,
+              Run Date "<fn=1>\xf133</fn>  %b %d %Y (%H:%M)" "date" 580,
 
               -- Runs custom script to check battery
               Run Com "battery" [] "battery" 300,
@@ -28,7 +27,7 @@ Config { font    = "xft:Ubuntu:weight=bold:pixelsize=13:antialias=true:hinting=t
          sepChar = "%",
          alignSep = "}{",
          template = "  %UnsafeStdinReader% }{ \
-              \<fc=#666666> <fn=2>|</fn> </fc> <action=`kitty -e sudo pacman -Syu`><fc=#e1acff> <fn=1> </fn>%updates%</fc> </action>\
-              \<fc=#666666> <fn=2>|</fn> </fc> <fc=#c678dd><fn=1>⚡</fn> %battery%</fc>\
-              \<fc=#666666> <fn=2>|</fn> </fc> <fc=#46d9ff> %date% </fc>"
+              \<fc=#666666> <fn=2>|</fn> </fc> <action=`kitty -e sudo pacman -Syu`><fc=#e1acff> <fn=1></fn>  %updates%</fc> </action>\
+              \<fc=#666666> <fn=2>|</fn> </fc> <fc=#c678dd>%battery%</fc>\
+              \<fc=#666666> <fn=2>|</fn> </fc> <fc=#46d9ff>%date% </fc>"
        }
