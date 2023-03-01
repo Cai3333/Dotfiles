@@ -36,6 +36,7 @@ fi
 
 nitrogen --restore &
 picom &
+setxkbmap -layout us -variant altgr-intl -option nodeadkeys &
 redshift &
 cbatticon &
 xsetroot -cursor_name left_ptr &
