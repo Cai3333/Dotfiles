@@ -403,6 +403,7 @@ myManageHook = composeAll
        className =? "toolbar"               --> doFloat,
        className =? "confirmreset"          --> doFloat,
        className =? "Pavucontrol"           --> doCenterFloat,
+       className =? "Bsvc.tk"               --> doCenterFloat,
        (className =? "firefox" <&&> resource =? "Dialog") --> doCenterFloat  -- Float Firefox Dialog
      ] <+> namedScratchpadManageHook myScratchPads
 
@@ -414,7 +415,7 @@ myManageHook = composeAll
 -- this to a value of less than 1 (such as 0.9 for 90% opacity).
 myLogHook :: X ()
 myLogHook = fadeInactiveLogHook fadeAmount
-    where fadeAmount = 0.95
+    where fadeAmount = 1
 
 ------------------------------------------------------------------------
 -- KEYBINDINGS
