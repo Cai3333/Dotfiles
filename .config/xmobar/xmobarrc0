@@ -11,14 +11,23 @@ Config { font            = "Ubuntu Bold 10",
        allDesktops = True,
        persistent = True,
        commands = [ 
-              -- Time and date
-              Run Date "<fn=1>\xf133</fn>  %b %d %Y (%H:%M)" "date" 580,
+              -- Runs a checker for updates
+              Run Com "bash" ["-c", "checkupdates | wc -l"] "updates" 6000,
+
+              -- Cpu usage in percent
+              Run Cpu ["-t", "<fn=2>\xf108</fn>    <total>%","-H","50","--high","red"] 100,
+
+              --Cpu temperature
+              Run MultiCoreTemp ["-t", "<avg>°C", "-H", "80", "-h", "red"] 300,
+
+              -- Disk space free
+              Run DiskU [("/", "<fn=2>\xf0c7</fn>   <free>")] [] 6000,
 
               -- Runs custom script to check battery
               Run Com "battery" [] "battery" 300,
 
-              -- Runs a checker for updates
-              Run Com "bash" ["-c", "checkupdates | wc -l"] "updates" 6000,
+              -- Time and date
+              Run Date "<fn=2>\xf133</fn>   %b %d %Y (%H:%M)" "date" 300,
 
               -- Prints out the left side items such as workspaces, layout, etc.
               -- The workspaces are 'clickable' in my configs.
@@ -27,7 +36,9 @@ Config { font            = "Ubuntu Bold 10",
          sepChar = "%",
          alignSep = "}{",
          template = "  %UnsafeStdinReader% }{ \
-              \<fc=#666666> <fn=2>|</fn> </fc> <action=`kitty -e sudo pacman -Syu`><fc=#e1acff> <fn=1></fn>  %updates%</fc> </action>\
+              \<fc=#666666> <fn=2>|</fn> </fc> <action=`kitty -e sudo pacman -Syu`><fc=#e1acff> <fn=4></fn>  %updates%</fc> </action>\
+              \<fc=#666666> <fn=2>|</fn> </fc> <fc=#ecbe7b>%cpu% / %multicoretemp%</fc>\
+              \<fc=#666666> <fn=2>|</fn> </fc> <fc=#a9a1e1>%disku%</fc>\
               \<fc=#666666> <fn=2>|</fn> </fc> <fc=#c678dd>%battery%</fc>\
               \<fc=#666666> <fn=2>|</fn> </fc> <fc=#46d9ff>%date% </fc>"
        }
