@@ -35,11 +35,12 @@ Config { font            = "Ubuntu Bold 10",
               -- Disk space free
               Run DiskU [("/", "<fn=2>\xf0c7</fn>  <free>")] [] 6000,
 
-              -- Echos a "battery" icon
-              Run Com "echo" ["<fn=2>\xf242</fn>"] "baticon" 6000,
-
               -- Runs custom script to check battery
-              Run Com "battery" [] "battery" 300,
+              Run BatteryP ["BAT0"]
+                           ["-t", "<acstatus> <left>%", "-p", "3",
+                           "-L", "20", "-l", "red", "-n", "orange", "-H", "80",
+                           "--", "-O", "<fn=2>\xf0e7</fn>", "-o", "<fn=2>\xf244</fn>", "-i", "<fn=2>\xf240</fn>"
+                           ] 600,
 
               -- Time and date
               Run Date "<fn=2>\xf133</fn>  %d %Y (%H:%M)" "date" 300,
@@ -55,7 +56,7 @@ Config { font            = "Ubuntu Bold 10",
               \<box type=Bottom width=1 mb=2 color=#ecbe7b><fc=#ecbe7b>%cpu% / %multicoretemp%</fc></box>     \
               \<box type=Bottom width=1 mb=2 color=#98be65><fc=#98be65>%memory%</fc></box>     \
               \<box type=Bottom width=1 mb=2 color=#ff6c6b><fc=#ff6c6b>%disku%</fc></box>     \
-              \<box type=Bottom width=1 mb=2 color=#c678dd><fc=#c678dd>%baticon% %battery%</fc></box>     \
+              \<box type=Bottom width=1 mb=2 color=#c678dd><fc=#c678dd>%battery%</fc></box>     \
               \<box type=Bottom width=1 mb=2 color=#46d9ff><fc=#46d9ff>%date%</fc></box>"
        }
 
