@@ -1,8 +1,13 @@
 -- http://projects.haskell.org/xmobar/
 -- install xmobar with these flags: --flags="with_alsa" --flags="with_mpd" --flags="with_xft"  OR --flags="all_extensions"
+-- Dependencies: 
+   -- otf-font-awesome 
+   -- ttf-mononoki 
+   -- ttf-ubuntu-font-family
+
 
 Config { font            = "Ubuntu Bold 10",
-         additionalFonts = [ "Mononoki 13"],
+         additionalFonts = [ "Mononoki 13", "Font Awesome 6 Free Solid 10"],
        bgColor = "#282c34",
        fgColor = "#ff6c6b",
        position = TopSize L 100 24,
@@ -10,35 +15,47 @@ Config { font            = "Ubuntu Bold 10",
        hideOnStart = False,
        allDesktops = True,
        persistent = True,
+       -- commands documentation: https://archives.haskell.org/projects.haskell.org/xmobar/ 
        commands = [ 
+              -- Echos a "bell" icon
+              Run Com "echo" ["<fn=2>\xf0f3</fn>"] "bell" 6000,
+
               -- Runs a checker for updates
               Run Com "bash" ["-c", "checkupdates | wc -l"] "updates" 6000,
 
               -- Cpu usage in percent
-              Run Cpu ["-t", "<fn=2>\xf108</fn>    <total>%","-H","50","--high","red"] 100,
+              Run Cpu ["-t", "<fn=2>\xf108</fn>  <total>%","-H","50","--high","red"] 100,
 
               --Cpu temperature
               Run MultiCoreTemp ["-t", "<avg>°C", "-H", "80", "-h", "red"] 300,
 
+              -- Ram used number and percent
+              Run Memory ["-t", "<fn=2>\xf233</fn>  mem: <used>M (<usedratio>%)"] 100,
+
               -- Disk space free
-              Run DiskU [("/", "<fn=2>\xf0c7</fn>   <free>")] [] 6000,
+              Run DiskU [("/", "<fn=2>\xf0c7</fn>  <free>")] [] 6000,
+
+              -- Echos a "battery" icon
+              Run Com "echo" ["<fn=2>\xf242</fn>"] "baticon" 6000,
 
               -- Runs custom script to check battery
               Run Com "battery" [] "battery" 300,
 
               -- Time and date
-              Run Date "<fn=2>\xf133</fn>   %b %d %Y (%H:%M)" "date" 300,
+              Run Date "<fn=2>\xf133</fn>  %d %Y (%H:%M)" "date" 300,
 
               -- Prints out the left side items such as workspaces, layout, etc.
               -- The workspaces are 'clickable' in my configs.
               Run UnsafeStdinReader
-                    ],
-         sepChar = "%",
-         alignSep = "}{",
-         template = "  %UnsafeStdinReader% }{ \
-              \<fc=#666666> <fn=2>|</fn> </fc> <action=`kitty -e sudo pacman -Syu`><fc=#e1acff> <fn=4></fn>  %updates%</fc> </action>\
-              \<fc=#666666> <fn=2>|</fn> </fc> <fc=#ecbe7b>%cpu% / %multicoretemp%</fc>\
-              \<fc=#666666> <fn=2>|</fn> </fc> <fc=#a9a1e1>%disku%</fc>\
-              \<fc=#666666> <fn=2>|</fn> </fc> <fc=#c678dd>%battery%</fc>\
-              \<fc=#666666> <fn=2>|</fn> </fc> <fc=#46d9ff>%date% </fc>"
+       ],
+       sepChar = "%",
+       alignSep = "}{",
+       , template = " %UnsafeStdinReader% }{\
+              \<box type=Bottom width=1 mb=2 color=#e1acff><fc=#e1acff>%bell% <action=`alacritty -e sudo pacman -Syu`>%updates%</action></fc></box>     \
+              \<box type=Bottom width=1 mb=2 color=#ecbe7b><fc=#ecbe7b>%cpu% / %multicoretemp%</fc></box>     \
+              \<box type=Bottom width=1 mb=2 color=#98be65><fc=#98be65>%memory%</fc></box>     \
+              \<box type=Bottom width=1 mb=2 color=#ff6c6b><fc=#ff6c6b>%disku%</fc></box>     \
+              \<box type=Bottom width=1 mb=2 color=#c678dd><fc=#c678dd>%baticon% %battery%</fc></box>     \
+              \<box type=Bottom width=1 mb=2 color=#46d9ff><fc=#46d9ff>%date%</fc></box>"
        }
+
