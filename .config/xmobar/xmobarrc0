@@ -7,7 +7,7 @@
 
 
 Config { font            = "Ubuntu Bold 10",
-         additionalFonts = [ "Mononoki 13", "Font Awesome 6 Free Solid 10"],
+         additionalFonts = [ "Mononoki 20", "Font Awesome 6 Free Solid 10"],
        bgColor = "#282c34",
        fgColor = "#ff6c6b",
        position = TopSize L 100 24,
@@ -38,12 +38,12 @@ Config { font            = "Ubuntu Bold 10",
               -- Runs custom script to check battery
               Run BatteryP ["BAT0"]
                            ["-t", "<acstatus> <left>%", "-p", "3",
-                           "-L", "20", "-l", "red", "-n", "orange", "-H", "80",
-                           "--", "-O", "<fn=2>\xf0e7</fn>", "-o", "<fn=2>\xf244</fn>", "-i", "<fn=2>\xf240</fn>"
+                           "-L", "20", "-l", "darkred",
+                           "--", "-O", "<fn=2>\xf0e7</fn>", "-o", "<fn=1>\xf10cc</fn>", "-i", "<fn=1>\xf0085</fn>"
                            ] 600,
 
               -- Time and date
-              Run Date "<fn=2>\xf133</fn>  %d %Y (%H:%M)" "date" 300,
+              Run Date "<fn=2>\xf133</fn>  %d-%m-%Y (%H:%M)" "date" 300,
 
               -- Prints out the left side items such as workspaces, layout, etc.
               -- The workspaces are 'clickable' in my configs.
@@ -57,6 +57,6 @@ Config { font            = "Ubuntu Bold 10",
               \<box type=Bottom width=1 mb=2 color=#98be65><fc=#98be65>%memory%</fc></box>     \
               \<box type=Bottom width=1 mb=2 color=#ff6c6b><fc=#ff6c6b>%disku%</fc></box>     \
               \<box type=Bottom width=1 mb=2 color=#c678dd><fc=#c678dd>%battery%</fc></box>     \
-              \<box type=Bottom width=1 mb=2 color=#46d9ff><fc=#46d9ff>%date%</fc></box>"
+              \<box type=Bottom width=1 mb=2 color=#46d9ff><fc=#46d9ff>%date%</fc></box> "
        }
 
