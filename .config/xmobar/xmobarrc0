@@ -7,7 +7,7 @@
 
 
 Config { font            = "Ubuntu Bold 10",
-         additionalFonts = [ "Mononoki 20", "Font Awesome 6 Free Solid 10"],
+         additionalFonts = [ "Mononoki 10", "Font Awesome 6 Free Solid 10"],
        bgColor = "#282c34",
        fgColor = "#ff6c6b",
        position = TopSize L 100 24,
@@ -39,7 +39,7 @@ Config { font            = "Ubuntu Bold 10",
               Run BatteryP ["BAT0"]
                            ["-t", "<acstatus> <left>%", "-p", "3",
                            "-L", "20", "-l", "darkred",
-                           "--", "-O", "<fn=2>\xf0e7</fn>", "-o", "<fn=1>\xf10cc</fn>", "-i", "<fn=1>\xf0085</fn>"
+                           "--", "-O", "<fn=2>\xf0e7</fn>", "-o", "<fn=1>\xf10cc </fn>", "-i", "<fn=1>\xf0085 </fn>"
                            ] 600,
 
               -- Time and date
