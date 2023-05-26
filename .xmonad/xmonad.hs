@@ -402,6 +402,7 @@ myManageHook = composeAll
        className =? "Navigator"             --> doFloat,
        className =? "toolbar"               --> doFloat,
        className =? "confirmreset"          --> doFloat,
+       className =? "Windscribe2"           --> doCenterFloat,
        className =? "Pavucontrol"           --> doCenterFloat,
        className =? "Bsvc.tk"               --> doCenterFloat,
        (className =? "firefox" <&&> resource =? "Dialog") --> doCenterFloat  -- Float Firefox Dialog
