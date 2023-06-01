@@ -17,6 +17,7 @@ import XMonad.Actions.WithAll (sinkAll, killAll)
 import qualified XMonad.Actions.Search as S
 
     -- Data
+import Data.Ratio
 import Data.Char (isSpace, toUpper)
 import Data.Monoid
 import Data.Maybe (isJust)
@@ -28,7 +29,7 @@ import XMonad.Hooks.DynamicLog (dynamicLogWithPP, wrap, xmobarPP, xmobarColor, s
 import XMonad.Hooks.EwmhDesktops  -- for some fullscreen events, also for xcomposite in obs.
 import XMonad.Hooks.FadeInactive
 import XMonad.Hooks.ManageDocks (avoidStruts, docks, manageDocks, ToggleStruts(..))
-import XMonad.Hooks.ManageHelpers (isFullscreen, doFullFloat, doCenterFloat)
+import XMonad.Hooks.ManageHelpers (isFullscreen, doFullFloat, doCenterFloat, doRectFloat)
 import XMonad.Hooks.ServerMode
 import XMonad.Hooks.SetWMName
 import XMonad.Hooks.StatusBar
@@ -402,6 +403,7 @@ myManageHook = composeAll
        className =? "Navigator"             --> doFloat,
        className =? "toolbar"               --> doFloat,
        className =? "confirmreset"          --> doFloat,
+       className =? "copyq"                 --> doRectFloat (W.RationalRect (1 % 4) (1 % 4) (1 % 2) (1 % 2)),
        className =? "Windscribe2"           --> doCenterFloat,
        className =? "Pavucontrol"           --> doCenterFloat,
        className =? "Bsvc.tk"               --> doCenterFloat,
