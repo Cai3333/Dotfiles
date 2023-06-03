@@ -17,7 +17,6 @@ import XMonad.Actions.WithAll (sinkAll, killAll)
 import qualified XMonad.Actions.Search as S
 
     -- Data
-import Data.Ratio
 import Data.Char (isSpace, toUpper)
 import Data.Monoid
 import Data.Maybe (isJust)
@@ -29,7 +28,7 @@ import XMonad.Hooks.DynamicLog (dynamicLogWithPP, wrap, xmobarPP, xmobarColor, s
 import XMonad.Hooks.EwmhDesktops  -- for some fullscreen events, also for xcomposite in obs.
 import XMonad.Hooks.FadeInactive
 import XMonad.Hooks.ManageDocks (avoidStruts, docks, manageDocks, ToggleStruts(..))
-import XMonad.Hooks.ManageHelpers (isFullscreen, doFullFloat, doCenterFloat, doRectFloat)
+import XMonad.Hooks.ManageHelpers (isFullscreen, doFullFloat, doCenterFloat)
 import XMonad.Hooks.ServerMode
 import XMonad.Hooks.SetWMName
 import XMonad.Hooks.StatusBar
@@ -118,6 +117,7 @@ myStartupHook :: X ()
 myStartupHook = do
           spawnOnce "setxkbmap -layout us -variant altgr-intl -option nodeadkeys &"
           spawnOnce "setxkbmap -option caps:escape &"
+          spawnOnce "clipmenud &"
 
 ------------------------------------------------------------------------
 -- XPROMPT SETTINGS
@@ -403,7 +403,6 @@ myManageHook = composeAll
        className =? "Navigator"             --> doFloat,
        className =? "toolbar"               --> doFloat,
        className =? "confirmreset"          --> doFloat,
-       className =? "copyq"                 --> doRectFloat (W.RationalRect (1 % 4) (1 % 4) (1 % 2) (1 % 2)),
        className =? "Windscribe2"           --> doCenterFloat,
        className =? "Pavucontrol"           --> doCenterFloat,
        className =? "Bsvc.tk"               --> doCenterFloat,
@@ -443,6 +442,7 @@ myKeys =
         , ("M-S-v", spawn ("pcmanfm"))
         , ("M-S-x", spawn ("xkill"))
         , ("M-S-b", spawn "xdotool sleep 1 type '$(xclip -o -sel clip)'")
+        , ("M1-C-h", spawn "clipmenu -i -fn monospace:size=10 -nb '#282a36' -nf '#f8f8f2' -sb '#bd93f9' -sf '#44475a'")
 
     -- Kill windows
         , ("M-S-q", kill1)                         -- Kill the currently focused client
