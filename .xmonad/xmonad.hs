@@ -115,8 +115,6 @@ altMask = mod1Mask         -- Setting this for use in xprompts
 ------------------------------------------------------------------------
 myStartupHook :: X ()
 myStartupHook = do
-          spawnOnce "setxkbmap -layout us -variant altgr-intl -option nodeadkeys &"
-          spawnOnce "setxkbmap -option caps:escape &"
           spawnOnce "clipmenud &"
 
 ------------------------------------------------------------------------
@@ -442,7 +440,7 @@ myKeys =
         , ("M-S-v", spawn ("pcmanfm"))
         , ("M-S-x", spawn ("xkill"))
         , ("M-S-b", spawn "xdotool sleep 1 type '$(xclip -o -sel clip)'")
-        , ("M1-C-h", spawn "clipmenu -i -fn monospace:size=10 -nb '#282a36' -nf '#f8f8f2' -sb '#bd93f9' -sf '#44475a'")
+        , ("M1-C-h", spawn "clipmenu -i -fn 'Mononoki Nerd Font Mono-11' -nb '#282a36' -nf '#f8f8f2' -sb '#bd93f9' -sf '#44475a'")
 
     -- Kill windows
         , ("M-S-q", kill1)                         -- Kill the currently focused client
@@ -451,9 +449,11 @@ myKeys =
     -- Workspaces
         , ("M-.", nextScreen)  -- Switch focus to next monitor
         , ("M-,", prevScreen)  -- Switch focus to prev monitor
-        , ("M-S-<KP_Add>", shiftTo Next nonNSP >> moveTo Next nonNSP)       -- Shifts focused window to next ws
-        , ("M-S-<KP_Subtract>", shiftTo Prev nonNSP >> moveTo Prev nonNSP)  -- Shifts focused window to prev ws
+
+        , ("M-M1-<Up>", shiftTo Next nonNSP >> moveTo Next nonNSP)    -- Shifts focused window to next ws
+        , ("M-M1-<Down>", shiftTo Prev nonNSP >> moveTo Prev nonNSP)  -- Shifts focused window to prev ws
         , ("M-n", prevWS)
+        , ("M-M1-n", nextWS)
 
     -- Floating windows
         , ("M-f", sendMessage (T.Toggle "floats")) -- Toggles my 'floats' layout
