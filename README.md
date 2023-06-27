@@ -23,13 +23,13 @@
 ## About
 
 - Browser: **[Firefox](https://github.com/FuzzyGrim/dotfiles/blob/master/.mozilla/firefox/r056xtue.default-release/chrome/userChrome.css)**
-- Fonts: Ubunto Mono
+- Fonts: Mononoki Nerd Font Mono
 - WM: **[Xmonad](https://github.com/FuzzyGrim/dotfiles/blob/master/.xmonad/xmonad.hs)**
 - Bar: **[Xmobar](https://github.com/FuzzyGrim/dotfiles/tree/master/.config/xmobar/xmobarrc0)**
 - Terminal: **[Kitty](https://github.com/FuzzyGrim/dotfiles/tree/master/.config/kitty)**
 - Editor: **[Neovim](https://github.com/FuzzyGrim/dotfiles/tree/master/.config/nvim)**
 - Shell: **[Fish](https://github.com/FuzzyGrim/dotfiles/tree/master/.config/fish)**
-- Prompt: **[Startship](https://github.com/FuzzyGrim/dotfiles/blob/master/.config/starship.toml)**
+- Prompt: **[Starship](https://github.com/FuzzyGrim/dotfiles/blob/master/.config/starship.toml)**
 - Viewer: **[Zathura](https://github.com/FuzzyGrim/dotfiles/tree/master/.config/zathura/zathurarc)**
 - Notification: **[Dunst](https://github.com/FuzzyGrim/dotfiles/blob/master/.config/dunst/dunstrc)**
 
@@ -89,51 +89,58 @@ Alright, let's get to the main stuff. These are the dependencies needed after in
 
 ### From Arch Linux's official repositories
 
-```bash
-sudo pacman -S cbatticon cmus discord dunst exa exfatprogs firefox fish fzf gvfs intel-undervolt kitty lxappearance lxsession maim mpv ncdu nitrogen neovim pacman-contrib papirus-icon-theme pcmanfm picom profile-sync-daemon ranger redshift starship steam thefuck tlp ttf-font-awesome ttf-ubuntu-font-family ueberzug unclutter upower vlc xclip xdotool xorg-xbacklight xorg-xinput youtube-dl zathura zathura-pdf-mupdf 
-```
-
+- alsa-utils
 - cbatticon
-- cmus (:bind -f common u shell ~/bin/update-library.sh)
+- clipmenu
+- cmus
 - discord
 - dunst
-- exa (A modern replacement for ls)
-- exfatprogs
+- engrampa
+- exa
 - firefox
 - fish
 - fzf
+- gnome-keyring
 - gvfs
 - intel-undervolt
 - kitty
+- kvantum
+- libreoffice-still
 - lxappearance
 - lxsession
 - maim
 - mpv
 - ncdu
 - nitrogen
+- network-manager-applet
 - neovim
+- nextcloud-client
+- nvidia-settings
+- nitrogen
+- noto-fonts-cjk (CH/JP/KR fonts)
 - pacman-contrib
 - papirus-icon-theme
+- pavucontrol
 - pcmanfm
 - picom
-- profile-sync-daemon
-- ranger
-- redshift (/etc/geoclue/geoclue.conf --> url=<https://location.services.mozilla.com/v1/geolocate?key=geoclue>)
+- redshift
 - starship
 - steam
-- thefuck
-- tlp (systemctl enable --now tlp.service)
+- trayer
 - ttf-font-awesome
+- ttf-mononoki-nerd
 - ttf-ubuntu-font-family
-- ueberzug
-- unclutter
-- upower
-- vlc
 - xclip
+- xmonad
+- xmonad-contrib
+- xmobar
 - xdotool
 - xorg-xbacklight
 - xorg-xinput
-- youtube-dl
+- xorg-xkill
+- xorg-xsetroot
+- vim
+- vlc
 - zathura
 - zathura-pdf-mupdf
 
@@ -145,14 +152,11 @@ sudo pacman -S cbatticon cmus discord dunst exa exfatprogs firefox fish fzf gvfs
 paru -S auto-cpufreq clipit hamsket-bin nerd-fonts-mononoki timeshift timeshift-autosnap tlpui vscodium-bin 
 ```
 
-- auto-cpufreq
-- clipit
-- hamsket-bin
-- nerd-fonts-mononoki
-- timeshift
+- ferdium-bin
+- timeshift-bin (sudo systemctl enable --now cronie)
 - timeshift-autosnap
-- tlpui
-- vscodium-bin
+- touche
+- xcursor-breeze
 
 <a id="disclaimer"></a>
 
