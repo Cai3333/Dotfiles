@@ -3,6 +3,8 @@ text/markdown=nvim.desktop;
 text/plain=nvim.desktop;
 application/x-shellscript=nvim.desktop;
 inode/directory=pcmanfm.desktop;
+application/x-bittorrent=nvim.desktop;
+video/x-matroska=vlc.desktop;
 
 [Default Applications]
 text/markdown=nvim.desktop
@@ -14,3 +16,4 @@ x-scheme-handler/about=firefox.desktop
 x-scheme-handler/unknown=firefox.desktop
 text/plain=nvim.desktop
 application/x-shellscript=nvim.desktop
+video/x-matroska=vlc.desktop
