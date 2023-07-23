@@ -45,8 +45,6 @@ Config { font            = "Ubuntu Bold 10",
               -- Time and date
               Run Date "<fn=2>\xf133</fn>  %d-%m-%Y (%H:%M)" "date" 300,
 
-              Run XPropertyLog "_XMONAD_TRAYPAD",
-
               -- Prints out the left side items such as workspaces, layout, etc.
               -- The workspaces are 'clickable' in my configs.
               Run UnsafeStdinReader
@@ -59,7 +57,6 @@ Config { font            = "Ubuntu Bold 10",
               \<box type=Bottom width=1 mb=2 color=#98be65><fc=#98be65>%memory%</fc></box>     \
               \<box type=Bottom width=1 mb=2 color=#ff6c6b><fc=#ff6c6b>%disku%</fc></box>     \
               \<box type=Bottom width=1 mb=2 color=#c678dd><fc=#c678dd>%battery%</fc></box>     \
-              \<box type=Bottom width=1 mb=2 color=#46d9ff><fc=#46d9ff>%date%</fc></box>     \
-              \<box type=Bottom width=1 mb=2 color=#ff79c6>%_XMONAD_TRAYPAD%</box> "
+              \<box type=Bottom width=1 mb=2 color=#46d9ff><fc=#46d9ff>%date%</fc></box> "
        }
 
