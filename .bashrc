@@ -6,7 +6,7 @@ set -o vi
 bind -m vi-command 'Control-l: clear-screen'
 bind -m vi-insert 'Control-l: clear-screen'
 
-xhost +local:root > /dev/null 2>&1
+xhost +local:root >/dev/null 2>&1
 
 complete -cf sudo
 
@@ -23,44 +23,42 @@ shopt -s histappend
 
 ### ARCHIVE EXTRACTION
 # usage: ex <file>
-ex ()
-{
-  if [ -f $1 ] ; then
-    case $1 in
-      *.tar.bz2)   tar xjf $1   ;;
-      *.tar.gz)    tar xzf $1   ;;
-      *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1   ;;
-      *.gz)        gunzip $1    ;;
-      *.tar)       tar xf $1    ;;
-      *.tbz2)      tar xjf $1   ;;
-      *.tgz)       tar xzf $1   ;;
-      *.zip)       unzip $1     ;;
-      *.Z)         uncompress $1;;
-      *.7z)        7z x $1      ;;
-      *.deb)       ar x $1      ;;
-      *.tar.xz)    tar xf $1    ;;
-      *.tar.zst)   unzstd $1    ;;      
-      *)           echo "'$1' cannot be extracted via ex()" ;;
-    esac
-  else
-    echo "'$1' is not a valid file"
-  fi
+ex() {
+	if [ -f $1 ]; then
+		case $1 in
+		*.tar.bz2) tar xjf $1 ;;
+		*.tar.gz) tar xzf $1 ;;
+		*.bz2) bunzip2 $1 ;;
+		*.rar) unrar x $1 ;;
+		*.gz) gunzip $1 ;;
+		*.tar) tar xf $1 ;;
+		*.tbz2) tar xjf $1 ;;
+		*.tgz) tar xzf $1 ;;
+		*.zip) unzip $1 ;;
+		*.Z) uncompress $1 ;;
+		*.7z) 7z x $1 ;;
+		*.deb) ar x $1 ;;
+		*.tar.xz) tar xf $1 ;;
+		*.tar.zst) unzstd $1 ;;
+		*) echo "'$1' cannot be extracted via ex()" ;;
+		esac
+	else
+		echo "'$1' is not a valid file"
+	fi
 }
 
-
-mkcd () {
-  mkdir "$1"
-  cd "$1"
+mkcd() {
+	mkdir "$1"
+	cd "$1"
 }
 
 ### ALIASES ###
 
 # Changing "ls" to "exa"
-alias la='exa -al --color=always --group-directories-first' # my preferred listing
-alias ls='exa -a --icons --color=always --group-directories-first'  # all files and dirs
-alias ll='exa -l --color=always --group-directories-first'  # long format
-alias lt='exa -aT --color=always --group-directories-first' # tree listing
+alias la='exa -al --color=always --group-directories-first'        # my preferred listing
+alias ls='exa -a --icons --color=always --group-directories-first' # all files and dirs
+alias ll='exa -l --color=always --group-directories-first'         # long format
+alias lt='exa -aT --color=always --group-directories-first'        # tree listing
 alias l.='exa -a | egrep "^\."'
 
 # confirm before overwriting something
@@ -75,7 +73,7 @@ alias fgrep='fgrep --color=auto'
 
 # navigation
 alias ..='cd ..'
-alias ..='cd ..' 
+alias ..='cd ..'
 alias ...='cd ../..'
 alias .3='cd ../../..'
 alias .4='cd ../../../..'
@@ -87,30 +85,29 @@ alias emacs="emacsclient -c -a 'emacs'"
 
 # Pacman and Paru
 alias pacfind="pacman -Slq | fzf --multi --preview 'cat <(pacman -Si {1}) <(pacman -Fl {1} | awk '{print \$2}')' | xargs -ro sudo pacman -S" # fzf pacman
-alias pacdelete="pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns" # fzf delete package
+alias pacdelete="pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns"                                           # fzf delete package
 alias parufind="paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S"
 
 # youtube-dl
-alias yta="youtube-dl --extract-audio -o '~/Documents/Nextcloud/Music/%(title)s.%(ext)s' --audio-format mp3 " 
+alias yta="youtube-dl --extract-audio -o '~/Documents/Nextcloud/Music/%(title)s.%(ext)s' --audio-format mp3 "
 alias ytb="youtube-dl -f bestvideo+bestaudio -o '~/Videos/%(title)s.%(ext)s' "
 
 # get fastest mirrors
 alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
 
-
 ### SHOPT
-shopt -s autocd # Auto cd
-shopt -s autocd # change to named directory
+shopt -s autocd  # Auto cd
+shopt -s autocd  # change to named directory
 shopt -s cdspell # autocorrects cd misspellings
 shopt -s cmdhist # save multi-line commands in history as single line
 shopt -s dotglob
-shopt -s histappend # do not overwrite history
+shopt -s histappend     # do not overwrite history
 shopt -s expand_aliases # expand aliases
-shopt -s checkwinsize # checks term size when bash regains control
+shopt -s checkwinsize   # checks term size when bash regains control
 
 # adding flags
-alias df='df -h'                          # human-readable sizes
-alias free='free -m'                      # show sizes in MB
+alias df='df -h'     # human-readable sizes
+alias free='free -m' # show sizes in MB
 alias lynx='lynx -cfg=~/.lynx/lynx.cfg -lss=~/.lynx/lynx.lss -vikeys'
 
 ## get top process eating memory
@@ -123,12 +120,10 @@ alias jctl="journalctl -p 3 -xb"
 # git bare
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
-
 ### OTHER STUFF ###
 
 # Ignore repeated commands in history
 export HISTCONTROL=ignoreboth
-
 
 ## COMPLETION
 set colored-stats on
@@ -141,8 +136,6 @@ set show-all-if-ambiguous on
 # got "Makefilefile" sitting in your terminal?
 # Yeah fuck that
 set skip-completed-text on
-
-eval "$(thefuck --alias)"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
