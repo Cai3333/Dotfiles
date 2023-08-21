@@ -60,6 +60,6 @@ Config { font            = "Ubuntu Bold 10",
               \<box type=Bottom width=1 mb=2 color=#ff6c6b><fc=#ff6c6b>%disku%</fc></box>     \
               \<box type=Bottom width=1 mb=2 color=#c678dd><fc=#c678dd>%battery%</fc></box>     \
               \<box type=Bottom width=1 mb=2 color=#46d9ff><fc=#46d9ff>%date%</fc></box>     \
-              \<box type=Bottom width=1 mb=2 color=#ff79c6>%_XMONAD_TRAYPAD%</box> "
+              \<box type=Bottom width=1 mb=2 color=#ff79c6> %_XMONAD_TRAYPAD% </box> "
        }
 
