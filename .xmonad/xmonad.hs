@@ -117,6 +117,7 @@ altMask = mod1Mask         -- Setting this for use in xprompts
 myStartupHook :: X ()
 myStartupHook = do
           spawnOnce "clipmenud &"
+          spawnOnce "ferdium &"
 
 ------------------------------------------------------------------------
 -- XPROMPT SETTINGS
@@ -387,8 +388,8 @@ myManageHook = composeAll
      -- using 'doShift ( myWorkspaces !! 7)' sends program to workspace 8!
      -- I'm doing it this way because otherwise I would have to write out the full
      -- name of my workspaces, and the names would very long if using clickable workspaces.
-     [ className =? "Lutris"     --> doShift (myWorkspaces !! 4),
-       className =? "Steam" --> doShift (myWorkspaces !! 5),
+     [ className =? "Lutris"                --> doShift (myWorkspaces !! 4),
+       className =? "steam"                 --> doShift (myWorkspaces !! 5),
        className =? "discord"               --> doShift (myWorkspaces !! 2),
        className =? "Ferdium"               --> doShift (myWorkspaces !! 2),
        title =? "zenity"                    --> doFloat,
