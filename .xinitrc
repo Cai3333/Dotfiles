@@ -43,5 +43,5 @@ xsetroot -cursor_name left_ptr &
 xinput set-prop 9 'Coordinate Transformation Matrix' 1 0 0 0 1 0 0 0 1 &
 xset s off -dpms &
 lxsession &
-trayer --edge top --align right --widthtype request --margin 6 --iconspacing 6 --SetDockType true --SetPartialStrut true --expand true --monitor 0 --transparent true --alpha 0 --tint 0x282c34 --height 22 &
+trayer --edge top --align right --widthtype request --margin 6 --iconspacing 6 --SetDockType true --SetPartialStrut true --expand true --monitor 0 --transparent true --alpha 0 --tint 0x282c34 --height 21 &
 exec xmonad
