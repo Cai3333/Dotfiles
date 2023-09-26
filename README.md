@@ -113,6 +113,7 @@ Alright, let's get to the main stuff. These are the dependencies needed after in
 - ncdu
 - nitrogen
 - network-manager-applet
+- networkmanager-openvpn
 - neovim
 - nextcloud-client
 - nvidia-settings
