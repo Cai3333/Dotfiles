@@ -96,7 +96,7 @@ Alright, let's get to the main stuff. These are the dependencies needed after in
 - discord
 - dunst
 - engrampa
-- exa
+- eza
 - firefox
 - fish
 - fzf
