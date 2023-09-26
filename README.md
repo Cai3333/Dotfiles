@@ -154,6 +154,7 @@ paru -S auto-cpufreq clipit hamsket-bin nerd-fonts-mononoki timeshift timeshift-
 ```
 
 - ferdium-bin
+- jellyfin-mpv-shim
 - timeshift-bin (sudo systemctl enable --now cronie)
 - timeshift-autosnap
 - touche
