@@ -1,7 +1,6 @@
 [Added Associations]
 text/markdown=nvim.desktop;
 application/x-shellscript=nvim.desktop;
-inode/directory=pcmanfm.desktop;
 application/x-bittorrent=nvim.desktop;
 video/x-matroska=vlc.desktop;
 application/pdf=org.pwmt.zathura.desktop;
@@ -18,3 +17,4 @@ text/plain=nvim.desktop
 application/x-shellscript=nvim.desktop
 video/x-matroska=vlc.desktop
 application/pdf=org.pwmt.zathura.desktop
+inode/directory=pcmanfm.desktop
