@@ -81,84 +81,19 @@ These are the basic keybinds. Read through the `.xmonad/xmonad.hs` file for more
 
 ## Installation 🤵‍
 
-##
-
 Alright, let's get to the main stuff. These are the dependencies needed after installing ArcoLinux Xmonad edition.
 
 <a id="arch"></a>
 
 ### From Arch Linux's official repositories
 
-- alsa-utils
-- cbatticon
-- clipmenu
-- cmus
-- discord
-- dunst
-- engrampa
-- eza
-- firefox
-- fish
-- fzf
-- gnome-keyring
-- gvfs
-- intel-undervolt
-- kitty
-- kvantum
-- libreoffice-still
-- lxappearance
-- lxsession
-- maim
-- mpv
-- ncdu
-- nitrogen
-- network-manager-applet
-- networkmanager-openvpn
-- neovim
-- nextcloud-client
-- nvidia-settings
-- nitrogen
-- noto-fonts-cjk (CH/JP/KR fonts)
-- pacman-contrib
-- papirus-icon-theme
-- pavucontrol
-- pcmanfm
-- picom
-- redshift
-- starship
-- steam
-- trayer
-- ttf-font-awesome
-- ttf-mononoki-nerd
-- ttf-ubuntu-font-family
-- xclip
-- xmonad
-- xmonad-contrib
-- xmobar
-- xdotool
-- xorg-xbacklight
-- xorg-xinput
-- xorg-xkill
-- xorg-xsetroot
-- vim
-- vlc
-- zathura
-- zathura-pdf-mupdf
+`sudo pacman -S --needed - < ~/.config/packages/standard.txt`
 
 <a id="aur"></a>
 
 ### From Arch Linux's AUR
 
-```bash
-paru -S auto-cpufreq clipit hamsket-bin nerd-fonts-mononoki timeshift timeshift-autosnap tlpui vscodium-bin 
-```
-
-- ferdium-bin
-- jellyfin-mpv-shim
-- timeshift-bin (sudo systemctl enable --now cronie)
-- timeshift-autosnap
-- touche
-- xcursor-breeze
+`paru -S --needed - < ~/.config/packages/aur.txt`
 
 <a id="disclaimer"></a>
 

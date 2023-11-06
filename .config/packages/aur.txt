@@ -1,0 +1,8 @@
+auto-cpufreq
+ferdium-bin
+jellyfin-mpv-shim
+nerd-fonts-mononoki
+timeshift-autosnap
+tlpui
+touche
+xcursor-breeze
