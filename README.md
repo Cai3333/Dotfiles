@@ -81,7 +81,7 @@ These are the basic keybinds. Read through the `.xmonad/xmonad.hs` file for more
 
 ## Installation 🤵‍
 
-Alright, let's get to the main stuff. These are the dependencies needed after installing ArcoLinux Xmonad edition.
+Alright, let's get to the main stuff. These are the dependencies needed after installing Arch Linux.
 
 <a id="arch"></a>
 
