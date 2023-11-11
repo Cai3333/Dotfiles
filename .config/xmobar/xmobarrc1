@@ -26,7 +26,7 @@ Config { font            = "Ubuntu Bold 10",
               -- Cpu usage in percent
               Run Cpu ["-t", "<fn=2>\xf108</fn>  <total>%","-H","50","--high","red"] 100,
 
-              --Cpu temperature
+              -- Cpu temperature
               Run MultiCoreTemp ["-t", "<avg>°C", "-H", "80", "-h", "red"] 300,
 
               -- Ram used number and percent
@@ -35,7 +35,7 @@ Config { font            = "Ubuntu Bold 10",
               -- Disk space free
               Run DiskU [("/", "<fn=2>\xf0c7</fn>  <free>")] [] 6000,
 
-              -- Runs custom script to check battery
+              -- Battery
               Run BatteryP ["BAT0"]
                            ["-t", "<acstatus> <left>%", "-p", "3",
                            "-L", "20", "-l", "darkred",
