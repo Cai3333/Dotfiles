@@ -275,30 +275,21 @@ searchList = [ ("a", archwiki)
 -- Allows to have several floating scratchpads running different applications.
 -- Import Util.NamedScratchpad.  Bind a key to namedScratchpadSpawnAction.
 myScratchPads :: [NamedScratchpad]
-myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
+myScratchPads = [ NS "thunderbird" spawnThunderbird findThunderbird manageThunderbird
                 , NS "cmus" spawnCmus findCmus manageCmus
-                , NS "lofi" spawnLofi findLofi manageLofi
                 ]
   where
-    spawnTerm  = myTerminal ++ " --name scratchpad"
-    findTerm   = resource =? "scratchpad"
-    manageTerm = customFloating $ W.RationalRect l t w h
+    spawnThunderbird  = "thunderbird"
+    findThunderbird   = className =? "thunderbird"
+    manageThunderbird = customFloating $ W.RationalRect l t w h
                where
                  h = 0.9
                  w = 0.9
                  t = 0.95 -h
                  l = 0.95 -w
     spawnCmus  = myTerminal ++ " --name cmus -e cmus"
-    findCmus   = resource =? "cmus"
+    findCmus   = appName =? "cmus"
     manageCmus = customFloating $ W.RationalRect l t w h
-               where
-                 h = 0.9
-                 w = 0.9
-                 t = 0.95 -h
-                 l = 0.95 -w
-    spawnLofi = myTerminal ++ " --name lofi -e lofi-terminal -u 'https://www.youtube.com/watch?v=jfKfPfyJRdk'"
-    findLofi   = resource =? "lofi"
-    manageLofi = customFloating $ W.RationalRect l t w h
                where
                  h = 0.9
                  w = 0.9
@@ -509,9 +500,8 @@ myKeys =
         , ("M-C-,", onGroup W.focusDown')  -- Switch focus to prev tab
 
     -- Scratchpads
-        , ("M-<F1>", namedScratchpadAction myScratchPads "terminal")
+        , ("M-<F1>", namedScratchpadAction myScratchPads "thunderbird")
         , ("M-<F2>", namedScratchpadAction myScratchPads "cmus")
-        , ("M-<F3>", namedScratchpadAction myScratchPads "lofi")
 
     -- Controls for cmus music player (SUPER-u followed by a key)
         , ("M-u p", spawn "cmus-remote -u")
