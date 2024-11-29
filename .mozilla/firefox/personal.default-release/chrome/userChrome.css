@@ -10,6 +10,7 @@
 .tabbrowser-tab:first-child{ counter-reset: nth-tab 0 } /* Change to -1 for 0-indexing */
 .tab-text::before{ content: counter(nth-tab) ": "; counter-increment: nth-tab }
 
+
 #PersonalToolbar{
   --uc-bm-height: 20px; /* Might need to adjust if the toolbar has other buttons */
   --uc-bm-padding: 4px; /* Vertical padding to be applied to bookmarks */
@@ -25,12 +26,16 @@
   transform: rotateX(90deg);
   transform-origin: top;
   transition: transform 135ms linear var(--uc-autohide-toolbar-delay) !important;
-  z-index: 1;
-
+  z-index: 3 !important; /* Increased z-index */
 }
+
+/* Ensure bookmark toolbar appears above content */
+#main-window:not([customizing]) #navigator-toolbox {
+  position: relative;
+  z-index: 3 !important;
+}
+
 #PlacesToolbarItems > .bookmark-item{ padding-block: var(--uc-bm-padding) !important; }
-
-
 
 /* AUTOHIDE BOOKMARKS TOOLBAR BEHAVIOR */
 
