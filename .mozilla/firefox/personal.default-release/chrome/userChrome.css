@@ -32,7 +32,7 @@
 /* Ensure bookmark toolbar appears above content */
 #main-window:not([customizing]) #navigator-toolbox {
   position: relative;
-  z-index: 3 !important;
+  z-index: 4 !important;
 }
 
 #PlacesToolbarItems > .bookmark-item{ padding-block: var(--uc-bm-padding) !important; }
