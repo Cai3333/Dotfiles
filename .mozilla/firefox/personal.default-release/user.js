@@ -1180,7 +1180,7 @@ user_pref("media.eme.enabled", false);
 
 
 // Websites can track the microphone and camera status of your device.
-user_pref("media.navigator.enabled", false);
+user_pref("media.navigator.enabled", true);
 
 
 // Disable storing extra session data 
